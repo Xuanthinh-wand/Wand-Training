@@ -4,7 +4,7 @@ body {
 }
 #nqt-header {
   width: 100%;
-  height: 852px;
+  /* height: 852px; */
   background-image: url("../imgs/header.jpg");
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
@@ -83,7 +83,6 @@ span {
   height: auto;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
 }
 .nqt-container-resume{
@@ -198,12 +197,11 @@ span {
   width: 100%;
   height: auto;
 }
-.nqt-profile {
+.nqt-profile-5, .nqt-profile-7 {
   margin-top: 120px;
   margin-bottom: 120px;
-  height: 880px;
+  /* height: 880px; */
   color: #232323;
-  /* background-color: yellow; */
 }
 .nqt-information {
   /* background-color: red; */
@@ -212,9 +210,9 @@ span {
   flex-direction: column;
 }
 .nqt-avatar {
-  width: 100%;
+  width: 471px;
   background-color: black;
-  height: 58.5%;
+  height: auto;
 }
 .nqt-avatar img {
   width: 100%;
@@ -230,6 +228,15 @@ span {
   display: flex;
   flex-direction: row;
   /* background-color: red; */
+}
+.nqt-monologue li{
+  display: flex;
+}
+.nqt-monologue .nqt-title-w{
+  width: 104px;
+}
+.nqt-monologue .nqt-title-w::after{
+  content: ": ";
 }
 .nqt-monologue-4 {
   width: 33%;
@@ -300,14 +307,10 @@ span {
 }
 .nqt-introduce {
   width: 100%;
-  max-height: 42%;
-  /* background-color: blue; */
-  /* padding-top: 46px;
-  padding-left: 70px; */
+  margin-bottom: 72px;
 }
 .nqt-introduce-text {
-  height: 288px;
-  /* background-color: yellow; */
+  
   margin-top: 46px;
   margin-left: 70px;
 }
@@ -333,9 +336,7 @@ span {
 }
 .nqt-level {
   width: 100%;
-  /* background-color: red; */
-  height: 58%;
-  max-height: 58%;
+  /* height: 58%; */
 }
 .nqt-level-skill {
   height: 424px;
@@ -459,25 +460,11 @@ span {
   margin-bottom: 120px;
 }
 @media only screen and (max-width: 1400px) {
-  /* .nqt-level{
-    margin-top: 1500px;
-  } */
-  
-  .nqt-profile{
-    /* height: 1500px; */
-    display: flex;
-    flex-direction: column;
-  }
-  /* .nqt-introduce-text{
-    margin-left: 0;
-  }
-  .nqt-level-skill{
-    margin-left: 0;
-  } */
+
   .nqt-avatar, .nqt-monologue, .nqt-contact{
     margin-left: 40px;
   }
-  .nqt-profile .nqt-left{
+  /* .nqt-profile .nqt-left{
     float: left;
     width: 472px;
     height: auto;
@@ -487,17 +474,85 @@ span {
     float: left;
     width: 100%;
     height: auto;
-  }
+  } */
 }
 @media only screen and (max-width: 992px) {
-  .nqt-introduce{
-    /* max-height: none; */
-    /* margin-bottom: 300px; */
-  }
+
 }
 @media only screen and (max-width: 1200px) {
-  #nqt-header {
-    height: auto;
+  .nqt-col-xl-1 {
+    flex: 0 0 auto;
+    width: 8.33333333%;
+  }
+  
+  .nqt-col-xl-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+  }
+  
+  .nqt-col-xl-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+  
+  .nqt-col-xl-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+  
+  .nqt-col-xl-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+  }
+  
+  .nqt-col-xl-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+  
+  .nqt-col-xl-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+  }
+  
+  .nqt-col-xl-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+  
+  .nqt-col-xl-9 {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+  
+  .nqt-col-xl-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+  }
+  
+  .nqt-col-xl-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%;
+  }
+  
+  .nqt-col-xl-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .nqt-profile-introduce{
+    margin-top: 0;
+  }
+  .nqt-container-resume{
+    width: 100%;
+    /* padding-right: 40px; */
+    display: flex;
+  flex-direction: column;
+  }
+  .nqt-introduce-text, .nqt-level-skill{
+    margin-right: 40px;
+  }
+  .nqt-profile-7{
+    margin-top: 0;
   }
   .nqt-logo,
   .nqt-nav {
@@ -511,6 +566,38 @@ span {
   .nqt-container-h696 {
     height: 900px;
   }
+}
+@media screen and (max-width: 576px){
+  .nqt-avatar, .nqt-contact{
+    width: 100%;
+  }
+  .nqt-monologue{
+    margin-left: 0;
+  }
+  .nqt-contact{
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .nqt-introduce-text, .nqt-level-skill{
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  /* .nqt-btn-resume {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 14px;
+    color: #f5f9ff;
+    border-color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 63px;
+    background-color: #3295fa;
+    width: 100%;
+    height: auto;
+  } */
 }
 @media screen and (max-width: 600px) {
   .topnav a {
