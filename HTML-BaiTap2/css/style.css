@@ -546,8 +546,8 @@ align-items: center;
 .nqt-navbar-nav li{
   list-style-type: none;
   display: inline-block;
-  flex-direction: column;
-  justify-content: center;
+  /* flex-direction: column;
+  justify-content: center; */
 }
 .nav-item{
   width: 25px;
