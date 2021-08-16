@@ -552,6 +552,9 @@ align-items: center;
 .nav-item{
   width: 25px;
 }
+.nav-item-1{
+  margin-bottom: 25px;
+}
 .nav-item span{
   
   font-size: 11px
