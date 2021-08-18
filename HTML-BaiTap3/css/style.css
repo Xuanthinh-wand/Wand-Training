@@ -1,0 +1,181 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0 auto;
+}
+li{
+    list-style-type: none;
+    display: inline-block;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+.gym-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gym-row {
+    display: flex;
+    flex-flow: row wrap;
+}
+.gym-w1140 {
+    width: 1140px;
+}
+.gym-w114{
+    width: 114px;
+}
+.gym-float-right{
+    float: right;
+}
+/* font-size */
+.gym-fontsize-13{
+    font-size: 13px;
+}
+.gym-fontsize-15{
+    font-size: 15px;
+}
+.gym-fontsize-42{
+    font-size: 42px;
+}
+/* color */
+.gym-color-white{
+    color: #e9e9e9;
+}
+.gym-color-pink{
+    color: #ec3642;
+}
+/*  line-height*/
+.gym-line-height14{
+    line-height: 1.4;
+}
+/* margin */
+.gym-margin-menu{
+    margin-top: 16px;
+    margin-bottom: 160px;
+}
+.gym-col-1 {  
+    width: 8.33333333%;
+}
+  
+.gym-col-2 {    
+    width: 16.66666667%;
+}
+  
+.gym-col-3 {    
+    width: 25%;
+}
+  
+.gym-col-4 {    
+    width: 33.33333333%;
+}
+  
+.gym-col-5 {    
+    width: 41.66666667%;
+}
+  
+.gym-col-6 {    
+    width: 50%;
+}
+  
+.gym-col-7 {    
+    width: 58.33333333%;
+}
+  
+.gym-col-8 {    
+    width: 66.66666667%;
+}
+  
+.gym-col-9 {    
+    width: 75%;
+}
+  
+.gym-col-10 {    
+    width: 83.33333333%;
+}
+  
+.gym-col-11 {    
+    width: 91.66666667%;
+}
+  
+.gym-col-12 {    
+    width: 100%;
+}
+#header{
+    background-image: url("../imgs/banner.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    /* height: 897px; */
+}
+.gym-nav a{
+    text-decoration: none;
+}
+.gym-center{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.gym-menu li{
+    margin-left: 38px;
+}
+/* hiden menu */
+.gym-menu-title{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+.gym-menu {
+    overflow: hidden;
+    
+  }
+  
+  .gym-menu li {
+    float: left;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .gym-menu li:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .gym-menu li.active {
+    background-color: #04aa6d;
+    color: white;
+  }
+  .gym-menu .icon {
+    display: none;
+  }
+ .gym-btn-book{
+    font-size: 13px;
+    color: #e9e9e9;
+    border-color: #ec3642;
+    border: 2px solid #ec3642;
+    border-radius: 30px;
+    background-color: #ec3642;
+    width: 226px;
+    height: 41px;
+ } 
+ .gym-btn-learn{
+    font-size: 14px;
+    color: #e9e9e9;
+    border-color: #ec3642;
+    border: 2px solid #ec3642;
+    border-radius: 30px;
+    background-color: #ec3642;
+    width: 197px;
+    height: 44px;
+    margin-top: 76px;
+    margin-bottom: 344px
+ } 
