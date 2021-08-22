@@ -1,5 +1,118 @@
 @media screen and (max-width: 576px){
+    .gym-row{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
     .gym-w596{
         width: 100%;
+    }
+    .gym-title-behappy{
+        display: flex;
+        flex-direction: column;
+    }
+    .gym-ut-btn{
+        margin-top: 0;
+        margin-left: 0;
+    }
+    .gym-group-search{
+        width: 80%;
+    }
+    .gym-search input {
+        height: 42px;
+        width: 100%;
+        background-color: #464646;
+        border: none;
+        border-radius: 25px;
+        /* float: right; */
+        padding-left: 20px;
+    }
+    .gym-social .gym-follow-item:first-child {
+        width: 40%;
+    }
+    .gym-follow-item{
+        width: 15%;
+    }
+    .gym-dropdown-content p {
+        color: #707070;
+        font-size: 13px;
+        line-height: 1.84;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+    .gym-item-button button {
+    
+        color: white;
+        width: 100px;
+        height: 52px;
+        border: solid 1px;
+        border-color: #f3f3f3;
+        background-color: rgba(255, 222, 173, 0);
+        color: black;
+        z-index: 2;
+    }
+    .gym-footer .gallery .image-footer .image img{
+        width: 30%;
+    }
+    .gym-about-txt{
+        margin-right: 0;
+    }
+    .gym-col-sx-1 {  
+        width: 8.33333333%;
+    }
+      
+    .gym-col-sx-2 {    
+        width: 16.66666667%;
+    }
+      
+    .gym-col-sx-3 {    
+        width: 25%;
+    }
+      
+    .gym-col-sx-4 {    
+        width: 33.33333333%;
+    }
+      
+    .gym-col-sx-5 {    
+        width: 41.66666667%;
+    }
+      
+    .gym-col-sx-6 {    
+        width: 50%;
+    }
+      
+    .gym-col-sx-7 {    
+        width: 58.33333333%;
+    }
+      
+    .gym-col-sx-8 {    
+        width: 66.66666667%;
+    }
+      
+    .gym-col-sx-9 {    
+        width: 75%;
+    }
+      
+    .gym-col-sx-10 {    
+        width: 83.33333333%;
+    }
+      
+    .gym-col-sx-11 {    
+        width: 91.66666667%;
+    }
+      
+    .gym-col-sx-12 {    
+        width: 100%;
+    }
+    .gym-fontsize-42{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 400px){
+    .gym-bg-ffffff{
+        width: 90%;
+        height: 380px;
+        background-color: #ffffff;
     }
 }
