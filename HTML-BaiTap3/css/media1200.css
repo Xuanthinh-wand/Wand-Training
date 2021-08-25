@@ -22,9 +22,11 @@
         margin-left: 0;
         margin-top: 8px;
       }
-    .gym-btn-book, .fa-search{
+    
+    .gym-btn-book, .nav-items .fa-search{
         display: none;
     }
+
     .gym-w596{
         width: 544px;
     }
@@ -32,8 +34,12 @@
         margin-left: 40px;
         margin-right: 40px;
     }
-    .gym-list-img{
+    .gym-personal-one, .gym-personal-two{
         margin-bottom: 30px;
+    }
+    .gym-1200flex-reverse{
+        display: flex;
+        flex-direction:column-reverse;
     }
     .gym-center-r1200{
         display: flex;

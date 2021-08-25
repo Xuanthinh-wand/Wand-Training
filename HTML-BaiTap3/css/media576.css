@@ -17,6 +17,16 @@
     .gym-group-search{
         width: 80%;
     }
+    .gym-bg-fafafa{
+        width: 100%;
+        background-color: #fafafa;
+    }
+    .gym-image-coaches{
+        width: 100%;
+    }
+    .gym-image-coaches img{
+        width: 100%;
+    }
     .gym-search input {
         height: 42px;
         width: 100%;
