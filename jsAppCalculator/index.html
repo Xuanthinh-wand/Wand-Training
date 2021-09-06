@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- <div class="calculator-grid">
+        <div class="output">
+            <div id="data-previous-operan" class="previous-operand"></div>
+            <div id="data-current-operand" class="current-operand"></div>
+        </div>
+
+        <button id="data-all-clear" class="span-two">Reset</button>
+        <button id="data-delete">DEL</button>
+        <button class="data-operation">÷</button>
+        <button class="data-number">7</button>
+        <button class="data-number">8</button>
+        <button class="data-number">9</button>
+        <button class="data-operation">*</button>
+        <button class="data-number">4</button>
+        <button class="data-number">5</button>
+        <button class="data-number">6</button>
+        <button class="data-operation">+</button>
+        <button class="data-number">1</button>
+        <button class="data-number">2</button>
+        <button class="data-number">3</button>
+        <button class="data-operation">-</button>
+        <button>+/-</button>
+        <button class="data-number">0</button>
+        <button class="data-operation">.</button>
+        <button id=data-equals>=</button>
+
+    </div> -->
+    <div class="calculator-grid">
+        <div class="output">
+            <div class="data-previous-operand previous-operand"></div>
+            <div class="data-current-operand current-operand"></div>
+        </div>
+        <button class="data-all-clear span-two">CE</button>
+        <button class="data-delete">DEL</button>
+        <button class="data-operation">÷</button>
+        <button class="data-number">7</button>
+        <button class="data-number">8</button>
+        <button class="data-number">9</button>
+        <button class="data-operation">*</button>
+        <button class="data-number">4</button>
+        <button class="data-number">5</button>
+        <button class="data-number">6</button>
+        <button class="data-operation">+</button>
+        <button class="data-number">1</button>
+        <button class="data-number">2</button>
+        <button class="data-number">3</button>
+        <button class="data-operation">-</button>
+        <button class="data-number">-</button>
+        <button class="data-number">0</button>
+        <button class="data-number">.</button>
+        <button class="data-equals">=</button>
+    </div>
+    <script src="main.js"></script>
+    <script>
+        var config = {
+            btnNumberClass: '.data-number',
+            operationButtonsClass: '.data-operation',
+            equalsButtonClass: '.data-equals',
+            deleteButtonClass: '.data-delete',
+            allClearButtonClass: '.data-all-clear',
+            prevandTextElementClass: '.data-previous-operand',
+            currandTextElementClass: '.data-current-operand'
+        }
+        runCalculator(config)
+    </script>
+</body>
+
+</html>
