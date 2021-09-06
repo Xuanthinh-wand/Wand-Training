@@ -16,7 +16,8 @@ class Calculator {
     }
   
     appendNumber(number) {
-      if (number === '.' && this.currentOperand.includes('.')) return
+      //nếu có dấu chấm tiếp theo thì dừng thực thi
+      if (number === '.' && this.currentOperand.includes('.')) return 
       this.currentOperand = this.currentOperand.toString() + number.toString()
     }
   
@@ -67,7 +68,7 @@ class Calculator {
       if (isNaN(integerDigits)) {
         integerDisplay = ''
       } else {
-        integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
+        integerDisplay = integerDigits.toLocaleString('en')
       }
       if (decimalDigits != null) {
         return `${integerDisplay}.${decimalDigits}`
