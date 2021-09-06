@@ -1,0 +1,37 @@
+@media screen and (max-width: 992px){
+    #header-about .gym-txt-title{
+        padding-top: 170px;
+        padding-bottom: 127px;
+    }
+    #header .navbar,
+    #header-about .navbar {
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        background-color: #202020;
+    }
+    .gym-personal-one{
+       margin-bottom: 30px;
+    }
+    .gym-personal-two{
+       margin-bottom: 30px;
+    }
+    .gym-footer p {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .gym-follow-main .gym-follow-item{
+        border-right-style: none;
+    }
+    .gym-follow-main .gym-follow-item:first-child {
+        border-right-style: none;
+    }
+    .gym-title-behappy p{
+        width: 500px;
+        margin-bottom: 5px;
+    }
+}

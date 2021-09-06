@@ -1,0 +1,905 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+@media (min-width: 1400px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1140px;
+    }
+    #collap .container-xl{
+        max-width: 1600px;
+        }
+}
+@media (min-width: 1920px){
+    #form .container-fluid{
+        max-width: 1920px;
+        }
+}
+/* Header=================================== */
+#header{
+    background-image: url("../imgs/banner.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#header-about{
+    background-image: url("../imgs/banner-about.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+}
+#header .container-fluid,
+#header-about .container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+}
+#header-about .gym-txt-title{
+    padding-top: 70px;
+    padding-bottom: 127px;
+}
+.navbar-toggler {
+    color: #fff;
+    border-color: #fff;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+    color: #ec3642;
+}
+.gym-fontsize-13{
+    line-height: 41px;
+    font-size: 13px;
+}
+.gym-fontsize-42{
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+.gym-fontsize-14{
+    font-size: 14px;
+}
+.gym-btn-book{
+    font-size: 13px;
+    color: #e9e9e9;
+    border-color: #ec3642;
+    border: 2px solid #ec3642;
+    border-radius: 30px;
+    background-color: #ec3642;
+    width: 226px;
+    height: 41px;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    margin-left: 21px;
+ } 
+ .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 21px;
+}
+
+.gym-header-txt{
+    margin-top: 176px;
+    color: #ffffff;
+}
+.gym-header-txt span{
+    font-size: 42px;
+    line-height: 1.4;
+    font-weight: 400;
+}
+.gym-btn-learn button{
+    font-size: 14px;
+    color: #e9e9e9;
+    border-color: #ec3642;
+    border: 2px solid #ec3642;
+    border-radius: 30px;
+    background-color: #ec3642;
+    width: 197px;
+    height: 44px;
+    margin-top: 76px;
+    margin-bottom: 344px
+ } 
+ /* Personal============================================= */
+
+#personal{
+    padding-top: 49px;
+    padding-bottom: 70px;
+}
+.gym-personal-one{
+    background-image: url("../imgs/img-1.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    width: 380px;
+    height: 100%;
+}
+.gym-personal-two{
+    background-image: url("../imgs/img-2.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    width: 380px;
+    height: 100%;
+}
+.gym-personal-three{
+    background-image: url("../imgs/img-3.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    width: 380px;
+    height: 100%;
+}
+.gym-personal-group{
+    margin-top: 32px;
+    margin-left: 32px;
+    margin-bottom: 52px;
+}
+.gym-personal-group {
+    display: inline-block;
+}
+.gym-personal-group h4 {
+    text-transform: uppercase;
+    font-size: 19px;
+    font-weight: 500;
+    color: white;
+    width: 216px;
+    float: left;
+    margin-top: 26px;
+    margin-bottom: 39px;
+}
+.gym-personal-group a {
+    font-size: 13px;
+    color: white;
+    text-transform: none;
+    text-decoration: none;
+    float: left;
+}
+.gym-personal-group a:hover {
+    font-size: 13px;
+    color: #ec3642;
+    text-transform: none;
+    text-decoration: none;
+    float: left;
+}
+.gym-whynot{
+    margin-top: 80px;
+}
+.gym-whynot span{
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 500;
+}
+.gym-dot-three{
+    margin-top: 21px;
+    margin-bottom: 35px;
+}
+.gym-dot-three span{
+    font-size: 5px;
+    color: #ec3642;
+}
+.gym-group{
+    width: 260px;
+    background-color: #fafafa;
+    border-color: #ebebeb;
+    border: 1px solid #ebebeb;
+    display: flex;
+    justify-content: center;
+}
+.gym-group ul{
+    padding-left: 0;
+}
+.gym-group li{
+    list-style-type: none;
+}
+
+.gym-group-btnpink{
+    width: 72px;
+    height: 72px;
+    background-color: #ec3642;
+    margin-top: 41px;
+    margin-bottom: 34px;
+    border-color: #ec3642;
+    border: 2px solid #ec3642;
+    border-radius: 15px;
+}
+.gym-group-btngray{
+    width: 72px;
+    height: 72px;
+    background-color: #3d3d3d;
+    margin-top: 41px;
+    margin-bottom: 34px;
+    border-color: #3d3d3d;
+    border: 1px solid #3d3d3d;
+    border-radius: 15px;
+}
+.gym-hr{
+    width: 46px; 
+    color: #ec3642;
+    margin-top: 19px;
+    margin-bottom: 27px;
+    opacity: inherit;
+ }
+.gym-span-healthier{
+    font-size: 16px;
+    font-weight: 500;
+}
+.gym-center-r1200{
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+}
+.gym-center-l1200{
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+}
+ .gym-healbottom{
+     margin-bottom: 72px;
+     margin-left: 20px;
+     margin-right: 20px;
+ }
+ .gym-span-healbottom{
+     font-size: 13px;
+     line-height: 1.84;
+     font-weight: 100;
+     text-align: center;
+     color: #707070;
+ }
+ /* HAPPY======================================= */
+#happy{
+    background-image: url("../imgs/banner1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 93px;
+    padding-bottom: 105px;
+ }
+ .gym-title-behappy h2 {
+    font-size: 30px;
+    color: #ec3642;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.gym-title-behappy h2 span {
+    color: white;
+}
+.gym-title-behappy p{
+    color: #e5e5e5;
+    margin-bottom: 34px;
+}
+
+.gym-btn-get{
+    font-size: 13px;
+    color: #e9e9e9;
+    border-color: #e5e5e5;
+    border: 2px solid #e5e5e5;
+    border-radius: 30px;
+    background-color: transparent;
+    width: 141px;
+    height: 39px;
+ } 
+.gym-poss li{
+    list-style-type: none;
+    display: inline-block;
+}
+.gym-poss ul{
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.gym-bar {
+    display: flex;
+}
+
+.gym-bar .item-box {
+    /* margin: auto; */
+    border: none;
+}
+
+.gym-bar .item-box p {
+    margin-top: 43px;
+    color: white;
+}
+
+.gym-bar .item-box button {
+    margin-top: 34px;
+    width: 140px;
+    background-color: #ec364200;
+    border: solid 1px;
+}
+
+.gym-bar h2 {
+    /* text-transform: uppercase; */
+    font-size: 40px;
+    color: #ec3642;
+}
+
+.gym-bar h2 span {
+    color: white;
+}
+
+.gym-bar .card {
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+.gym-bar .card .circle {
+    position: relative;
+    height: 132px;
+    width: 132px;
+    border-radius: 50%;
+    cursor: default;
+}
+
+.gym-bar .card .circle .box, .card .circle .box span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.gym-bar .card .circle .box {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: all 0.2s;
+}
+
+.gym-bar .card .circle:hover .box {
+    transform: translate(-50%, -50%) scale(0.91);
+}
+
+.gym-bar .card .circle .box span {
+    color: white;
+    background: -webkit-linear-gradient(left, white, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gym-bar .circle .box span {
+    font-size: 24px;
+    font-weight: 600;
+    transform: translate(-45%, -45%);
+    transition: all 0.1s;
+}
+
+.gym-bar .card .circle:hover .box span {
+    transform: translate(-45%, -45%) scale(1.09);
+}
+
+.gym-bar .card .text {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    margin-top: 26px;
+}
+/* Collapsible============================================= */
+.accordion{
+    margin-top: 105px;
+}
+.accordion-item{
+    width: 552px;
+}
+.accordion-header{
+    height: 50px;
+    margin-bottom: 2px;
+}
+.accordion-button{
+    font-size: 13px;
+    font-weight: 500;
+}
+.accordion-body{
+    font-size: 13px;
+    font-weight: 100;
+    color: #707070;
+}
+.accordion-body img{
+    width: 116px;
+    height: 91px;
+}
+.accordion-button:not(.collapsed) {
+    color: #000;
+    background-color: #fff;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+/* Effective ================================================= */
+#effective{
+    background-color: #f8f8f8;
+    padding-bottom: 93px;
+}
+#effective h5{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 0.625;
+    margin-bottom: 23px;
+}
+#effective p,
+#effect p{
+    font-size: 13px;
+    font-weight: 100;
+    line-height: 1.8;
+    margin-top: 0;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    padding-left: 22px;
+    padding-right: 0.5rem;
+}
+/* Webdegign=================================== */
+#webdegign{
+    background-image: url("../imgs/banner2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 103px;
+    padding-bottom: 73px;
+    color: #fff;
+}
+.gym-webdegign p{
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 2.2;
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+.gym-webdegign h4{
+    font-size: 13px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.gym-webdegign h3{
+    font-weight: 500;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.gym-webdegign span{
+    color: #ec3642;
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.gym-dot-one{
+    margin-top: 68px;
+}
+.gym-dot-one span{
+    font-size: 5px;
+    color: #ec3642;
+}
+/* Workout=============================================== */
+#workout{
+    padding-bottom: 77px;
+    color: #000;
+}
+.gym-day li{
+    display: block;
+    list-style-type: none;
+}
+
+.gym-day span {
+    float: right;
+}
+
+.gym-day ul {
+    border: solid 1px;
+    border-color: #ebebeb;
+    list-style-type: none;
+}
+
+.gym-day p {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 17.8px;
+    margin-top: 17.8px;
+}
+
+.gym-day span {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.gym-day hr {
+    /* width: 80%;  */
+    color: #ebebeb;
+    opacity: inherit;
+}
+#workout .accordion-item {
+    width: 185px;
+}
+#workout .accordion-header {
+    height: 53px;
+    margin-bottom: 0;
+}
+#workout .accordion-button::after {
+    flex-shrink: 0;
+    width: 0;
+    height: 0;
+    background-image: none;
+}
+#workout .accordion-body{
+    background-image: url('../imgs/img-91.jpg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    width: 100%;
+    border: solid 1px;
+    border-color: #f3f3f3;
+    padding-left: 40px;
+    padding-top: 40px;
+    padding-bottom: 41px;
+}
+#workout .accordion-body p {
+    color: #707070;
+    font-size: 13px;
+    line-height: 1.84;
+    margin-bottom: 0;
+    margin-right: 320px;
+}
+#workout .accordion-body span {
+    color: #707070;
+    font-size: 13px;
+    line-height: 1.84;
+    margin-bottom: 0;
+    padding-right: 320px;
+}
+.accordion-item button {
+    
+    height: 52px;
+    border: solid 1px;
+    border-color: #f3f3f3;
+    background-color: rgba(255, 222, 173, 0);
+    color: black;
+    z-index: 2;
+}
+#workout .accordion-item button:hover {
+    
+    color: white;
+    height: 52px;
+    border-top: solid 1px;
+    border-top-color: #ec3642;
+    background-color: rgba(255, 222, 173, 0);
+    color: black;
+    z-index: 2;
+}
+.accordion-item span{
+    font-size: 15px;
+    color: #313131;
+    font-weight: 550;
+}
+.accordion-button:focus {
+    z-index: 3;
+    border-color: #f3f3f3;
+    outline: 0;
+    box-shadow: 0 0 0 0 #f3f3f3;
+}
+/* Form========================================= */
+.gym-form-left{
+    background-image: url('../imgs/img-10.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.gym-form-right{
+    background-image: url('../imgs/img-11.jpg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+}
+.gym-form {
+	display: inline-block;
+    justify-content: center;
+    align-items: center;
+	width: 100%;
+    margin-bottom: 84px;
+}
+.gym-submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gym-form input {
+	outline: none;
+	display: block;
+	width: 100%;
+	border-radius: 2px;
+	border: 1px solid #ccc;
+	padding: 10px;
+	box-sizing: border-box;
+  height: 42px;
+  width: 100%;
+  margin-bottom: 31px;
+}
+.gym-form textarea{
+    outline: none;
+	display: block;
+	width: 100%;
+	border-radius: 2px;
+	border: 1px solid #ccc;
+	padding: 10px;
+	box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 31px;
+}
+.gym-btn-submit{
+    font-size: 14px;
+    color: #e9e9e9;
+    border-color: #ec3642;
+    border: 2px solid #ec3642;
+    border-radius: 30px;
+    background-color: #ec3642;
+    width: 197px;
+    height: 44px;
+    margin-top: 0;
+    margin-bottom: 0;
+ } 
+ .gym-infor{
+    margin-top: 110px;
+    margin-left: 78px;
+}
+.gym-infor h3{
+    font-size: 24px;
+    font-weight: 500;
+}
+.gym-infor p{
+    font-size: 13px;
+    font-weight: 400;
+    color: #313131;
+}
+/* Footer=================================== */
+#footer{
+    padding-top: 77px;
+    padding-bottom: 54px;
+}
+.gym-footer .title {
+    height: 68px;
+}
+.gym-footer p {
+    width: 276px;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 27px;
+    margin-bottom: 40px;
+    margin-right: 80px;
+    line-height: 1.84;
+    color: #707070;
+}
+.gym-footer a {
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.84;
+    color: #707070;
+    text-decoration: none;
+}
+
+.gym-footer a:hover{
+    color: #ec3642;
+}
+.gym-footer .general li{
+    display: block;
+}
+.gym-footer .about-us li{
+    display: block;
+}
+.gym-footer h4 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.gym-footer ul {
+    list-style-type: none;
+}
+
+.gym-footer ul li a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #707070;
+}
+.gym-about-us{
+    margin-left: 14px;
+}
+.gym-row-footer{
+    display: flex;
+    flex-flow: row wrap;
+}
+/* Follow========================================= */
+#follow{
+    background-color: #313131;
+    color: #fff;
+}
+.gym-follow-item, .gym-group-search{
+    height: 80px;
+}
+.gym-follow-item h4{
+    font-size: 15px;
+    font-weight: 400;
+}
+.gym-follow-item a{
+    color: #fff;
+}
+.gym-follow-item a:hover{
+    color: #ec3642;
+}
+.gym-follow-main .gym-follow-item {
+    width: 73px;
+    border-right: solid 1px;
+    border-color: #707070;
+    color: #ffffff;
+}
+.gym-follow-main .gym-follow-item:first-child {
+    width: 130px;
+    border-right: solid 1px;
+    border-color: #707070;
+    color: #ffffff;
+}
+.gym-group-search input {
+    outline: none;
+    color: #ffffff;
+    height: 42px;
+    width: 490px;
+    background-color: #464646;
+}
+
+.gym-group-search i {
+    margin-left: -30px;
+    color: white;
+}
+.gym-group-search i:hover{
+    color: #ec3642;
+}
+/* Copyright==================================== */
+.gym-copyright p {
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 28px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.gym-copyright span {
+    font-size: 12px;
+    font-weight: 400;
+    color: #ec3642;
+}
+/* ================================================== */
+
+.gym-btn-learn button:hover,
+.collapse button:hover,
+.gym-client button:hover {
+   color: #ec3642;
+   border-color: #ec3642;
+   border: 1px solid #ec3642;
+   border-radius: 30px;
+   background-color: #ffffff;
+ }
+ .gym-title-behappy button:hover {
+    color: #313131;
+    border-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    background-color: #ffffff;
+  }
+.gym-submit button:hover {
+    color: #fff;
+    border-color: #313131;
+    border: 1px solid #313131;
+    border-radius: 30px;
+    background-color: #313131;
+  }
+.gym-group button:hover{
+    background-color: #ec3642;
+    border-color: #ec3642;
+    border: 1px solid #ec3642;
+}
+/* f8f8f8f8f8f88f8f8f88f8f8f88f8f88f=================================== */
+.gym-dot-two{
+    margin-top: 52px;
+    margin-bottom: 83px;
+}
+.gym-dot-two span{
+    font-size: 5px;
+    color: #ec3642;
+}
+/* Programm===================================================================== */
+#programm{
+    background-image: url("../imgs/about-banner2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    padding-bottom: 79px;
+}
+.gym-about-txt{
+    color: #ffffff;
+}
+.gym-about-txt span{
+    font-size: 16px;
+    font-weight: 500;
+}
+.gym-about-txt p{
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 21px;
+    margin-bottom: 55px;
+}
+.gym-dot-four{
+    margin-top: 52px;
+    margin-bottom: 88px;
+}
+.gym-dot-four span{
+    font-size: 5px;
+    color: #ec3642;
+}
+.gym-client{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.gym-client span{
+    font-size: 16px;
+    color: #ec3642;
+}
+.gym-client b{
+    font-size: 16px;
+    color: black;
+    font-weight: 500;
+    margin-bottom: 57px;
+    margin-top: 32px;
+}
+.gym-client p{
+    font-size: 14px;
+    color: #707070;
+    margin-top: 35px;
+    margin-bottom: 0;
+}
+.gym-program-learn{
+    font-size: 14px;
+    color: #e9e9e9;
+    border-color: #ec3642;
+    border: 2px solid #ec3642;
+    border-radius: 30px;
+    background-color: #ec3642;
+    width: 197px;
+    height: 44px;
+    margin-bottom: 98px;
+ } 
+ .gym-dot-five{
+    margin-top: 21px;
+    margin-bottom: 58px;
+}
+.gym-dot-five span{
+    font-size: 5px;
+    color: #ec3642;
+}
+.gym-ourprogram-right{
+    padding-right: 230px;
+    padding-left: 46px;
+}
+/* Coaches===================================================== */
+#effect{
+    padding-top: 117px;
+    padding-bottom: 88px;
+}
+#effect .gym-effect-coaches span{
+    color: #ec3642;
+    font-size: 12px;
+    font-weight: 100;
+    padding-bottom: 22px;
+}
+#effect .gym-effect-coaches h5{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 0.625;
+    margin-bottom: 5px;
+}

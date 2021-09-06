@@ -1,0 +1,21 @@
+@media screen and (max-width: 768px){
+    .gym-header-txt span{
+        font-size: 36px;
+    }
+    #workout .accordion-body{
+        background-image: none;
+        padding-left: 1.25rem;
+        padding-top: 1rem;
+        padding-bottom: 1.25rem;
+    }
+    #workout .accordion-body p {
+        margin-right: 0;
+    }
+    #workout .accordion-body span {
+        padding-right: 0;
+    }
+    .gym-title-behappy p{
+        width: 270px;
+        margin-bottom: 10px;
+    }
+}
