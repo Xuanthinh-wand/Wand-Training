@@ -1,0 +1,73 @@
+@media (min-width: 576px) {
+    .gym-progress-item__box--be {
+        text-align: center;
+        margin: auto;
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .gym-banner__item {
+        margin-left: 25%;
+    }
+    .gym-calender-ul {
+        width: 50%;
+        margin: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .order-2 {
+        order: 2!important;
+    }
+    .gym-calender-ul {
+        width: 100%;
+        margin: auto;
+    }
+    .gym-calender-left--content {
+        padding-right: 200px;
+    }
+    /* .gym-contact {
+        background-position: right;
+    } */
+    .gym-progress-item__box--be {
+        text-align: start;
+        /* margin: auto; */
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .gym-banner .row .gym-banner__item {
+        padding: 0;
+    }
+    .gym-banner__item {
+        margin-left: 0;
+    }
+    .gym-contact {
+        background-image: url('../images/image12.jpg');
+        background-size: cover;
+    }
+    .gym-calender-left--content {
+        padding-right: 400px;
+    }
+    .gym-client-item--cus img {
+        width: -webkit-fill-available;
+        /* margin-left: -30%; */
+        height: 100%;
+        margin-left: -30%;
+        /* margin-left: calc(-100vw/2 + 1200px/2 + 7rem); */
+    }
+    .gym-client-item--cus1 img {
+        width: -webkit-fill-available;
+        /* margin-right: -30%; */
+        height: 100%;
+    }
+    .gym-client-item2 {
+        flex-direction: row-reverse;
+    }
+    .gym-title--opinion {
+        width: 70%;
+        margin: auto;
+    }
+}

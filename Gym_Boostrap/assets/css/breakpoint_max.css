@@ -1,0 +1,117 @@
+@media (max-width: 575.98px) {
+    .gym-home__slogan h1 {
+        font-size: 37px;
+    }
+    .gym-benefit-content--contents .icon-far .icon {
+        width: 100%;
+    }
+    .gym-calender-left--dropbtn {
+        width: 100%;
+    }
+    .gym-progress-item__box--be {
+        text-align: center;
+        margin: auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .gym-calender-left--content {
+        background-image: none;
+        padding-right: 50px;
+    }
+    .gym-calender-ul {
+        width: 100%;
+    }
+    .gym-contact {
+        background-image: none;
+        background-color: #e3e3e2;
+        /* background-position: left; */
+    }
+    .gym-contact-infor--form {
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+    }
+    .gym-contact-infor--form .gym-h3--h3cus {
+        margin: auto;
+    }
+    .gym-follow-search {
+        display: none;
+    }
+    .gym-calender-left--dropbtn {
+        padding: 15px 25px!important;
+    }
+    .gym-benefit .gym-benefit-content--contents .icon-far {
+        width: 70%;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .order-2 {
+        order: inherit;
+    }
+    .order-4 {
+        order: 4!important;
+    }
+    .gym-bg-gr {
+        background-color: #202020;
+    }
+    .navbar {
+        min-height: 0px;
+        position: absolute;
+        background-color: #202020;
+        width: 100%;
+    }
+    .navbar-brand img {
+        width: 70%;
+    }
+    .navbar.navbar-dark .navbar-nav .nav-link {
+        padding: 1rem 1.2rem;
+    }
+    .gym-cont {
+        padding-top: 124px;
+    }
+    /* .gym-progress-item__box--be {
+        text-align: center;
+        margin: auto;
+        width: 50%;
+    } */
+    .gym-category-left img {
+        display: none;
+    }
+    .gym-calender-right {
+        padding-top: 74px;
+    }
+    .has-search .form-control-feedback {
+        margin-left: 85%;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .gym-home__slogan {
+        max-width: 670px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .gym-category-left img {
+        margin-left: -330px;
+    }
+    .gym-contact-image {
+        display: none;
+    }
+    .gym-client-item img {
+        max-width: 100%;
+        width: 100%;
+    }
+    .gym-client-item--cus1 .order-1 {
+        order: inherit;
+    }
+    .gym-client-right {
+        padding-right: 0px;
+    }
+    .gym-title--opinion {
+        width: 100%;
+        margin: auto;
+    }
+}
