@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Slide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- <div id="div1"> -->
+    <div class="wrapper">
+        <div class="slides-container">
+            <div class="slide-image">
+                <img src="images/img1.jpg" alt="" />
+                <div class="text">Slide One</div>
+            </div>
+
+            <div class="slide-image">
+                <img src="images/img2.jpg" alt="" />
+                <div class="text">Slide Two</div>
+            </div>
+
+            <div class="slide-image">
+                <img src="images/img3.jpg" alt="" />
+                <div class="text">Slide Three</div>
+            </div>
+
+        </div>
+    </div>
+    <!-- </div> -->
+    <script src="main.js"></script>
+    <script>
+        var config = {
+            showContent: true,
+            timeToAuto: 5000,
+            enableAutoSlide: true,
+            slideContainerClass: '.slides-container',
+            imageClass: '.slide-image',
+            textClass: '.text'
+        }
+        runSlide(config);
+
+    </script>
+</body>
+
+</html>
