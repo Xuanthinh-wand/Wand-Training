@@ -1,9 +1,7 @@
 createList(arrayElement);
 // Hiển thị danh sách To do List
 function createList(arrayElem) {
-    for (var i = 0;i < arrayElem.length;i++) {
-        arrayElem[i].id = i;
-    }
+    console.log(arrayElem);
     for (let element of arrayElem) {
         if (element.title !== '') {
             var li = document.createElement("li");
@@ -18,8 +16,8 @@ function createList(arrayElem) {
             span.className = "close";
             span.appendChild(txt);
             span.onclick = function () {
-                arrayElem.splice(element.id, 1);
-                console.log(element.id);
+                let index = arrayElem.findIndex(a => a.id == element.id);
+                arrayElem.splice(index, 1);
                 document.getElementById("myUL").innerHTML = '';
                 createList(arrayElem);
             };
@@ -41,7 +39,11 @@ var newElement = () => {
     if (inputValue === '') {
         alert("Nội dung trống!");
     } else {
-        var newItem = { id: arrayElement.length, title: inputValue, isCompleted: false }
+        let maxId = Math.max(...arrayElement.map(x => x.id));
+        if (maxId == "-Infinity") {
+            maxId = 0;
+        }
+        var newItem = { id: maxId + 1, title: inputValue, isCompleted: false }
         arrayElement.push(newItem);
     }
     document.getElementById("myInput").value = "";
