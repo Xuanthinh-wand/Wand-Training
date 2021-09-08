@@ -17,9 +17,11 @@ function createList(arrayElem) {
             span.appendChild(txt);
             span.onclick = function () {
                 let index = arrayElem.findIndex(a => a.id == element.id);
-                arrayElem.splice(index, 1);
-                document.getElementById("myUL").innerHTML = '';
-                createList(arrayElem);
+                if (index >= 0) {
+                    arrayElem.splice(index, 1);
+                    document.getElementById("myUL").innerHTML = '';
+                    createList(arrayElem);
+                }
             };
             li.appendChild(span);
             if (element.isCompleted == true) {
