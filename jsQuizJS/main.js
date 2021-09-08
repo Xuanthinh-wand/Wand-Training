@@ -4,6 +4,11 @@ const optionContainer = document.querySelector('.option-container')
 const homeBox = document.querySelector('.home-box')
 const quizBox = document.querySelector('.quiz-box')
 const resultBox = document.querySelector('.result-box')
+const nextBtn = document.querySelector('.next-question-btn')
+const timeText = document.querySelector(".timer .time_left_txt");
+const timeCount = document.querySelector(".timer .timer_sec");
+
+
 homeBox.querySelector('.total-question').innerHTML = getElementsQuiz.length
 
 let currentQuestion;
@@ -11,25 +16,26 @@ let questionCounter = 0;
 let availableQuestion = [];
 let availableOption = [];
 let correctAnswer = 0;
+let counter;
+let timeValue = 20;
 
 
-
-// console.log(getElementsQuiz)
 //push question into availableQuestion array
 function setavailableQuestion() {
     const totalQuestion = getElementsQuiz.length;
     for (let i = 0; i < totalQuestion; i++) {
-        // console.log(quiz[i])
         availableQuestion.push(getElementsQuiz[i])
     }
     console.log(availableQuestion)
 }
 
+var myQuiz = document.getElementById('myQuiz')
+
+
 //set question number, question and option
 function getNewQuestion() {
     // set question number
     questionNumber.innerHTML = `Câu hỏi ${questionCounter + 1} trên tổng số ${getElementsQuiz.length}`
-
     //set question text
     //random question 
     const questionIndex = availableQuestion[Math.floor(Math.random() * availableQuestion.length)]
@@ -39,7 +45,6 @@ function getNewQuestion() {
 
     // get the position 'questionIndex' from the availableQuestion array
     const index1 = availableQuestion.indexOf(questionIndex)
-    // console.log(index1)
     //remove 'questionIndex' from the availableQuestion array, question not repeat
     availableQuestion.splice(index1, 1)
 
@@ -71,17 +76,18 @@ function getNewQuestion() {
 }
 //get result
 function getResult(optionItem) {
+    clearInterval(counter);
     // console.log(optionItem.innerHTML)
     const id = parseInt(optionItem.id)
     // optionItem.classList.add("choose")
     if (id === currentQuestion.answer) {
-        // console.log("Đáp án đúng")
         optionItem.classList.add("correct")
         correctAnswer++;
+        nextBtn.classList.remove("hide")
     }
     else {
-        // console.log("Sai rồi")
         optionItem.classList.add("wrong")
+        nextBtn.classList.remove("hide")
 
         //if answer wrong, show answer correct
         const optionLen = optionContainer.children.length
@@ -106,12 +112,17 @@ function unclickOption() {
 //btn next question
 
 function nextQuestion() {
+    nextBtn.classList.add("hide")
+
     if (questionCounter === getElementsQuiz.length) {
         quizOver()
 
     }
     else {
+        clearInterval(counter);
+        startTimer(timeValue);
         getNewQuestion();
+
     }
 }
 
@@ -151,8 +162,53 @@ function start() {
     quizBox.classList.remove("hide")
     //push question into availableQuestion array
     setavailableQuestion();
+
+    startTimer(timeValue)
+
     //call function set question number, question and option
     getNewQuestion()
 }
 
+// counter timer
+function startTimer(time) {
+    counter = setInterval(timer, 1000)
+    function timer() {
+        timeCount.textContent = time;
+        time--;
+        if (time < 0) {
+            clearInterval(counter);
+            timeCount.textContent = "0"
+            // nextQuestion()
+            nextBtn.classList.remove("hide")
+            unclickOption()
 
+        }
+        if (time < 9) {
+            let addZero = timeCount.textContent;
+            timeCount.textContent = "0" + addZero
+        }
+    }
+
+}
+
+function seeAgain() {
+
+}
+
+
+var Quiz = {
+    showAnswers: function () {
+        //var content = '<h2>Answers</h2>';
+        availableQuestion.forEach(function (q) {
+            /* content += '<div>';
+            content += '</div>'; */
+            q.show();
+            q.showUserAnswers();
+            q.showCorrect();
+            q.inputs.forEach(function (inp) {
+                inp.disabled = true;
+                inp.style.display = 'none';
+            });
+        });
+    }
+}

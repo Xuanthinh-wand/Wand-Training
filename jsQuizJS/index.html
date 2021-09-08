@@ -16,21 +16,27 @@
         <button type="button" class="btn" onclick="start()"> Bắt đầu</button>
     </div>
     <div class="quiz-box custom-box hide">
-        <div class="question-number">
-            <!-- Câu hỏi 1 of 5 -->
+        <div class="header">
+            <div class="question-number">
+            </div>
+            <div class="timer">
+                <div class="time_left_txt">Thời gian</div>
+                <div class="timer_sec">00</div>
+            </div>
+            <div class="time_line"></div>
         </div>
+
         <div class="question-text">
-            <!-- Hôm nay Mai ăn gì? -->
+
         </div>
         <div class="option-container">
-            <!-- <div class="option">Cơm</div>
-            <div class="option">Xôi</div>
-            <div class="option">Cháo</div>
-            <div class="option">Bánh</div> -->
         </div>
-        <div class="next-question-btn">
-            <button type="button" class="btn" onclick="nextQuestion()">Tiếp tục</button>
-        </div>
+
+    </div>
+
+    <div class="next-question-btn hide">
+        <button type="button" class="btn" onclick="nextQuestion()">Tiếp tục</button>
+    </div>
     </div>
     <div class="result-box custom-box hide">
         <h1>Kết quả bài thi</h1>
@@ -50,7 +56,11 @@
 
         </table>
         <button type="button" class="btn" onclick="tryAgain()"> Làm lại</button>
+        <button type="button" class="btn" onclick="seeAgain()"> Xem lại bài làm</button>
         <button type="button" class="btn" onclick="goHome()"> Trang chủ</button>
+
+    </div>
+    <div class="seeAgain-box custom-box hide">
 
     </div>
     <script src="question.js"></script>
