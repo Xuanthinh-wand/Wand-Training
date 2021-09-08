@@ -1,4 +1,3 @@
-
 const start_btn = document.querySelector(".start_btn button");
 const quiz_box = document.querySelector(".quiz_box");
 const result_box = document.querySelector(".result_box");
@@ -7,9 +6,9 @@ const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
 
-// click vào nút start
+
 start_btn.onclick = ()=>{
-    quiz_box.classList.add("activeQuiz"); //hiện bài trắc nghiệm
+    quiz_box.classList.add("activeQuiz"); 
     showQuetions(0);
     queCounter(1);
     startTimer(15);
@@ -27,36 +26,17 @@ let widthValue = 0;
 const restart_quiz = result_box.querySelector(".buttons .restart");
 const quit_quiz = result_box.querySelector(".buttons .quit");
 
-// click nút bắt đầu lại
-restart_quiz.onclick = ()=>{
-    quiz_box.classList.add("activeQuiz"); //hiện bài trắc nghiệm
-    result_box.classList.remove("activeResult"); //ẩn hộp kết quả
-    timeValue = 15; 
-    que_count = 0;
-    que_numb = 1;
-    userScore = 0;
-    widthValue = 0;
-    showQuetions(que_count);
-    queCounter(que_numb);
-    clearInterval(counter);
-    clearInterval(counterLine);
-    startTimer(timeValue);
-    startTimerLine(widthValue);
-    timeText.textContent = "Thời gian còn lại";
-    next_btn.classList.remove("show");
-}
 
-// nếu nút thoát đc click
 quit_quiz.onclick = ()=>{
-    window.location.reload(); //tải lại
+    window.location.reload(); 
 }
 
 const next_btn = document.querySelector("footer .next_btn");
 const bottom_ques_counter = document.querySelector("footer .total_que");
 
-// click nút tiếp
+
 next_btn.onclick = ()=>{
-    if(que_count < questions.length - 1){ //nếu số câu bé hơn tổng số câu
+    if(que_count < questions.length - 1){ 
         que_count++;
         que_numb++;
         showQuetions(que_count);
@@ -74,7 +54,7 @@ next_btn.onclick = ()=>{
     }
 }
 
-//lấy câu hỏi và lựa chọn từ mảng
+
 function showQuetions(index){
     const que_text = document.querySelector(".que_text");
     let que_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
@@ -96,13 +76,12 @@ function showQuetions(index){
 let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
-//nếu ng dùng click vào option
 function optionSelected(answer){
-    clearInterval(counter); //xóa bộ đém
-    clearInterval(counterLine); //xóa dòng đếm
-    let userAns = answer.textContent; //lấy lựa chọn của ng dùng
-    let correcAns = questions[que_count].answer; //lấy đáp án đúng
-    const allOptions = option_list.children.length; //lấy tất cả option
+    clearInterval(counter);
+    clearInterval(counterLine); 
+    let userAns = answer.textContent; 
+    let correcAns = questions[que_count].answer; 
+    const allOptions = option_list.children.length; 
     
     if(userAns == correcAns){ 
         userScore += 1; 
@@ -119,14 +98,18 @@ function optionSelected(answer){
             if(option_list.children[i].textContent == correcAns){
                 option_list.children[i].setAttribute("class", "option correct");
                 option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag);
-                console.log("Tự động trả lời.");
             }
         }
     }
     for(i=0; i < allOptions; i++){
         option_list.children[i].classList.add("disabled"); //ng dùng chọn rồi thì vô hiệu hóa những đáp án còn lại
     }
-    next_btn.classList.add("show"); //hiển thị nút next sau khi ng dùng chọn đáp án
+    next_btn.classList.add("show"); 
+}
+restart_quiz.onclick = ()=>{
+    
+    quiz_box.classList.add("activeQuiz"); 
+    result_box.classList.remove("activeResult");
 }
 
 function showResult(){
@@ -151,7 +134,6 @@ function startTimer(time){
             timeText.textContent = "Hết giờ";
             const allOptions = option_list.children.length;
             let correcAns = questions[que_count].answer; //lấy câu trả lời đúng
-            option_list.children[i].setAttribute("class", "option correct");
             for(i=0; i < allOptions; i++){
                 if(option_list.children[i].textContent == correcAns){
                     option_list.children[i].setAttribute("class", "option correct"); 
@@ -179,7 +161,7 @@ function startTimerLine(time){
 }
 
 function queCounter(index){
-    //thêm thẻ span số cấu hỏi và tổng số câu
+    //thêm thẻ span số câu hỏi và tổng số câu
     let totalQueCounTag = '<span><p>Câu '+ index +'</p> trên <p>'+ questions.length +'</p></span>';
     bottom_ques_counter.innerHTML = totalQueCounTag;
 }
