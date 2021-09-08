@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="home-box custom-box">
+        <h3>Câu hỏi trắc nghiệm</h3>
+        <p>Tổng số câu hỏi là: <span class="total-question"></span></p>
+        <button type="button" class="btn" onclick="start()"> Bắt đầu</button>
+    </div>
+    <div class="quiz-box custom-box hide">
+        <div class="question-number">
+            <!-- Câu hỏi 1 of 5 -->
+        </div>
+        <div class="question-text">
+            <!-- Hôm nay Mai ăn gì? -->
+        </div>
+        <div class="option-container">
+            <!-- <div class="option">Cơm</div>
+            <div class="option">Xôi</div>
+            <div class="option">Cháo</div>
+            <div class="option">Bánh</div> -->
+        </div>
+        <div class="next-question-btn">
+            <button type="button" class="btn" onclick="nextQuestion()">Tiếp tục</button>
+        </div>
+    </div>
+    <div class="result-box custom-box hide">
+        <h1>Kết quả bài thi</h1>
+        <table>
+            <tr>
+                <td>Tổng số câu hỏi</td>
+                <td><span class="total-question"></span></td>
+            </tr>
+            <tr>
+                <td>Số câu trả lời đúng</td>
+                <td><span class="total-score"></span></td>
+            </tr>
+            <tr>
+                <td>Tổng số điểm</td>
+                <td><span class="total"></span></td>
+            </tr>
+
+        </table>
+        <button type="button" class="btn" onclick="tryAgain()"> Làm lại</button>
+        <button type="button" class="btn" onclick="goHome()"> Trang chủ</button>
+
+    </div>
+    <script src="question.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
