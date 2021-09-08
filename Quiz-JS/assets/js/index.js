@@ -43,6 +43,14 @@ var arrayQuesition = [
 var arrayselected = [];
 var arrTam = [];
 var x;
+var inventory = [
+    { name: 'apples', quantity: 2 },
+    { name: 'bananas', quantity: 0 },
+    { name: 'orange', quantity: 5 }
+];
+
+console.log(inventory.find(a => a.name === 'app'));
+
 document.getElementById("sum-quesition").appendChild(document.createTextNode("Tổng số câu hỏi là: " + arrayQuesition.length));
 document.getElementById("btn-nopbai").style.display = "none";
 function start() {
@@ -64,7 +72,12 @@ function createList(arrayCH) {
         h5.className = "mt-3";
         h5.appendChild(document.createTextNode("Câu hỏi " + (i + 1) + " : " + cauhoi.quesition))
         document.getElementById("myQuiz").appendChild(h5);
+        var arrayDAselected = [];
         for (let i = 0;i < cauhoi.dapan.length;i++) {
+            do { var dap = cauhoi.dapan[Math.floor(Math.random() * cauhoi.dapan.length)]; }
+            while (arrayDAselected.find(b => b === dap) !== undefined)
+            arrayDAselected.push(dap);
+            console.log(dap);
             let div = document.createElement("div");
             div.className = "form-check";
 
@@ -73,12 +86,12 @@ function createList(arrayCH) {
             input.type = "radio";
             input.id = "quesition" + cauhoi.id;
             input.name = "cauhoi" + cauhoi.id;
-            input.value = cauhoi.dapan[i];
+            input.value = dap;
             div.appendChild(input);
             let label = document.createElement("label");
-            let txt = document.createTextNode(cauhoi.dapan[i])
+            let txt = document.createTextNode(dap)
             label.className = "form-check-label";
-            label.id = cauhoi.dapan[i];
+            label.id = dap;
             label.appendChild(txt);
             div.appendChild(label);
             document.getElementById("myQuiz").appendChild(div);
