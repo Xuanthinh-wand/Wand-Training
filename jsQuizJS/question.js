@@ -30,5 +30,16 @@ const quiz = [
         answer: 3
     }
 ]
+var getElementsQuiz = [];
 
+const sampleSize = ([...quiz], n = 1) => {
+    let m = quiz.length;
+    while (m) {
+        const i = Math.floor(Math.random() * m--);
+        [quiz[m], quiz[i]] = [quiz[i], quiz[m]];
+    }
+    return quiz.slice(0, n);
+};
+
+getElementsQuiz = sampleSize(quiz, 5)
 

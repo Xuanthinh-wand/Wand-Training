@@ -4,7 +4,7 @@ const optionContainer = document.querySelector('.option-container')
 const homeBox = document.querySelector('.home-box')
 const quizBox = document.querySelector('.quiz-box')
 const resultBox = document.querySelector('.result-box')
-homeBox.querySelector('.total-question').innerHTML = quiz.length
+homeBox.querySelector('.total-question').innerHTML = getElementsQuiz.length
 
 let currentQuestion;
 let questionCounter = 0;
@@ -12,12 +12,15 @@ let availableQuestion = [];
 let availableOption = [];
 let correctAnswer = 0;
 
+
+
+// console.log(getElementsQuiz)
 //push question into availableQuestion array
 function setavailableQuestion() {
-    const totalQuestion = quiz.length;
+    const totalQuestion = getElementsQuiz.length;
     for (let i = 0; i < totalQuestion; i++) {
         // console.log(quiz[i])
-        availableQuestion.push(quiz[i])
+        availableQuestion.push(getElementsQuiz[i])
     }
     console.log(availableQuestion)
 }
@@ -25,7 +28,7 @@ function setavailableQuestion() {
 //set question number, question and option
 function getNewQuestion() {
     // set question number
-    questionNumber.innerHTML = `Câu hỏi ${questionCounter + 1} trên tổng số ${quiz.length}`
+    questionNumber.innerHTML = `Câu hỏi ${questionCounter + 1} trên tổng số ${getElementsQuiz.length}`
 
     //set question text
     //random question 
@@ -103,7 +106,7 @@ function unclickOption() {
 //btn next question
 
 function nextQuestion() {
-    if (questionCounter === quiz.length) {
+    if (questionCounter === getElementsQuiz.length) {
         quizOver()
 
     }
@@ -119,9 +122,9 @@ function quizOver() {
 }
 
 function quizResult() {
-    resultBox.querySelector('.total-question').innerHTML = quiz.length
-    resultBox.querySelector('.total-score').innerHTML = `${correctAnswer} / ${quiz.length}`
-    const total = parseFloat(correctAnswer / quiz.length) * 10
+    resultBox.querySelector('.total-question').innerHTML = getElementsQuiz.length
+    resultBox.querySelector('.total-score').innerHTML = `${correctAnswer} / ${getElementsQuiz.length}`
+    const total = parseFloat(correctAnswer / getElementsQuiz.length) * 10
     resultBox.querySelector('.total').innerHTML = `${total} điểm`
 }
 
