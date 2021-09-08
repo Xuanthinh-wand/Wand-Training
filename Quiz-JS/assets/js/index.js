@@ -18,8 +18,30 @@ var arrayQuesition = [
         id: 4, quesition: "How does a WHILE loop start?",
         dapan: ["while i = 1 to 10", "while (i <= 10; i++)", "while (i <= 10)"],
         answer: "while (i <= 10; i++)"
-    }
+    },
+    {
+        id: 5, quesition: "What is 10 + 4?",
+        dapan: ["12", "14", "16"],
+        answer: "14"
+    },
+    {
+        id: 6, quesition: "What is 20 - 9",
+        dapan: ["7", "13", "11"],
+        answer: "11"
+    },
+    {
+        id: 7, quesition: "What is 7 x 3?",
+        dapan: ["21", "24", "25"],
+        answer: "21"
+    },
+    {
+        id: 8, quesition: "What is 8 / 2?",
+        dapan: ["10", "2", "4"],
+        answer: "4"
+    },
 ];
+var arrayselected = [];
+var arrTam = [];
 var x;
 document.getElementById("sum-quesition").appendChild(document.createTextNode("Tổng số câu hỏi là: " + arrayQuesition.length));
 document.getElementById("btn-nopbai").style.display = "none";
@@ -27,19 +49,25 @@ function start() {
     document.getElementById("btn-nopbai").style.display = "block";
     document.getElementById("btn-start").style.display = "none";
     createList(arrayQuesition);
-    batdau();
+    timeStart();
 }
 
 function createList(arrayCH) {
-    console.log(arrayCH);
-    for (let cauhoi of arrayCH) {
+    for (var i = 0;i < 4;i++) {
+        var cauhoi = arrayCH[Math.floor(Math.random() * arrayCH.length)];
+        var index = arrayCH.findIndex(a => a.id == cauhoi.id);
+        if (index >= 0) {
+            arrayCH.splice(index, 1);
+            arrayselected.push(cauhoi);
+        }
         let h5 = document.createElement("h5");
         h5.className = "mt-3";
-        h5.appendChild(document.createTextNode("Câu hỏi " + cauhoi.id + " : " + cauhoi.quesition))
+        h5.appendChild(document.createTextNode("Câu hỏi " + (i + 1) + " : " + cauhoi.quesition))
         document.getElementById("myQuiz").appendChild(h5);
         for (let i = 0;i < cauhoi.dapan.length;i++) {
             let div = document.createElement("div");
             div.className = "form-check";
+
             let input = document.createElement("input");
             input.className = "form-check-input";
             input.type = "radio";
@@ -50,14 +78,18 @@ function createList(arrayCH) {
             let label = document.createElement("label");
             let txt = document.createTextNode(cauhoi.dapan[i])
             label.className = "form-check-label";
+            label.id = cauhoi.dapan[i];
             label.appendChild(txt);
             div.appendChild(label);
             document.getElementById("myQuiz").appendChild(div);
         }
     }
+    for (let selected of arrayselected) {
+        arrayCH.push(selected);
+    }
 }
-function batdau() {
-    var countDownDate = Date.now() + 12000;
+function timeStart() {
+    var countDownDate = Date.now() + 120000;
     x = setInterval(function () {
 
         // Get today's date and time
@@ -93,14 +125,21 @@ function getCheckedValue(radioName) {
 function check() {
     clearInterval(x);
     var score = 0;
-    for (let ch of arrayQuesition) {
-        console.log("cauhoi" + ch.id);
-        if (getCheckedValue("cauhoi" + ch.id) == ch.answer) score++;
+    for (let ch of arrayselected) {
+        var item = document.getElementById(ch.answer);
+        item.style.color = "springgreen";
+        if (getCheckedValue("cauhoi" + ch.id) == ch.answer) {
+
+            score++;
+        } else if (getCheckedValue("cauhoi" + ch.id) != undefined) {
+            var it = document.getElementById(getCheckedValue("cauhoi" + ch.id));
+            it.style.color = "red";
+        };
     }
-    var diem = "Số điểm của bạn là " + score / arrayQuesition.length * 10 + "/10";
+    var diem = "Số điểm của bạn là " + score / arrayselected.length * 10 + "/10";
     var span = document.createElement("span");
     span.appendChild(document.createTextNode(diem));
-    var kq = "Bạn trả lời đúng " + score + "/" + arrayQuesition.length + " câu hỏi";
+    var kq = "Bạn trả lời đúng " + score + "/" + arrayselected.length + " câu hỏi";
     var span1 = document.createElement("span");
     span1.appendChild(document.createTextNode(kq));
     document.getElementById("txt-ketqua").innerHTML = '';
@@ -108,7 +147,6 @@ function check() {
     var br = document.createElement("br");
     document.getElementById("txt-ketqua").appendChild(br);
     document.getElementById("txt-ketqua").appendChild(span1);
-
 }
 function hiddenbtn() {
     document.getElementById("btn-nopbai").style.display = "none";
