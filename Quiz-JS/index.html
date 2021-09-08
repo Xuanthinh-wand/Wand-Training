@@ -19,6 +19,9 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="text-center text-primary m-5">Bài kiểm tra NQT</h1>
+                <h4 id="sum-quesition"></h4>
+                <button type="button" class="btn btn-success mt-3" onclick="start()" id="btn-start">Bắt đầu làm
+                    bài</button>
                 <p id="time" class="h3 text-danger"></p>
                 <form name="myform" id="myQuiz" method="GET">
                 </form>
@@ -27,8 +30,6 @@
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" id="btn-nopbai" data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop" onclick="check()"> Nộp bài </button>
-                <!-- <button type="button" class="btn btn-primary d-none" id="btn-reset"><a href="index.html"
-                        class="text-light">Làm lại</a></button> -->
                 <!-- Modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
