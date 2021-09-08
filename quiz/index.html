@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+    <div class="start_btn"><button>Bắt đầu</button></div>
+
+    <div class="quiz_box">
+        <header>
+            <div class="title">Trắc nghiệm</div>
+            <div class="timer">
+                <div class="time_left_txt">Thời gian còn lại</div>
+                <div class="timer_sec">15</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+            </div>
+            <div class="option_list">
+            </div>
+        </section>
+
+        <footer>
+            <div class="total_que">
+            </div>
+            <button class="next_btn">Tiếp</button>
+        </footer>
+    </div>
+
+    <div class="result_box">
+       
+        <div class="complete_text">Bạn đã hoàn thành!</div>
+        <div class="score_text">
+        </div>
+        <div class="buttons">
+            <button class="restart">Kiểm tra lại</button>
+            <button class="quit">Thoát</button>
+        </div>
+    </div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
