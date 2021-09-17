@@ -13,15 +13,13 @@ function TodoItem({ todo }) {
                 <div className="col-12">
                     {todo.isCompleted ?
                         <li className="checked" onClick={() => {
+                            console.log(checked)
                             dispatch(updateTodo({
                                 ...todo,
                                 title: title,
                                 isCompleted: !checked
                             }))
-                            // if (edit) {
-                            //     setTitle(todo.title);
-                            // }
-                            // setEdit(!edit);
+                            setChecked(!checked);
                         }}
                         ><span className="close" onClick={() => dispatch(deleteTodo(todo.id))}>×</span>
 
@@ -29,15 +27,13 @@ function TodoItem({ todo }) {
                         </li>
                         :
                         <li onClick={() => {
+                            console.log(checked)
                             dispatch(updateTodo({
                                 ...todo,
                                 title: title,
                                 isCompleted: !checked
                             }))
-                            // if (edit) {
-                            //     setTitle(todo.title);
-                            // }
-                            // setEdit(!edit);
+                            setChecked(!checked);
                         }}
                         ><span className="close" onClick={() => dispatch(deleteTodo(todo.id))}>×</span>
                             <span>{todo.title}</span>
