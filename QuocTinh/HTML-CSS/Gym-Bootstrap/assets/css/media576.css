@@ -1,0 +1,21 @@
+@media screen and (max-width: 576px){
+    .gym-header-txt span{
+        font-size: 30px;
+    }
+    #workout .accordion-item {
+        width: 576px;
+    }
+    .gym-infor{
+        margin-left: 0;
+    }
+    .gym-infor h3{
+        color: #ec3642;
+    }
+    .gym-infor p{
+        color: #fff;
+    }
+    .gym-whynot span{
+        font-size: 17px;
+    }
+}
+

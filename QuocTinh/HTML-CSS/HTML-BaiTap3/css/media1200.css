@@ -1,0 +1,186 @@
+@media screen and (max-width: 1200px){
+    .nav-menu{
+        display: block;
+        float: right;
+        padding: 10px 20px;
+        cursor: pointer;
+        color: #fff;
+    }
+      .nav-items{
+        width: 100%;
+        float: left;
+        height: 0px;
+        padding:0px;
+        margin:0px;
+        
+      }
+      .nav-items li{
+        width: 100%;
+        display: block;
+      }  
+      .nav-items li{
+        margin-left: 0;
+        margin-top: 8px;
+      }
+    
+    .gym-btn-book, .nav-items .fa-search{
+        display: none;
+    }
+
+    .gym-w596{
+        width: 544px;
+    }
+    .gym-row{
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .gym-personal-one, .gym-personal-two{
+        margin-bottom: 30px;
+    }
+    .gym-1200flex-reverse{
+        display: flex;
+        flex-direction:column-reverse;
+    }
+    .gym-center-r1200{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .gym-center-l1200{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .gym-center-1200{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .gym-1200margin-b25{
+        margin-bottom: 25px;
+    }
+    .gym-margin-b105{
+        margin-bottom: 60px;
+    }
+    .gym-margin1200-b105{
+        margin-bottom: 105px;
+    }
+    .gym-poss{
+        margin-top: 0; margin-left: 0;
+    }
+    .gym-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .gym-title-behappy{
+        display: flex;
+
+    }
+    .gym-ut-btn{
+        margin-top: 85px;
+        margin-left: 40px;
+    }
+    .gym-group-item{
+        margin-left: 0;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    .gym-margin1200-b30{
+        margin-bottom: 30px;
+    }
+    .gym-row1200-margin{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .gym-padding-r20{
+        padding-right: 0;
+    }
+    .gym-about-us{
+        margin-left: 0;
+    }
+    .gym-follow-item {
+        border-bottom: solid 1px;
+        display: flex;
+        width: 75px;
+        border-color: #707070;
+        color: #ffffff;
+    }
+    .gym-social .gym-follow-item:first-child {
+        border-bottom: solid 1px;
+        border-left: solid 1px;
+        display: flex;
+        padding-left: 10px;
+        border-color: #707070;
+        color: #ffffff;
+    }
+    .gym-social{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .gym-search{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .gym-about-txt{
+        margin-right: 20px;
+    }
+    .gym-margin-l50{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    /* ============================================================================================= */
+    .gym-col-xl-1 {  
+        width: 8.33333333%;
+    }
+      
+    .gym-col-xl-2 {    
+        width: 16.66666667%;
+    }
+      
+    .gym-col-xl-3 {    
+        width: 25%;
+    }
+      
+    .gym-col-xl-4 {    
+        width: 33.33333333%;
+    }
+      
+    .gym-col-xl-5 {    
+        width: 41.66666667%;
+    }
+      
+    .gym-col-xl-6 {    
+        width: 50%;
+    }
+      
+    .gym-col-xl-7 {    
+        width: 58.33333333%;
+    }
+      
+    .gym-col-xl-8 {    
+        width: 66.66666667%;
+    }
+      
+    .gym-col-xl-9 {    
+        width: 75%;
+    }
+      
+    .gym-col-xl-10 {    
+        width: 83.33333333%;
+    }
+      
+    .gym-col-xl-11 {    
+        width: 91.66666667%;
+    }
+      
+    .gym-col-xl-12 {    
+        width: 100%;
+    }
+}
+.nav-open{
+    height: auto;
+  }

@@ -1,0 +1,10 @@
+@media screen and (max-width: 1400px){
+    .gym-ourprogram-right{
+        padding: 1.25rem;
+    }
+}
+@media screen and (max-width: 1200px){
+    .accordion-item{
+        width: 100%;
+    }
+}
