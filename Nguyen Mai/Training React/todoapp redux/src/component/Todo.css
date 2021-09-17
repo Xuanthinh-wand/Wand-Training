@@ -1,0 +1,31 @@
+.row{
+    display: flex;
+    margin: 15px;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    padding: 5px;
+    width: 200px;
+}
+button{
+    padding: 5px;
+    margin: 5px;
+}
+.btn{
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+.btn-primary{
+    background-color: blue;
+    
+}
+.btn-danger{
+    background-color: red;
+}
+.col{
+    margin-left: 5px;
+    margin-right: 5px;
+}
