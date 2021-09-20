@@ -1,9 +1,12 @@
 import React from "react";
 import cx from "classnames";
-import { VISIBILITY_FILTERS } from "../constants";
 import { connect } from "react-redux";
 import {setFilter} from "../redux/actions";
-
+const VISIBILITY_FILTERS = {
+  ALL: "all",
+  COMPLETED: "completed",
+  INCOMPLETE: "incomplete"
+};
 class VisibilityFilters extends React.Component{
   constructor(props) {
     super(props);
