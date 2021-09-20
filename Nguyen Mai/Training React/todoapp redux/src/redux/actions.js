@@ -1,25 +1,18 @@
-export const ADD_TODO = "ADD_TODO";
-export const DELETE_TODO = "DELETE_TODO";
-export const UPDATE_TODO = "UPDATE_TODO";
+import { ADD_TODO, TOGGLE_TODO, SET_FILTER } from "./actionTypes";
 
-export function addTodo(todo) {
-    return {
-        type:ADD_TODO,
-        payload: todo,
-    }
-}
+let nextTodoId = 0;
 
-export function deleteTodo(todoId) {
-    return {
-        type:DELETE_TODO,
-        payload: todoId,
-    }
-}
+export const addTodo = content => ({
+  type: ADD_TODO,
+  payload: {
+    id: ++nextTodoId,
+    content
+  }
+});
 
+export const toggleTodo = id => ({
+  type: TOGGLE_TODO,
+  payload: { id }
+});
 
-export function updateTodo(todo) {
-    return {
-        type:UPDATE_TODO,
-        payload: todo,
-    }
-}
+export const setFilter = filter => ({ type: SET_FILTER, payload: { filter } });
