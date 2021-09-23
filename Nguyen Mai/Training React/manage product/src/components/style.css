@@ -1,0 +1,55 @@
+ul{
+    display: flex;
+}
+li{
+    margin: 15px;
+    list-style-type: none;
+}
+li a{
+    text-decoration: none;
+    color: white;
+}
+nav{
+    background-color: cadetblue;
+}
+.col-sm-4{
+    display: flex;
+}
+.container{
+    margin: 0 auto;
+    max-width: 1120px;
+}
+.card{
+    margin: 30px;
+}
+.btn{
+    padding: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: black;
+}
+.card.card-cascade {
+    width: auto;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 1140px;
+}
+.product-table{
+    margin: 0 auto;
+    max-width: 1140px;
+}
+.product-table th{
+    font-weight: 600;
+    font-size: 20px;
+}
+.loginForm{
+    max-width: 500px;
+    margin: 0 auto;
+}
+.field{
+    margin: 15px;
+}
