@@ -35,7 +35,8 @@ const CartProduct = ({ cart }) => {
                             change: "down"
                         }
                         ));
-                        setCount(count - 1);
+                        if (count > 0)
+                            setCount(count - 1);
                     }}
                     >-</button>
                     <span className="mx-3">{count}</span>

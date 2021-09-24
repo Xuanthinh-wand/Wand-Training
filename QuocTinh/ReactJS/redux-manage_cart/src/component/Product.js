@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCART } from '../redux/action/cartAction';
+import ModalAddProduct from './ModalAddProduct';
 
 function Product({ product }) {
     let userlogined = useSelector(state => state.userlogined);
@@ -15,14 +16,29 @@ function Product({ product }) {
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>
                 <p className="card-text">{price}</p>
-                <a href="#" className="btn btn-primary" onClick={() => {
-                    dispatch(addCART({
-                        id_user: userlogined.id, id_product: id_product, count: 1
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => {
+                    if (userlogined !== null) {
+                        dispatch(addCART({
+                            id_user: userlogined.id, id_product: id_product, count: 1
+                        }
+                        ));
                     }
-                    ));
-                    alert("Thêm vào giỏ hàng thành công!");
                 }}
-                >Thêm Giỏ hàng</a>
+                >Thêm Giỏ Hàng</button>
+                <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">Thông báo</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                            </div>
+                            <ModalAddProduct />
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

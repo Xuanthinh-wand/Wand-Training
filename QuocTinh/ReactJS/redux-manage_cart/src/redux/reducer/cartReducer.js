@@ -1,7 +1,9 @@
+import { useSelector } from "react-redux";
 import { ADD_CART, DELETE_CART, UPDATE_CART } from "../action/cartAction";
 import { manageCart } from "../states";
 
 export let cartReducer = (state = manageCart.carts, action) => {
+    // let userlogined = useSelector(state => state.userlogined);
     let newCARTs;
     switch (action.type) {
         case ADD_CART:
@@ -21,8 +23,14 @@ export let cartReducer = (state = manageCart.carts, action) => {
             let newItem = {
                 id: newId, id_user: action.payload.id_user, id_product: action.payload.id_product, count: action.payload.count
             }
-            console.log(newItem);
-            newCARTs.push(newItem);
+            let kt = false;
+            for (let item of newCARTs) {
+                if ((item.id_user === newItem.id_user) && (item.id_product === newItem.id_product))
+                    kt = true;
+            }
+            if (kt == false) {
+                newCARTs.push(newItem);
+            }
             return newCARTs;
         case DELETE_CART:
             newCARTs = [...state];
@@ -31,8 +39,6 @@ export let cartReducer = (state = manageCart.carts, action) => {
             return newCARTs;
         case UPDATE_CART:
             newCARTs = [...state];
-            // console.log(action.payload.id);
-            // console.log(action.payload.count);
             let index = -1;
             for (let i = 0;i < newCARTs.length;i++) {
                 index++;
@@ -41,8 +47,7 @@ export let cartReducer = (state = manageCart.carts, action) => {
                 }
 
             }
-            if (index !== -1) {
-                // console.log(newCARTs[index]);
+            if (index !== -1 && action.payload.count > 0) {
                 if (action.payload.change === "up") {
                     newCARTs[index].count = action.payload.count + 1;
                 } else {

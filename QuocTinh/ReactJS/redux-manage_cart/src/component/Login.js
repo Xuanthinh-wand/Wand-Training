@@ -11,11 +11,6 @@ const Login = () => {
     let dispatch = useDispatch();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    function checkLogin() {
-        // console.log(username);
-        // console.log(password);
-
-    }
     if (userlogined === null) {
         return (
             <form className="container mt-5" onSubmit={() => {
@@ -25,8 +20,6 @@ const Login = () => {
                 ));
             }}>
                 <h1 className="text-center m-3">Đăng Nhập</h1>
-                {/* {console.log(listUser)} */}
-                {/* {console.log(password)} */}
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Tên đăng nhập</label>
                     <input type="text" className="form-control" value={username} onChange={(e) => setUsername(e.target.value)} />
