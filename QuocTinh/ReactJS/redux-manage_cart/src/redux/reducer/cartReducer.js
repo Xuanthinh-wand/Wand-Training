@@ -3,7 +3,6 @@ import { ADD_CART, DELETE_CART, UPDATE_CART } from "../action/cartAction";
 import { manageCart } from "../states";
 
 export let cartReducer = (state = manageCart.carts, action) => {
-    // let userlogined = useSelector(state => state.userlogined);
     let newCARTs;
     switch (action.type) {
         case ADD_CART:
@@ -30,6 +29,9 @@ export let cartReducer = (state = manageCart.carts, action) => {
             }
             if (kt == false) {
                 newCARTs.push(newItem);
+                alert("Thêm sản phẩm vào giỏ hàng thành công!")
+            } else {
+                alert("Sản phẩm này đã tồn tại trong giỏ hàng!")
             }
             return newCARTs;
         case DELETE_CART:

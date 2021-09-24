@@ -6,6 +6,16 @@ import { logoutUser } from '../redux/action/loginAction';
 
 const ButtonLogin = () => {
     let userlogined = useSelector(state => state.userlogined);
+    let carts = useSelector(state => state.carts);
+    function sumProductInCart() {
+        let sum = 0;
+        for (let cart of carts) {
+            if (cart.id_user === userlogined.id) {
+                sum++;
+            }
+        }
+        return sum;
+    }
     let dispatch = useDispatch();
     if (userlogined === null) {
         return (
@@ -27,7 +37,7 @@ const ButtonLogin = () => {
                         <Link className="nav-link active" aria-current="page" to="/">Danh sách Sản phẩm</Link>
                     </li>
                 </ul>
-                <Link className="btn btn-danger me-2" to="/cart"><i className="fas fa-shopping-cart"></i></Link>
+                <Link className="btn btn-danger me-2" to="/cart"><i className="fas fa-shopping-cart"></i><sup>  {sumProductInCart()}</sup></Link>
                 <Link className="btn btn-danger" type="submit" to="/" onClick={() => {
                     dispatch(logoutUser({
                     }

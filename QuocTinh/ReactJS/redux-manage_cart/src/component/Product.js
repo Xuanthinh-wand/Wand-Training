@@ -16,16 +16,18 @@ function Product({ product }) {
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>
                 <p className="card-text">{price}</p>
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => {
+                <button type="button" className="btn btn-primary" onClick={() => {
                     if (userlogined !== null) {
                         dispatch(addCART({
                             id_user: userlogined.id, id_product: id_product, count: 1
                         }
                         ));
+                    } else {
+                        alert("Bạn cần đăng nhập!")
                     }
                 }}
                 >Thêm Giỏ Hàng</button>
-                <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                {/* <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -38,7 +40,7 @@ function Product({ product }) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
