@@ -4,6 +4,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadPosts } from '../redux/action/postAction';
 import Post from './Post';
+import { Typography } from 'antd';
+
+const { Title } = Typography;
 
 function PostList() {
     const data = useSelector((state) => state.posts.data);
@@ -18,6 +21,7 @@ function PostList() {
     return (
         <div>
             <h1 className="text-center m-3">Quản lý tin tức</h1>
+            {/* <Title>Quản lý tin tức</Title> */}
             {console.log(posts)}
             <div className="container">
                 <div className="row">
