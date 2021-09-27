@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {actFetchProductsRequest,AddCart} from './actions/index'
+import {actFetchProductsRequest,AddCart} from '../actions/index'
 import {connect} from 'react-redux';
 export class Product extends Component {
     constructor(props) {

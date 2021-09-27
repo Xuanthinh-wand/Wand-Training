@@ -11,10 +11,12 @@ export class Header extends Component {
                             <li className="nav-item" ><Link to="/" className="nav-link active">Products</Link></li>
                             <li className="nav-item"><Link to="/carts" className="nav-link">Carts : {this.props.numberCart}</Link></li>
                             <li className="nav-item"><Link to="/news" className="nav-link">News</Link></li>
+                            <li className="nav-item"><Link to="/login" className="nav-link">Login</Link></li>
                         </ul>
                   </nav>
               </div>
             </div>
+            
         )
     }
 }

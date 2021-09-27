@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import App from './App';
 import {Provider} from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
-import store, { persistor } from './components/stores/index';
+import store, { persistor } from './stores/index';
 ReactDOM.render(
  
   <Provider store={store}>

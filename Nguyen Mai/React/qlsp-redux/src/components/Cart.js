@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from "react-redux";
-import {IncreaseQuantity,DecreaseQuantity,DeleteCart} from './actions/index';
+import {IncreaseQuantity,DecreaseQuantity,DeleteCart} from '../actions/index';
  
 function Cart({items,IncreaseQuantity,DecreaseQuantity,DeleteCart}){
   //  console.log(items)
