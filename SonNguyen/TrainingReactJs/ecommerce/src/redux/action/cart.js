@@ -7,10 +7,9 @@ const addCart = (products, totalQty, totalPrice) => ({
   },
 });
 
-const updateCart = (id, products, totalQty, totalPrice) => ({
+const updateCart = (products, totalQty, totalPrice) => ({
   type: "UPDATE_CART",
   payload: {
-    id,
     products,
     totalQty,
     totalPrice,

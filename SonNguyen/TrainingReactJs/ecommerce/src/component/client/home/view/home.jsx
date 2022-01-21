@@ -86,12 +86,7 @@ class Home extends Component {
               <div className="list-details" key={key}>
                 <h4>{val.name}</h4>
                 <p>{val.details}</p>
-                <p>Giá : {val.price}</p>
-                <input
-                  type="number"
-                  value={this.state.qty}
-                  onChange={this.handleChangQty}
-                />
+                <p>Giá : {val.price} vnđ</p>
                 <button onClick={() => this.addToCart(val, key)}>
                   Add to cart
                 </button>
