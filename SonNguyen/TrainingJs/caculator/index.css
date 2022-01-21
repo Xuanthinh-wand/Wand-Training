@@ -1,0 +1,27 @@
+.caculator {
+    max-width: 300px;
+    margin: auto;
+}
+
+.caculator-screen {
+    min-height: 70px;
+    border: 1px solid rgb(240, 142, 142);
+}
+
+.caculator-group {
+    display: flex;
+    padding: 10px 0;
+    justify-content: space-between;
+}
+
+.btn {
+    width: 60px;
+    height: 60px;
+}
+
+.screen-result {
+    display: flex;
+    justify-content: end;
+    margin: 10px;
+    font-size: 30px;
+}

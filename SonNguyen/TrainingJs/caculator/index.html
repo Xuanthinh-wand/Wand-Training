@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+    <div class="caculator">
+        <div class="caculator-screen">
+            <div class="screen-result" id="screen-result"></div>
+        </div>
+        <div class="caculator-group">
+            <button class="btn" onclick="removeContent()">C</button>
+            <button class="btn caculation" onclick="caculation(this)">(</button>
+            <button class="btn caculation" onclick="caculation(this)">)</button>
+            <button class="btn caculation" onclick="caculation(this)">/</button>
+        </div>
+        <div class="caculator-group">
+            <button class="btn number" onclick="number(this)">7</button>
+            <button class="btn number" onclick="number(this)">8</button>
+            <button class="btn number" onclick="number(this)">9</button>
+            <button class="btn caculation" onclick="caculation(this)">*</button>
+        </div>
+        <div class="caculator-group">
+            <button class="btn number" onclick="number(this)">4</button>
+            <button class="btn number" onclick="number(this)">5</button>
+            <button class="btn number" onclick="number(this)">6</button>
+            <button class="btn caculation" onclick="caculation(this)">-</button>
+        </div>
+        <div class="caculator-group">
+            <button class="btn number" onclick="number(this)">1</button>
+            <button class="btn number" onclick="number(this)">2</button>
+            <button class="btn number" onclick="number(this)">3</button>
+            <button class="btn caculation" onclick="caculation(this)">+</button>
+        </div>
+        <div class="caculator-group">
+            <button class="btn" onclick="del()">Del</button>
+            <button class="btn number" onclick="number(this)">0</button>
+            <button class="btn number" onclick="number(this)">.</button>
+            <button class="btn caculation " onclick="calculate() ">=</button>
+        </div>
+    </div>
+    <script src="index.js "></script>
+</body>
+
+</html>
