@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="css/index.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="exam">
+        <div class="exam-login" id="exam-login">
+            <input type="text" id="username" placeholder="Nhập username">
+            <input type="password" id="password" placeholder="Nhập password">
+            <button class="btn" id="button-login" onclick="start()">Bắt đầu làm</button>
+        </div>
+        <div class="exam-content" id="exam-content">
+            <h3>Đề thi môn Toán</h3>
+            <div class="exam-content-title">
+                <div class="name" id="name"></div>
+                <div class="disTime">
+                    <select id="m_val"><option></option></select> :
+                    <select id="s_val"><option></option> </select>
+                </div>
+                <div class="time" id="time">
+                    <span>Thời gian :</span>
+                    <span id="m">Phút</span> :
+                    <span id="s">Giây</span>
+                </div>
+            </div>
+            <div class="total">
+                <p id="total-que"></p>
+            </div>
+            <div class="button-event">
+                <a class="prev" id="prev"> </a>
+                <a class="next" id="next"></a>
+            </div>
+            <div class="exam-content-question" id="exam-content-question">
+
+            </div>
+
+            <div class="exam-footer">
+                <button class="btn" id="submit_Exam">Nộp bài</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/index.js"></script>
+    <script type="text/javascript" src="js/setTimeout.js"></script>
+</body>
+
+</html>

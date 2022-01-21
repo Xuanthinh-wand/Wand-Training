@@ -1,0 +1,48 @@
+.rank-exam {
+    max-width: 700px;
+    margin: auto;
+}
+
+.rank-exam h4 {
+    text-align: center;
+    font-size: 20px;
+}
+
+.rank-detail-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail {
+    margin: 10px 0;
+    min-width: 200px
+}
+.popup-detail{
+    position: fixed;
+    width: 100%;
+     margin: auto;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    background: #fff;
+    display: none;
+}
+#detail-exam{
+    max-width: 700px;
+    margin: auto;
+}
+#detail-exam h4{
+    text-align: center;
+}
+.p-inline{
+    display: inline-block;
+}
+.ques-details{
+    font-weight: bold;
+}
+#close-popup{
+    position: fixed;
+    top: 20px;
+    right: 60px;
+    padding: 10px;
+}

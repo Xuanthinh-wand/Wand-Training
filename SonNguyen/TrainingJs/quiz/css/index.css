@@ -1,0 +1,86 @@
+.exam-login {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    align-items: center;
+    max-width: 500px;
+    margin-top: 100px;
+}
+
+.exam-login input {
+    padding: 10px;
+    width: 100%;
+    margin: 10px;
+}
+
+.exam-login button {
+    padding: 10px;
+}
+
+#exam-content {
+    display: none;
+}
+
+.exam-content {
+    max-width: 700px;
+    margin: 100px auto;
+}
+
+.exam-content-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.disTime {
+    display: none;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.exam-content-question {
+    margin-top: 20px;
+}
+
+.ques-group {
+    margin: 20px 0;
+}
+
+.ques-details {
+    font-weight: bold;
+    font-size: 18;
+}
+
+.button-event {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#total-que {
+    margin: 10px 0;
+}
+
+.total {
+    display: flex;
+    justify-content: end;
+}
+
+#total-que::before {
+    content: "Câu: ";
+}
+
+#prev::before {
+    content: "←";
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#next::before {
+    content: "→";
+    font-size: 32px;
+    font-weight: bold;
+}
