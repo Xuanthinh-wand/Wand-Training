@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="setting">
+        <button class="button-seting" id="top" onclick="openSetting()">Cài đặt</button>
+
+        <div id="content-setting">
+            <button class="button-seting bot" onclick="closeSetting()">Đóng</button>
+            <div class="div-checkbox">
+                <h4>Hiển thị nội dung</h4>
+                <button class="mystyle" id="button_true" onclick="check(true)">Bật</button>
+                <button class="mystyle" id="button_false" onclick="check(false)">Tắt</button>
+                </br>
+                </br>
+            </div>
+
+        </div>
+    </div>
+    <div class="slideshow-container">
+        <div id="slider-number"></div>
+        <div class="slider-group">
+            <img src="https://i.pinimg.com/originals/2b/27/c4/2b27c46e8a92b46637e928f65197b11c.jpg">
+            <div class="content">
+                <p class="content-p">Đây là slider 1</p>
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <img src="https://dbk.vn/uploads/ckfinder/images/tranh-anh/Anh-thien-nhien-1.jpg">
+            <div class="content">
+                <p class="content-p">Đây là slider 2</p>
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <img src="https://dean2020.edu.vn/wp-content/uploads/2019/03/anh-thien-nhien-1.jpg">
+            <div class="content">
+                <p class="content-p">Đây là slider 3</p>
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <img src="https://dbk.vn/uploads/ckfinder/images/tranh-anh/Anh-thien-nhien-9.jpg">
+            <div class="content">
+                <p class="content-p">Đây là slider 4</p>
+            </div>
+        </div>
+        <div style="text-align: center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" id="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+    </div>
+    <br>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
