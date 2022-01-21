@@ -1,0 +1,33 @@
+.admin-products {
+  margin: 0 10%;
+}
+.admin-products .form-group input,
+.admin-products .form-group textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px;
+}
+.admin-products .details .product-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product-group div {
+  margin: 10px 10px 0 0;
+}
+.product-group .num {
+  width: 40px;
+}
+.product-group .price {
+  width: 100px;
+}
+.product-group .setting {
+  width: 100px;
+}
+.product-group .name {
+  width: calc(100% - 300px);
+}
+.setting {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

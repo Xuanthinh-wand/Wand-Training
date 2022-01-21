@@ -1,0 +1,12 @@
+.list-products {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-products .list-details {
+  width: calc(25% - 40px);
+  margin: 0 20px;
+  min-height: 155px;
+}
+.list h3 {
+  text-align: center;
+}

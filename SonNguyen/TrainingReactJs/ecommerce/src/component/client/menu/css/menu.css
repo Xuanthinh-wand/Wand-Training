@@ -1,0 +1,34 @@
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+ul li {
+  list-style: none;
+}
+.right {
+  display: flex;
+  align-items: center;
+}
+ul li {
+  width: max-content;
+  padding: 0 20px;
+  position: relative;
+}
+ul a {
+  text-decoration: none;
+  color: black;
+}
+.button-login li {
+  position: absolute;
+  left: 0;
+
+  display: none;
+}
+.button-login:hover li {
+  display: block;
+}
+sup {
+  color: 6;
+}

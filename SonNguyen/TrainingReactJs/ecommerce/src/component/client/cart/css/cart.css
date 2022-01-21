@@ -1,0 +1,37 @@
+.cart .details {
+  display: flex;
+  justify-content: space-between;
+}
+.cart .details div {
+  margin: 10px 0;
+}
+.cart .details .num {
+  width: 20px;
+}
+.cart .details .name {
+  width: 100px;
+}
+.cart .details .qty {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+}
+.cart .details .qty input {
+  width: 50%;
+}
+.cart .details .price {
+  width: 80px;
+}
+.cart .details .setting {
+  width: 100px;
+}
+.total-cart {
+  margin-top: 50px;
+  padding: 10px;
+  border: 1px solid crimson;
+}
+.button-cart {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
