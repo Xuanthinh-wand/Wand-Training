@@ -4,7 +4,7 @@ function Cart(state = null, action) {
       state = action.payload;
       return state;
     case "UPDATE_CART":
-      state = action.payload;
+      state = action.cart;
       return state;
     case "REMOVE_CART":
       let { products, totalQty, totalPrice } = state;

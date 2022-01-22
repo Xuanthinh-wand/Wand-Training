@@ -7,7 +7,7 @@ class ListOrder extends Component {
     return (
       <>
         {this.props.order.map((val, key) => (
-          <div className="order-details">
+          <div className="order-details" key={key}>
             <div className="name">{val.name}</div>
             <div className="address">{val.address}</div>
             <div className="qty">{val.cart.totalQty}</div>

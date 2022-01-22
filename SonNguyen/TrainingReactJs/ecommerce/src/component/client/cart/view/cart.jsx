@@ -9,7 +9,7 @@ class Cart extends Component {
     let button;
     if (this.props.accountLogin) {
       button = (
-        <Link to="/history">
+        <Link to="/history" className="link-history">
           <button>Lịch sử mua hàng</button>
         </Link>
       );

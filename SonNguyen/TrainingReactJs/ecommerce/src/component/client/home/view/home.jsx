@@ -104,6 +104,7 @@ let mapDispatchToProps = (dispatch) => {
   };
 };
 let mapStateToProps = (state) => {
+  console.log(state);
   return {
     products: state.products,
     cart: state.cart,

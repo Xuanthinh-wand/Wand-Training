@@ -3,24 +3,30 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeCart, updateCart } from "../../../../redux/action/cart";
 import "../css/cart.css";
+import cart from "./cart";
 
 class CartDetails extends Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
       cart: this.props.cart,
-      qty: [],
     };
   }
 
   handleRemoveCart = (id) => {
     this.props.REMOVE_CART(id);
   };
-  handleChangeQty = (val, key, e) => {
-    let { products, totalQty, totalPrice } = this.state.cart;
-  };
-  handleUpdateCart = (key) => {
-    console.log();
+  handleChange(newQty, key) {
+    const { cart } = this.state;
+    cart.products[key].qty = Number(newQty);
+    this.setState({
+      cart,
+    });
+  }
+  handleUpdateCart = () => {
+    let { cart } = this.state;
+    this.props.UPDATE_CART(cart);
+    console.log(this.props.UPDATE_CART(cart));
   };
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({
@@ -44,9 +50,10 @@ class CartDetails extends Component {
               <input
                 type="number"
                 placeholder={val.qty}
-                onChange={(e) => this.handleChangeQty(val, key, e)}
+                value={val.qty}
+                onChange={(e) => this.handleChange(e.target.value, key)}
               />
-              <button onClick={(e) => this.handleUpdateCart(e)}>Sửa</button>
+              <button onClick={() => this.handleUpdateCart()}>Sửa</button>
             </div>
             <div className="price">{val.price}</div>
             <div className="setting">
@@ -73,8 +80,7 @@ class CartDetails extends Component {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    UPDATE_CART: (products, totalQty, totalPrice) =>
-      dispatch(updateCart(products, totalQty, totalPrice)),
+    UPDATE_CART: (cart) => dispatch(updateCart(cart)),
     REMOVE_CART: (id) => dispatch(removeCart(id)),
   };
 };
