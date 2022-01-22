@@ -14,7 +14,6 @@ class CartDetails extends Component {
   }
 
   handleRemoveCart = (id) => {
-    console.log(id);
     this.props.REMOVE_CART(id);
   };
   handleChangeQty = (val, key, e) => {
@@ -23,45 +22,53 @@ class CartDetails extends Component {
   handleUpdateCart = (key) => {
     console.log();
   };
-
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    this.setState({
+      cart: nextProps.cart,
+    });
+  }
   render() {
-    if (this.state.cart) {
-      let { products, totalQty, totalPrice } = this.state.cart;
-      return (
-        <>
-          {products.map((val, key) => (
-            <div className="details" key={key}>
-              <div className="name">{val.name}</div>
-              <div className="qty">
-                <input
-                  type="number"
-                  placeholder={val.qty}
-                  onChange={(e) => this.handleChangeQty(val, key, e)}
-                />
-                <button onClick={(e) => this.handleUpdateCart(e)}>Sửa</button>
-              </div>
-              <div className="price">{val.price}</div>
-              <div className="setting">
-                <button onClick={() => this.handleRemoveCart(key)}>Xóa</button>
-              </div>
-            </div>
-          ))}
-          <hr />
-          <div className="total-cart">
-            <p>Số lượng : {totalQty}</p>
-            <p>Tổng tiền : {totalPrice} vnđ</p>
-          </div>
-          <div className="button-cart">
-            <Link to="/">
-              <button className="payment">Tiếp tục mua hàng</button>
-            </Link>
-            <button className="payment">Thanh toán</button>
-          </div>
-        </>
-      );
+    let { products, totalQty, totalPrice } = this.state.cart;
+    let path;
+    if (this.props.accountLogin) {
+      path = "/payment";
     } else {
-      return <>Giở hàng trống</>;
+      path = "/login";
     }
+    return (
+      <>
+        {products.map((val, key) => (
+          <div className="details" key={key}>
+            <div className="name">{val.name}</div>
+            <div className="qty">
+              <input
+                type="number"
+                placeholder={val.qty}
+                onChange={(e) => this.handleChangeQty(val, key, e)}
+              />
+              <button onClick={(e) => this.handleUpdateCart(e)}>Sửa</button>
+            </div>
+            <div className="price">{val.price}</div>
+            <div className="setting">
+              <button onClick={() => this.handleRemoveCart(key)}>Xóa</button>
+            </div>
+          </div>
+        ))}
+        <hr />
+        <div className="total-cart">
+          <p>Số lượng : {totalQty}</p>
+          <p>Tổng tiền : {totalPrice} vnđ</p>
+        </div>
+        <div className="button-cart">
+          <Link to="/">
+            <button className="payment">Tiếp tục mua hàng</button>
+          </Link>
+          <Link to={path}>
+            <button className="payment">Thanh toán</button>
+          </Link>
+        </div>
+      </>
+    );
   }
 }
 let mapDispatchToProps = (dispatch) => {
@@ -74,6 +81,7 @@ let mapDispatchToProps = (dispatch) => {
 let mapStateToProps = (state) => {
   return {
     cart: state.cart,
+    accountLogin: state.accountLogin,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(CartDetails);

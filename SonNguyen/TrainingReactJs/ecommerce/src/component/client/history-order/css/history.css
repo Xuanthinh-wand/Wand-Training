@@ -1,0 +1,33 @@
+.history h4 {
+  text-align: center;
+}
+.history-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.history .name {
+  width: 15%;
+}
+.history .address {
+  width: 20%;
+}
+.history .qty {
+  width: 80px;
+}
+
+.history .price {
+  width: 100px;
+}
+
+.history .status {
+  width: 150px;
+}
+.history .details {
+  width: 150px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.history div {
+  margin: 10px 0;
+}

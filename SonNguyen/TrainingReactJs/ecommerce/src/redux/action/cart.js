@@ -23,4 +23,8 @@ const removeCart = (id) => ({
   },
 });
 
-export { addCart, updateCart, removeCart };
+const removeAllCart = () => ({
+  type: "REMOVE_ALL_CART",
+});
+
+export { addCart, updateCart, removeCart, removeAllCart };

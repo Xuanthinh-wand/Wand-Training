@@ -12,7 +12,6 @@ class Home extends Component {
     };
   }
   handleChangQty = (e) => {
-    console.log(e.target.value);
     this.setState({
       qty: e.target.value,
     });

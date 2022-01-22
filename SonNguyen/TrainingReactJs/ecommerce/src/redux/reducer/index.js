@@ -3,6 +3,7 @@ import persistReducer from "redux-persist/es/persistReducer";
 import autoMergeLevel2 from "redux-persist/es/stateReconciler/autoMergeLevel2";
 import storage from "redux-persist/lib/storage";
 import Cart from "./cart";
+import Order from "./order";
 import Products from "./products";
 import { Users, Login } from "./user";
 
@@ -11,6 +12,7 @@ const reduxStore = combineReducers({
   users: Users,
   accountLogin: Login,
   cart: Cart,
+  order: Order,
 });
 
 const persistConfig = {

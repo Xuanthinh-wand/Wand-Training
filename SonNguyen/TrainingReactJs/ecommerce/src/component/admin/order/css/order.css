@@ -1,0 +1,19 @@
+.order-admin h4 {
+  text-align: center;
+}
+.order-details {
+  display: flex;
+  flex-wrap: wrap;
+}
+.order-details div {
+  width: 16%;
+  margin: 10px 0;
+}
+.order-detail {
+  display: flex;
+  flex-wrap: wrap;
+}
+.order-detail div {
+  width: 25%;
+  margin: 10px 0;
+}

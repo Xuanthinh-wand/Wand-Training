@@ -94,11 +94,13 @@ class Products extends Component {
     }
     return (
       <>
-        <Link to="/">
-          <button className="btn btn-login">Trang chủ</button>
-        </Link>
         <div className="admin-products">
-          <h3>Danh sách sản phẩm ({this.state.totalQty} sản phẩm)</h3>
+          <div className="title">
+            <h3>Danh sách sản phẩm ({this.state.totalQty} sản phẩm)</h3>
+            <Link to="/admin/order">
+              <button>Đơn hàng</button>
+            </Link>
+          </div>
           <div className="form-group">
             <label>Tên sản phẩm</label>
             <input

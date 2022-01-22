@@ -15,6 +15,9 @@ function Cart(state = null, action) {
       let newCart = { products, totalQty, totalPrice };
       state = newCart;
       return state;
+    case "REMOVE_ALL_CART":
+      state = null;
+      return state;
     default:
       return state;
   }
