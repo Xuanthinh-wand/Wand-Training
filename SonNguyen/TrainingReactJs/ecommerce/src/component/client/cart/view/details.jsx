@@ -26,6 +26,16 @@ class CartDetails extends Component {
   handleUpdateCart = () => {
     let { cart } = this.state;
     this.props.UPDATE_CART(cart);
+let len = cart.products.length;
+console.log(len);
+ cart.totalQty = 0;
+ cart.totalPrice = 0
+for(let i = 0; i < len; i++){
+  cart.totalQty += cart.products[i].qty;
+  cart.totalPrice += (cart.products[i].qty * cart.products[i].price);
+}
+    console.log(cart);
+    console.log(cart.products.qty);
     console.log(this.props.UPDATE_CART(cart));
   };
   UNSAFE_componentWillReceiveProps(nextProps) {
