@@ -11,8 +11,8 @@ class UserSave extends Component {
     };
   }
 
-  UNSAFE_componentWillMount() {
-    this.props.FETCH_USER();
+  async UNSAFE_componentWillMount() {
+    await this.props.FETCH_USER();
   }
   render() {
     if (this.state.fetchUser) {
@@ -34,12 +34,6 @@ class UserSave extends Component {
               <div className="phone">{val.phone}</div>
             </div>
           ))}
-        </>
-      );
-    } else {
-      return (
-        <>
-          <h4>Danh sách trống</h4>
         </>
       );
     }

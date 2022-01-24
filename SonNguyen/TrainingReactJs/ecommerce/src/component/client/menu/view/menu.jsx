@@ -12,9 +12,6 @@ class Menu extends Component {
     };
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-  }
   handleLogOut = () => {
     this.props.LOGOUT();
   };

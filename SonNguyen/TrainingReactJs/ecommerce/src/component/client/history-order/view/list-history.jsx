@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { destroy, destroyOrder } from "../../../../redux/action/order";
 import "../css/history.css";
 
 class ListHistory extends Component {
   render() {
-    console.log(this.props.order);
     return (
       <>
         {this.props.order.map((val, key) => (
-          <div className="history-details">
+          <div className="history-details" key={key}>
             <div className="name">{val.name}</div>
             <div className="address">{val.address}</div>
             <div className="qty">{val.cart.totalQty}</div>
