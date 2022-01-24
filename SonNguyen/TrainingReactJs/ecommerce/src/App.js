@@ -4,6 +4,7 @@ import AdminDetails from "./component/admin/order/view/details";
 import Order from "./component/admin/order/view/order";
 import Products from "./component/admin/products/view";
 import Cart from "./component/client/cart/view/cart";
+import AxiosRedux from "./component/client/get-api-axios-redux/view/axios-redux";
 import UserAxios from "./component/client/get-api-axios/view/user-axios";
 import Details from "./component/client/history-order/view/details";
 import History from "./component/client/history-order/view/history";
@@ -25,6 +26,7 @@ class App extends Component {
           <Route path="/user" element={<User />}></Route>
           <Route path="/user-save" element={<UserSave />}></Route>
           <Route path="/user-axios" element={<UserAxios />}></Route>
+          <Route path="/user-axios-redux" element={<AxiosRedux />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/cart" element={<Cart />}></Route>

@@ -54,6 +54,9 @@ class Menu extends Component {
           </NavLink>
         </ul>
         <ul className="right">
+          <NavLink to={"/user-axios-redux"} className="list-group-item">
+            <li>User Axios Redux </li>
+          </NavLink>
           <NavLink to={"/user-axios"} className="list-group-item">
             <li>User Axios </li>
           </NavLink>

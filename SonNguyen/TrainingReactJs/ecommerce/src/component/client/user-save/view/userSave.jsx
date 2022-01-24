@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import fetchUser from "../../../../redux/action/user-save";
+import { fetchUser } from "../../../../redux/action/user-save";
 import "../../user/css/user.css";
 
 class UserSave extends Component {
@@ -11,8 +11,13 @@ class UserSave extends Component {
     };
   }
 
-  async UNSAFE_componentWillMount() {
-    await this.props.FETCH_USER();
+  UNSAFE_componentWillMount() {
+    this.props.FETCH_USER();
+  }
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    this.setState({
+      fetchUser: nextProps.fetchUser,
+    });
   }
   render() {
     if (this.state.fetchUser) {
@@ -36,6 +41,8 @@ class UserSave extends Component {
           ))}
         </>
       );
+    } else {
+      return <>Đang tải dữ liệu</>;
     }
   }
 }
@@ -54,7 +61,7 @@ let mapDispatchToProps = (dispatch) => {
 };
 let mapStateToProps = (state) => {
   return {
-    fetchUser: state.fetchUser,
+    fetchUser: state.getApiUser.fetchUser,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(UserSave);

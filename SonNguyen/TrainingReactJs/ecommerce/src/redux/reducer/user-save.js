@@ -1,10 +1,20 @@
-function fetchUser(state = null, action) {
+let initinalState = {
+  fetchUser: null,
+  axiosUser: null,
+};
+
+function getApi(state = initinalState, action) {
   switch (action.type) {
     case "FETCH_USER":
-      state = action.payload.fetchUsers;
-      return state;
+      return {
+        fetchUser: action.payload.fetchUsers,
+      };
+    case "AXIOS_USER":
+      return {
+        axiosUser: action.payload.axiosUsers,
+      };
     default:
       return state;
   }
 }
-export default fetchUser;
+export default getApi;

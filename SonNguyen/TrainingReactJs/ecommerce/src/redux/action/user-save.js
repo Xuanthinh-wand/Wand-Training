@@ -5,4 +5,11 @@ const fetchUser = (fetchUsers) => ({
   },
 });
 
-export default fetchUser;
+const axiosUser = (axiosUsers) => ({
+  type: "AXIOS_USER",
+  payload: {
+    axiosUsers,
+  },
+});
+
+export { fetchUser, axiosUser };
