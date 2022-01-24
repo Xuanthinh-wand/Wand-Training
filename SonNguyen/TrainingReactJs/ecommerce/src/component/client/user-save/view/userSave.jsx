@@ -18,12 +18,14 @@ class UserSave extends Component {
     if (this.state.fetchUser) {
       return (
         <>
+          <h3>Get API - fetch - redux</h3>
           <div className="user-group">
             <div className="name">Họ tên</div>
             <div className="userName">Tài khoản</div>
             <div className="email">Email</div>
             <div className="phone">Phone</div>
           </div>
+          <hr />
           {this.state.fetchUser.map((val, key) => (
             <div className="user-group" key={key}>
               <div className="name">{val.name}</div>

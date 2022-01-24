@@ -20,7 +20,7 @@ class User extends Component {
   render() {
     return (
       <div className="App">
-        <h1> Get API Giả lập </h1>
+        <h3> Get API </h3>
         <div className="user-group">
           <div className="name">Họ tên</div>
           <div className="userName">Tài khoản</div>

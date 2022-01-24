@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { logOut } from "../../../../redux/action/user";
 import "../css/menu.css";
 
@@ -11,6 +11,7 @@ class Menu extends Component {
       cart: this.props.cart,
     };
   }
+
   UNSAFE_componentWillReceiveProps(nextProps) {
     console.log(nextProps);
   }
@@ -35,12 +36,12 @@ class Menu extends Component {
     } else {
       button = (
         <li className="button-login">
-          <Link to="/login">
+          <NavLink to="/login">
             <button className="btn btn-login">Đăng nhập</button>
-          </Link>
-          <Link to="/register">
+          </NavLink>
+          <NavLink to="/register">
             <button className="btn btn-register">Đăng ký</button>
-          </Link>
+          </NavLink>
         </li>
       );
     }
@@ -51,22 +52,25 @@ class Menu extends Component {
     return (
       <div className="menu">
         <ul className="left">
-          <Link to={"/"}>
+          <NavLink to={"/"} className="list-group-item">
             <li>Trang chủ</li>
-          </Link>
+          </NavLink>
         </ul>
         <ul className="right">
-          <Link to={"/user-save"}>
-            <li>List User </li>
-          </Link>
-          <Link to={"/user"}>
-            <li>User </li>
-          </Link>
-          <Link to={"/cart"}>
+          <NavLink to={"/user-axios"} className="list-group-item">
+            <li>User Axios </li>
+          </NavLink>
+          <NavLink to={"/user-save"} className="list-group-item">
+            <li> User - Redux </li>
+          </NavLink>
+          <NavLink to={"/user"} className="list-group-item">
+            <li>User - State </li>
+          </NavLink>
+          <NavLink to={"/cart"} className="list-group-item">
             <li>
               Giỏ hàng <sup>{number}</sup>{" "}
             </li>
-          </Link>
+          </NavLink>
           {button}
         </ul>
       </div>
