@@ -6,8 +6,8 @@ import { order } from "../../../../redux/action/order";
 import "../css/payment.css";
 
 class Payment extends Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
       name: "",
       address: "",
@@ -41,7 +41,7 @@ class Payment extends Component {
   order = () => {
     let { name, address, phone, note } = this.state;
     if (name && address && phone) {
-      let cart = this.props.cart;
+      let cart = this.props.showCart.cart;
       let status = "Đang chờ xác nhận";
       this.props.ORDER(name, address, phone, note, cart, status);
       this.props.REMOVE_ALL_CART();
@@ -53,7 +53,6 @@ class Payment extends Component {
       alert("Vui lòng điền các trường cần thiết");
     }
   };
-
   render() {
     const { redirect } = this.state;
 
@@ -117,7 +116,7 @@ let mapDispatchToProps = (dispatch) => {
 };
 let mapStateToProps = (state) => {
   return {
-    cart: state.cart,
+    showCart: state.listCart,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Payment);

@@ -42,7 +42,7 @@ class Cart extends Component {
 
 let mapStateToProps = (state) => {
   return {
-    cart: state.cart,
+    cart: state.listCart.cart,
     accountLogin: state.accountLogin,
   };
 };

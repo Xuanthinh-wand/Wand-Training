@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { addCart } from "../../../../redux/action/cart";
 import "../css/home.css";
 
@@ -9,15 +8,17 @@ class Home extends Component {
     super(props);
     this.state = {
       qty: 1,
+      cart: this.props.cart,
     };
   }
+
   handleChangQty = (e) => {
     this.setState({
       qty: e.target.value,
     });
   };
   addToCart = (val, key) => {
-    let { cart } = this.props;
+    let cart = this.props.cart;
     let { name, price } = val;
     if (!cart) {
       let qty = this.state.qty;
@@ -105,8 +106,8 @@ let mapDispatchToProps = (dispatch) => {
 };
 let mapStateToProps = (state) => {
   return {
+    cart: state.listCart.cart,
     products: state.products,
-    cart: state.cart,
   };
 };
 

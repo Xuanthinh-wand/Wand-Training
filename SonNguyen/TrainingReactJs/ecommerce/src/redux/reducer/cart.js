@@ -1,23 +1,22 @@
-function Cart(state = null, action) {
+let initinalState = {
+  cart: null,
+};
+function Cart(state = initinalState, action) {
   switch (action.type) {
     case "ADD_CART":
-      return (state = action.payload);
+      return { cart: action.payload };
     case "UPDATE_CART":
-      let { cart } = action.payload;
-      state = cart;
-      return state;
+      return { cart: action.payload.cart };
     case "REMOVE_CART":
-      let { products, totalQty, totalPrice } = state;
+      let { products, totalQty, totalPrice } = state.cart;
       totalQty -= products[action.payload.id].qty;
       totalPrice -=
         products[action.payload.id].price * products[action.payload.id].qty;
       products.splice(action.payload.id, 1);
       let newCart = { products, totalQty, totalPrice };
-      state = newCart;
-      return state;
+      return { cart: newCart };
     case "REMOVE_ALL_CART":
-      state = null;
-      return state;
+      return { cart: null };
     default:
       return state;
   }

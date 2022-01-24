@@ -11,28 +11,36 @@ class UserSave extends Component {
     };
   }
 
-  componentDidMount() {
+  UNSAFE_componentWillMount() {
     this.props.FETCH_USER();
   }
   render() {
-    return (
-      <>
-        <div className="user-group">
-          <div className="name">Họ tên</div>
-          <div className="userName">Tài khoản</div>
-          <div className="email">Email</div>
-          <div className="phone">Phone</div>
-        </div>
-        {this.state.fetchUser.map((val, key) => (
-          <div className="user-group" key={key}>
-            <div className="name">{val.name}</div>
-            <div className="userName">{val.username}</div>
-            <div className="email">{val.email}</div>
-            <div className="phone">{val.phone}</div>
+    if (this.state.fetchUser) {
+      return (
+        <>
+          <div className="user-group">
+            <div className="name">Họ tên</div>
+            <div className="userName">Tài khoản</div>
+            <div className="email">Email</div>
+            <div className="phone">Phone</div>
           </div>
-        ))}
-      </>
-    );
+          {this.state.fetchUser.map((val, key) => (
+            <div className="user-group" key={key}>
+              <div className="name">{val.name}</div>
+              <div className="userName">{val.username}</div>
+              <div className="email">{val.email}</div>
+              <div className="phone">{val.phone}</div>
+            </div>
+          ))}
+        </>
+      );
+    } else {
+      return (
+        <>
+          <h4>Danh sách trống</h4>
+        </>
+      );
+    }
   }
 }
 let mapDispatchToProps = (dispatch) => {

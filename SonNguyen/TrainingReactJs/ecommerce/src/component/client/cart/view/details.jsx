@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { removeCart, updateCart } from "../../../../redux/action/cart";
 import "../css/cart.css";
 import cart from "./cart";
@@ -17,7 +17,7 @@ class CartDetails extends Component {
     this.props.REMOVE_CART(id);
   };
   handleChange(newQty, key) {
-    const { cart } = this.state;
+    const { cart } = this.props;
     cart.products[key].qty = Number(newQty);
     cart.totalQty = 0;
     cart.totalPrice = 0;
@@ -26,13 +26,12 @@ class CartDetails extends Component {
       cart.totalQty += cart.products[i].qty;
       cart.totalPrice += cart.products[i].qty * cart.products[i].price;
     }
-
     this.setState({
       cart,
     });
   }
   handleUpdateCart = () => {
-    let { cart } = this.state;
+    let cart = this.props.cart;
     let len = cart.products.length;
     cart.totalQty = 0;
     cart.totalPrice = 0;
@@ -42,13 +41,9 @@ class CartDetails extends Component {
     }
     this.props.UPDATE_CART(cart);
   };
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    this.setState({
-      cart: nextProps.cart,
-    });
-  }
+
   render() {
-    let { products, totalQty, totalPrice } = this.state.cart;
+    let { products, totalQty, totalPrice } = this.props.cart;
     let path;
     if (this.props.accountLogin) {
       path = "/payment";
@@ -100,7 +95,7 @@ let mapDispatchToProps = (dispatch) => {
 };
 let mapStateToProps = (state) => {
   return {
-    cart: state.cart,
+    cart: state.listCart.cart,
     accountLogin: state.accountLogin,
   };
 };

@@ -6,7 +6,7 @@ import "../css/history.css";
 
 class ListHistory extends Component {
   render() {
-    let { value, id, destroyOrder } = this.props;
+    console.log(this.props.order);
     return (
       <>
         {this.props.order.map((val, key) => (

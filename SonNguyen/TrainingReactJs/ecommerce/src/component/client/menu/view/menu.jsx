@@ -5,6 +5,15 @@ import { logOut } from "../../../../redux/action/user";
 import "../css/menu.css";
 
 class Menu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cart: this.props.cart,
+    };
+  }
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+  }
   handleLogOut = () => {
     this.props.LOGOUT();
   };
@@ -35,6 +44,7 @@ class Menu extends Component {
         </li>
       );
     }
+
     if (this.props.cart) {
       number = this.props.cart.totalQty;
     }
@@ -71,7 +81,7 @@ let mapDispatchToProps = (dispatch) => {
 let mapStateToProps = (state) => {
   return {
     accountLogin: state.accountLogin,
-    cart: state.cart,
+    cart: state.listCart.cart,
   };
 };
 

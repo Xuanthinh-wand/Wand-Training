@@ -12,7 +12,7 @@ const reduxStore = combineReducers({
   products: Products,
   users: Users,
   accountLogin: Login,
-  cart: Cart,
+  listCart: Cart,
   order: Order,
   fetchUser: fetchUser,
 });
