@@ -9,6 +9,8 @@ import History from "./component/client/history-order/view/history";
 import Home from "./component/client/home/view/home";
 import Menu from "./component/client/menu/view/menu";
 import Payment from "./component/client/payment/view/payment";
+import UserSave from "./component/client/user-save/view/userSave";
+import User from "./component/client/user/view/user";
 import Login from "./component/login/view/login";
 import Register from "./component/login/view/register";
 
@@ -19,6 +21,8 @@ class App extends Component {
         <Menu />
         <Routes>
           <Route path="/" element={<Home />} extra></Route>
+          <Route path="/user" element={<User />}></Route>
+          <Route path="/user-save" element={<UserSave />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/cart" element={<Cart />}></Route>

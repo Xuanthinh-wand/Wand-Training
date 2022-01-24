@@ -1,0 +1,7 @@
+.user-group {
+  display: flex;
+}
+.user-group div {
+  width: calc(25% - 20px);
+  margin: 20px 10px;
+}

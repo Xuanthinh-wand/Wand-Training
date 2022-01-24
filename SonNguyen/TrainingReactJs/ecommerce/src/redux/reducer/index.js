@@ -6,6 +6,7 @@ import Cart from "./cart";
 import Order from "./order";
 import Products from "./products";
 import { Users, Login } from "./user";
+import fetchUser from "./user-save";
 
 const reduxStore = combineReducers({
   products: Products,
@@ -13,6 +14,7 @@ const reduxStore = combineReducers({
   accountLogin: Login,
   cart: Cart,
   order: Order,
+  fetchUser: fetchUser,
 });
 
 const persistConfig = {

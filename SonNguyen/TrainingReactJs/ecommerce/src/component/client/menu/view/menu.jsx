@@ -46,6 +46,12 @@ class Menu extends Component {
           </Link>
         </ul>
         <ul className="right">
+          <Link to={"/user-save"}>
+            <li>List User </li>
+          </Link>
+          <Link to={"/user"}>
+            <li>User </li>
+          </Link>
           <Link to={"/cart"}>
             <li>
               Giỏ hàng <sup>{number}</sup>{" "}
