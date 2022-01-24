@@ -19,24 +19,28 @@ class CartDetails extends Component {
   handleChange(newQty, key) {
     const { cart } = this.state;
     cart.products[key].qty = Number(newQty);
+    cart.totalQty = 0;
+    cart.totalPrice = 0;
+    let len = cart.products.length;
+    for (let i = 0; i < len; i++) {
+      cart.totalQty += cart.products[i].qty;
+      cart.totalPrice += cart.products[i].qty * cart.products[i].price;
+    }
+
     this.setState({
       cart,
     });
   }
   handleUpdateCart = () => {
     let { cart } = this.state;
+    let len = cart.products.length;
+    cart.totalQty = 0;
+    cart.totalPrice = 0;
+    for (let i = 0; i < len; i++) {
+      cart.totalQty += cart.products[i].qty;
+      cart.totalPrice += cart.products[i].qty * cart.products[i].price;
+    }
     this.props.UPDATE_CART(cart);
-let len = cart.products.length;
-console.log(len);
- cart.totalQty = 0;
- cart.totalPrice = 0
-for(let i = 0; i < len; i++){
-  cart.totalQty += cart.products[i].qty;
-  cart.totalPrice += (cart.products[i].qty * cart.products[i].price);
-}
-    console.log(cart);
-    console.log(cart.products.qty);
-    console.log(this.props.UPDATE_CART(cart));
   };
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({

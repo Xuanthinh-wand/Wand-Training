@@ -1,10 +1,10 @@
 function Cart(state = null, action) {
   switch (action.type) {
     case "ADD_CART":
-      state = action.payload;
-      return state;
+      return (state = action.payload);
     case "UPDATE_CART":
-      state = action.cart;
+      let { cart } = action.payload;
+      state = cart;
       return state;
     case "REMOVE_CART":
       let { products, totalQty, totalPrice } = state;

@@ -9,7 +9,9 @@ const addCart = (products, totalQty, totalPrice) => ({
 
 const updateCart = (cart) => ({
   type: "UPDATE_CART",
-  cart,
+  payload: {
+    cart,
+  },
 });
 
 const removeCart = (id) => ({
