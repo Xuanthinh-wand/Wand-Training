@@ -3,6 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import AxiosReduxDetails from "./axios-redux-details";
 import { axiosUser } from "../../../../redux/action/user-save";
+
 class AxiosRedux extends Component {
   constructor(props) {
     super(props);
@@ -42,17 +43,7 @@ class AxiosRedux extends Component {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    AXIOS_USER: () =>
-      axios("https://jsonplaceholder.typicode.com/users")
-        .then((response) => {
-          let dataResponse = response.data;
-          if (dataResponse != null) {
-            dispatch(axiosUser(dataResponse));
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        }),
+    AXIOS_USER: () => dispatch(axiosUser()),
   };
 };
 let mapStateToProps = (state) => {

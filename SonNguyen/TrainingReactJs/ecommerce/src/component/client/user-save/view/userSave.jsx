@@ -48,15 +48,7 @@ class UserSave extends Component {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    FETCH_USER: () =>
-      fetch("https://jsonplaceholder.typicode.com/users")
-        .then((res) => res.json())
-        .then((res) => {
-          dispatch(fetchUser(res));
-        })
-        .catch((error) => {
-          console.log(error);
-        }),
+    FETCH_USER: () => dispatch(fetchUser()),
   };
 };
 let mapStateToProps = (state) => {

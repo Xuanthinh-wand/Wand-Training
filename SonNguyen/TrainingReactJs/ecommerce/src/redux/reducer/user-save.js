@@ -7,11 +7,13 @@ function getApi(state = initinalState, action) {
   switch (action.type) {
     case "FETCH_USER":
       return {
-        fetchUser: action.payload.fetchUsers,
+        ...state,
+        fetchUser: action.payload,
       };
     case "AXIOS_USER":
       return {
-        axiosUser: action.payload.axiosUsers,
+        ...state,
+        axiosUser: action.payload,
       };
     default:
       return state;
