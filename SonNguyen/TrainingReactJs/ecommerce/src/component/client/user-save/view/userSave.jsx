@@ -14,11 +14,13 @@ class UserSave extends Component {
   UNSAFE_componentWillMount() {
     this.props.FETCH_USER();
   }
+
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({
       fetchUser: nextProps.fetchUser,
     });
   }
+
   render() {
     if (this.state.fetchUser) {
       return (
@@ -46,14 +48,17 @@ class UserSave extends Component {
     }
   }
 }
+
 let mapDispatchToProps = (dispatch) => {
   return {
     FETCH_USER: () => dispatch(fetchUser()),
   };
 };
+
 let mapStateToProps = (state) => {
   return {
     fetchUser: state.getApiUser.fetchUser,
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(UserSave);

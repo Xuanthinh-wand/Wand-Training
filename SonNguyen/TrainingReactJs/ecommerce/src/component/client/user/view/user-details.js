@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 class UserDetails extends Component {
   render() {
     let { name, username, email, phone } = this.props.value;
@@ -12,4 +13,5 @@ class UserDetails extends Component {
     );
   }
 }
+
 export default UserDetails;

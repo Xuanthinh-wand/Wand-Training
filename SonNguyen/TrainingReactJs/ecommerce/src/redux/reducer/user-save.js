@@ -19,4 +19,5 @@ function getApi(state = initinalState, action) {
       return state;
   }
 }
+
 export default getApi;

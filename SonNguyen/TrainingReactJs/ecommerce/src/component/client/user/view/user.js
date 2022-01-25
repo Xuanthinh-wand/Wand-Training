@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserDetails from "./user-details";
 import "../css/user.css";
+
 class User extends Component {
   constructor(props) {
     super(props);
@@ -8,6 +9,7 @@ class User extends Component {
       user: [],
     };
   }
+
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
@@ -17,6 +19,7 @@ class User extends Component {
         });
       });
   }
+
   render() {
     return (
       <div className="App">
@@ -35,4 +38,5 @@ class User extends Component {
     );
   }
 }
+
 export default User;
