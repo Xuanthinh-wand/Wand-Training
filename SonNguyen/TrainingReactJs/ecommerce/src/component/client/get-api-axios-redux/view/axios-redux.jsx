@@ -12,7 +12,7 @@ class AxiosRedux extends Component {
     };
   }
 
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     this.props.AXIOS_USER();
   }
 

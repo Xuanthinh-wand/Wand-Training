@@ -11,7 +11,7 @@ class UserSave extends Component {
     };
   }
 
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     this.props.FETCH_USER();
   }
 
