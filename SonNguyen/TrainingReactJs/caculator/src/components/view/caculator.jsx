@@ -15,12 +15,12 @@ class Caculator extends Component {
 
     if (cal) {
       this.setState({
-        number2: Number(number2 + e.target.value),
+        number2: number2 + e.target.value,
       });
     } else {
       if (number.length !== undefined) {
         this.setState({
-          number: Number(number + e.target.value),
+          number: number + e.target.value,
         });
       } else {
         this.setState({
