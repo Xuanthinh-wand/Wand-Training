@@ -15,14 +15,18 @@ class Caculator extends Component {
 
     if (cal) {
       this.setState({
-        result: number + cal + number2,
         number2: number2 + Number(e.target.value),
       });
     } else {
-      this.setState({
-        result: number + cal + number2,
-        number: number + Number(e.target.value),
-      });
+      if (number.length !== undefined) {
+        this.setState({
+          number: number + Number(e.target.value),
+        });
+      } else {
+        this.setState({
+          number: e.target.value,
+        });
+      }
     }
   };
   removeAll = () => {
