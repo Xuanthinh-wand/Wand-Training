@@ -1,0 +1,23 @@
+.caculator {
+  position: relative;
+  max-width: 300px;
+  margin: 100px auto;
+  .screen {
+    text-align: end;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid red;
+  }
+  .group {
+    button {
+      width: 65px;
+      margin: 5px 5px;
+    }
+    .btn {
+      width: calc(55% - 63px);
+    }
+    .groupBot {
+      width: calc(50% - 10px);
+    }
+  }
+}
