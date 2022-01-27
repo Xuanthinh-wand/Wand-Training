@@ -1,0 +1,21 @@
+.footer {
+  background-color: #000000;
+  color: #fff;
+  padding: 20px 0;
+}
+.footer .top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.footer .top .logo {
+  max-width: 200px;
+  max-height: 200px;
+}
+.footer .top .logo img {
+  width: 100%;
+  border-radius: 100%;
+}
+.footer .bottom p {
+  text-align: center;
+}

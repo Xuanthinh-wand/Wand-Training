@@ -1,0 +1,50 @@
+.contact h3 {
+  text-align: right;
+}
+.contact .content {
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.contact .detail {
+  width: calc(50% - 80px);
+  margin: 0 20px;
+}
+.contact .image img {
+  width: 100%;
+  border-radius: 15%;
+}
+.text-field {
+  position: relative;
+  margin: 20px 0;
+}
+.text-field label {
+  display: inline-block;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  background-color: white;
+  padding: 1px 5px;
+  font-size: 12px;
+  transform: translateY(-50%);
+  color: #6a5af9;
+}
+.text-field input,
+.text-field textarea {
+  padding: 15px;
+  display: block;
+  width: 100%;
+  color: #999;
+  font-size: 14px;
+  border: 1px solid #6a5af9;
+  border-radius: 4px;
+}
+@media screen and (max-width: 768px) {
+  .contact .detail {
+    width: 100%;
+  }
+}
