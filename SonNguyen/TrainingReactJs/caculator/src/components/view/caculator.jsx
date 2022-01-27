@@ -15,12 +15,12 @@ class Caculator extends Component {
 
     if (cal) {
       this.setState({
-        number2: number2 + Number(e.target.value),
+        number2: Number(number2 + e.target.value),
       });
     } else {
       if (number.length !== undefined) {
         this.setState({
-          number: number + Number(e.target.value),
+          number: Number(number + e.target.value),
         });
       } else {
         this.setState({
@@ -29,6 +29,7 @@ class Caculator extends Component {
       }
     }
   };
+
   removeAll = () => {
     this.setState({
       number: "",
@@ -36,6 +37,7 @@ class Caculator extends Component {
       number2: "",
     });
   };
+
   remove = () => {
     let { number, cal, number2 } = this.state;
     if (!number2) {
@@ -63,6 +65,7 @@ class Caculator extends Component {
       });
     }
   };
+
   caculation = (e) => {
     let { cal } = this.state;
     if (!cal) {
@@ -78,6 +81,7 @@ class Caculator extends Component {
       );
     }
   };
+
   rel = () => {
     let { number, cal, number2 } = this.state;
     switch (cal) {
