@@ -86,6 +86,11 @@ h6 {
   font-size: 2rem;
   z-index: 10;
 }
+.slider-list {
+  height: 100%;
+  display: flex;
+  transition: transform 0.3s linear;
+}
 .slider-dots {
   list-style: none;
   padding: 0;

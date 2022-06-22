@@ -87,6 +87,12 @@ h6 {
         z-index: 10;
     }
 
+    &-list {
+        height: 100%;
+        display: flex;
+        transition: transform 0.3s linear;
+    }
+
     &-dots {
         list-style: none;
         padding: 0;
