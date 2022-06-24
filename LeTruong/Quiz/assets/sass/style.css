@@ -1,0 +1,76 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  outline: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+.title {
+  padding: 40px 0;
+  color: orangered;
+  text-align: center;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+  box-shadow: 0 0 16px 10px #ddd;
+}
+.questions-answer {
+  padding: 2px 0;
+}
+.questions-answer label,
+.questions-answer input {
+  cursor: pointer;
+}
+.questions-list {
+  order: 0;
+}
+.questions .btn-submit {
+  order: 1;
+  margin-top: 16px;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */
