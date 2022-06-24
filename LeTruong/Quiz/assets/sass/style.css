@@ -66,11 +66,50 @@ h6 {
 .questions-answer input {
   cursor: pointer;
 }
+.questions-item {
+  display: none;
+}
+.questions-item.active {
+  display: block;
+}
+.questions-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+}
+.questions-tabs-item {
+  padding: 4px;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  cursor: pointer;
+}
+.questions-tabs-item.active {
+  border: 1px solid black;
+  border-radius: 50%;
+  font-weight: 700;
+}
 .questions-list {
   order: 0;
 }
 .questions .btn-submit {
   order: 1;
   margin-top: 16px;
+  cursor: pointer;
+}
+.questions .group-btn {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 16px;
+}
+.questions .group-btn .btn-prev,
+.questions .group-btn .btn-next {
+  width: 80px;
+  height: 36px;
+  background-color: #e1452f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
