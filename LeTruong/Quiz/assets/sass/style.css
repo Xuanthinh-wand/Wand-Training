@@ -83,10 +83,11 @@ h6 {
   height: 36px;
   text-align: center;
   cursor: pointer;
+  border: 1px solid white;
+  border-radius: 50%;
 }
 .questions-tabs-item.active {
-  border: 1px solid black;
-  border-radius: 50%;
+  border-color: black;
   font-weight: 700;
 }
 .questions-list {
@@ -97,6 +98,7 @@ h6 {
   margin-top: 16px;
   cursor: pointer;
   padding: 4px 0;
+  z-index: 10;
 }
 .questions .group-btn {
   display: flex;
