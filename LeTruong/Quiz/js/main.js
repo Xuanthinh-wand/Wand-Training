@@ -1,9 +1,9 @@
 import {questions} from './db.js';
 import {answers} from './db.js';
 
-const formQuestion = document.querySelector('.questions');
-formQuestion.innerHTML += '<div class="questions-tabs"></div>';
-formQuestion.innerHTML += '<div class="questions-list"></div>';
+const eleQuestions = document.querySelector('.questions');
+eleQuestions.innerHTML += '<div class="questions-tabs"></div>';
+eleQuestions.innerHTML += '<div class="questions-list"></div>';
 const eleListQuestion = document.querySelector('.questions-list');
 const eleQuestionTabs = document.querySelector('.questions-tabs');
 let totalQuestions = 5;
@@ -42,8 +42,10 @@ function getRandomQuestion(number) {
     });
 }
 
+eleQuestions.innerHTML += '<button type="submit" class="btn-submit">Nộp bài </button>';
+
 // Thêm btn prev next question
-formQuestion.innerHTML +=
+eleQuestions.innerHTML +=
     '<div class="group-btn"><div class="btn-prev"><i class="fa-solid fa-angle-left"></i></div><div class="btn-next"><i class="fa-solid fa-angle-right"></i></div></div>';
 
 const eleQuestionItems = document.querySelectorAll('.questions-item');
@@ -102,3 +104,10 @@ eleTabItems.forEach((tab, index) => {
         setStatusQuestion(1);
     });
 });
+
+const btnSubmit = document.querySelector('.btn-submit');
+function submitQuestion() {
+    btnSubmit.addEventListener('click', (question, index) => {
+        console.log('submit');
+    });
+}
