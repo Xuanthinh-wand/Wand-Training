@@ -76,6 +76,7 @@ h6 {
   display: flex;
   justify-content: space-around;
   margin-bottom: 16px;
+  order: 1;
 }
 .questions-tabs-item {
   padding: 4px;
@@ -91,10 +92,11 @@ h6 {
   font-weight: 700;
 }
 .questions-list {
-  order: 0;
+  order: 2;
 }
+.questions .btn-reset,
 .questions .btn-submit {
-  order: 1;
+  order: 4;
   margin-top: 16px;
   cursor: pointer;
   padding: 4px 0;
@@ -104,6 +106,7 @@ h6 {
   display: flex;
   justify-content: space-around;
   margin-top: 16px;
+  order: 3;
 }
 .questions .group-btn .btn-prev,
 .questions .group-btn .btn-next {
@@ -115,4 +118,17 @@ h6 {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+.questions .alert-point {
+  order: 0;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  color: orange;
+}
+.questions .alert-true {
+  color: green;
+  font-weight: 700;
+}
+.questions .alert-false {
+  color: red;
 }/*# sourceMappingURL=style.css.map */

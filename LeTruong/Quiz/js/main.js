@@ -11,43 +11,53 @@ let currentIndex = 0;
 let arrIndex = [];
 
 // Lấy random ra 5 câu hỏi
-getRandomQuestion(totalQuestions);
-function getRandomQuestion(number) {
-    while (arrIndex.length < number) {
-        var randomIndex = Math.ceil(Math.random() * questions.length);
-        if (arrIndex.indexOf(randomIndex) === -1) {
-            arrIndex.push(randomIndex);
+start();
+function start() {
+    getRandomQuestion(totalQuestions);
+
+    function getRandomQuestion(number) {
+        while (arrIndex.length < number) {
+            var randomIndex = Math.ceil(Math.random() * questions.length);
+            if (arrIndex.indexOf(randomIndex) === -1) {
+                arrIndex.push(randomIndex);
+            }
         }
-    }
-    //In ra list câu hỏi
-    arrIndex.forEach((questionId, index) => {
-        const question = questions.find((question) => question.id == questionId);
-        eleListQuestion.innerHTML += `<div class=\"questions-item\"><strong>Câu ${index + 1}: </strong>${
-            question.title
-        }</div>`;
+        //In ra list câu hỏi
+        arrIndex.forEach((questionId, index) => {
+            const question = questions.find((question) => question.id == questionId);
+            eleListQuestion.innerHTML += `<div class=\"questions-item\"><strong>Câu ${index + 1}: </strong>${
+                question.title
+            }</div>`;
 
-        let eleQuestionItems = document.querySelectorAll('.questions-item');
-        eleQuestionItems[index].innerHTML += '<div class="answers-list"></div>';
-        const eleAnswerList = document.querySelectorAll('.answers-list');
-        let listAnswers = '';
-        listAnswers = answers.filter((answer) => answer.questionId == questionId);
+            let eleQuestionItems = document.querySelectorAll('.questions-item');
+            eleQuestionItems[index].innerHTML += '<div class="answers-list"></div>';
+            const eleAnswerList = document.querySelectorAll('.answers-list');
+            let listAnswers = '';
+            listAnswers = answers.filter((answer) => answer.questionId == questionId);
 
-        //In ra các tab để click đến từng câu hỏi
-        eleQuestionTabs.innerHTML += `<div class=\"questions-tabs-item\">${index + 1}</div>`;
-        //In ra list đáp án theo từng câu hỏi
-        listAnswers.forEach((answer) => {
-            eleAnswerList[
-                index
-            ].innerHTML += `<div class=\"questions-answer\"><label><input type=\"radio\" class=\"checked-${
-                index + 1
-            }\" data-id=\"${answer.id}\" name=\"quiz-${index + 1}\"> ${answer.name}</label></div>`;
+            //In ra các tab để click đến từng câu hỏi
+            eleQuestionTabs.innerHTML += `<div class=\"questions-tabs-item\">${index + 1}</div>`;
+
+            //In ra list đáp án theo từng câu hỏi
+            listAnswers.forEach((answer) => {
+                eleAnswerList[index].innerHTML += `<div class=\"questions-answer\"><label class=\"checked-${
+                    index + 1
+                }\"  data-id=\"${answer.id}\"><input type=\"radio\" name=\"quiz-${index + 1}\"> ${
+                    answer.name
+                }</label></div>`;
+            });
         });
-    });
-}
+    }
+    // Thêm btn prev next question
+    eleQuestions.innerHTML +=
+        '<div class="group-btn"><div class="btn-prev"><i class="fa-solid fa-angle-left"></i></div><div class="btn-next"><i class="fa-solid fa-angle-right"></i></div></div>';
 
-// Thêm btn prev next question
-eleQuestions.innerHTML +=
-    '<div class="group-btn"><div class="btn-prev"><i class="fa-solid fa-angle-left"></i></div><div class="btn-next"><i class="fa-solid fa-angle-right"></i></div></div>';
+    let initBtnSubmit = document.createElement('button');
+    initBtnSubmit.classList.add('btn-submit');
+    initBtnSubmit.innerText = 'Nộp bài';
+    eleQuestions.appendChild(initBtnSubmit);
+}
+const btnSubmit = document.querySelector('.btn-submit');
 
 const eleQuestionItems = document.querySelectorAll('.questions-item');
 eleQuestionItems[currentIndex].classList.add('active');
@@ -105,32 +115,19 @@ eleTabItems.forEach((tab, index) => {
         setStatusQuestion(1);
     });
 });
-
-let initBtnSubmit = document.createElement('button');
-initBtnSubmit.classList.add('btn-submit');
-initBtnSubmit.innerText = 'Nộp bài';
-eleQuestions.appendChild(initBtnSubmit);
-const btnSubmit = document.querySelector('.btn-submit');
-
+// thêm class checked cho label
 const eleAnswerList = document.querySelectorAll('.answers-list');
 eleAnswerList.forEach((answer, index) => {
-    const childs = answer.childNodes;
-    childs.forEach((child) => {
-        child.addEventListener('click', function () {
+    const tabActive = eleTabItems[index];
+
+    let eleCheckeds = document.querySelectorAll(`.checked-${index + 1}`);
+    eleCheckeds.forEach((item) => {
+        item.addEventListener('click', function () {
             this.classList.add('checked');
-            console.log(this);
+            tabActive.style = 'color: green; border-color: green;';
         });
     });
 });
-
-// eleRadios.forEach((item, index) => {
-//     const tabActive = eleTabItems[index];
-//     item.addEventListener('click', function () {
-//         console.log(index);
-//         this.classList.add('cheked');
-//         tabActive.style = 'color: green; border-color: green;';
-//     });
-// });
 
 btnSubmit.addEventListener('click', () => {
     let indexRequired = '';
@@ -138,19 +135,18 @@ btnSubmit.addEventListener('click', () => {
     let answerSubmit = {};
     arrIndex.forEach((questionId, index) => {
         let answerId = 0;
-
-        // let statusCheckeds = document.querySelectorAll('.questions-item input[type=radio]:checked');
-        // console.log(statusCheckeds);
-        // if (!statusCheckeds[index]) {
-        //     indexRequired += index + ',';
-        //     return;
-        // }
-        let eleCheckeds = document.querySelectorAll(`.checked-${index + 1}`);
-        eleCheckeds.forEach((item, index) => {
-            if (eleCheckeds[index].checked) {
-                answerId = eleCheckeds[index].dataset.id;
+        let check = document.querySelector(`.checked-${index + 1}.checked`);
+        if (!check) {
+            indexRequired += index + 1 + ',';
+            return;
+        }
+        let eleCheckeds = document.querySelectorAll(`.checked-${index + 1}.checked`);
+        eleCheckeds.forEach((item) => {
+            if (item) {
+                answerId = item.dataset.id;
             }
         });
+
         let statusAnswer = false;
         let getStatusAnswersResult = answers.find((answer) => answer.id == answerId);
         if (getStatusAnswersResult) {
@@ -166,13 +162,34 @@ btnSubmit.addEventListener('click', () => {
         arrAnswersResult.push(answerSubmit);
     });
 
-    // if (indexRequired.length > 0) {
-    //     alert(`Bạn còn các câu ${indexRequired.slice(0, -1)} chưa làm`);
-    //     return;
-    // }
-    arrAnswersResult.forEach((item) => {
+    if (indexRequired.length > 0) {
+        alert(`Bạn còn các câu ${indexRequired.slice(0, -1)} chưa làm`);
+        return;
+    }
+    let point = 0;
+    arrAnswersResult.forEach((item, index) => {
         if (item.answerId == item.answerTrueId) {
-            console.log('đáp án đúng');
+            point++;
+            let initAleartTrue = document.createElement('div');
+            initAleartTrue.classList.add('alert-true');
+            initAleartTrue.innerText = 'Câu trả lời đúng';
+            eleQuestionItems[index].appendChild(initAleartTrue);
+            return;
         }
+        let answerTrue = answers.find((answer) => answer.id == item.answerTrueId);
+        let initAleartFalse = document.createElement('div');
+        initAleartFalse.classList.add('alert-false');
+        initAleartFalse.innerText = `Câu trả lời sai (Đáp án đúng là: ${answerTrue.name})`;
+        eleQuestionItems[index].appendChild(initAleartFalse);
+    });
+    let initAleartPoint = document.createElement('div');
+    initAleartPoint.classList.add('alert-point');
+    initAleartPoint.innerText = `Số câu trả lời đúng của bạn: ${point} / ${totalQuestions}`;
+    eleQuestions.appendChild(initAleartPoint);
+    btnSubmit.style.display = 'none';
+
+    const listInput = document.querySelectorAll('input');
+    listInput.forEach((item) => {
+        item.disabled = true;
     });
 });
