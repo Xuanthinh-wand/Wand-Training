@@ -138,4 +138,58 @@ h6 {
     .alert-false {
         color: red;
     }
+
+    input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        position: relative;
+        top: 2px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        transition: all 0.15s ease-out 0s;
+        background: #cbd1d8;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 0.5rem;
+        outline: none;
+        position: relative;
+        z-index: 1000;
+        border-radius: 50%;
+
+        &:checked {
+            background: #40e0d0;
+
+            &::before {
+                width: 16px;
+                height: 16px;
+                display: flex;
+                content: '\f00c';
+                font-size: 12px;
+                font-weight: bold;
+                position: absolute;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Font Awesome 6 Free';
+            }
+
+            &::after {
+                -webkit-animation: click-wave 0.65s;
+                -moz-animation: click-wave 0.65s;
+                animation: click-wave 0.65s;
+                background: #40e0d0;
+                content: '';
+                display: block;
+                position: relative;
+                z-index: 100;
+            }
+        }
+    }
 }

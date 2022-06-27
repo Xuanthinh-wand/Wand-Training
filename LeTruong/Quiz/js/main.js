@@ -9,54 +9,56 @@ const eleQuestionTabs = document.querySelector('.questions-tabs');
 let totalQuestions = 5;
 let currentIndex = 0;
 let arrIndex = [];
-
+let storedQuestionIds = JSON.parse(localStorage.getItem('arrIndex'));
 // Lấy random ra 5 câu hỏi
-start();
-function start() {
-    getRandomQuestion(totalQuestions);
-
-    function getRandomQuestion(number) {
-        while (arrIndex.length < number) {
-            var randomIndex = Math.ceil(Math.random() * questions.length);
-            if (arrIndex.indexOf(randomIndex) === -1) {
-                arrIndex.push(randomIndex);
-            }
+randomQuestionsId(totalQuestions);
+function randomQuestionsId(number) {
+    while (storedQuestionIds.length < number) {
+        var randomIndex = Math.ceil(Math.random() * questions.length);
+        if (arrIndex.indexOf(randomIndex) === -1) {
+            arrIndex.push(randomIndex);
+            localStorage.setItem('arrIndex', JSON.stringify(arrIndex));
         }
-        //In ra list câu hỏi
-        arrIndex.forEach((questionId, index) => {
-            const question = questions.find((question) => question.id == questionId);
-            eleListQuestion.innerHTML += `<div class=\"questions-item\"><strong>Câu ${index + 1}: </strong>${
-                question.title
-            }</div>`;
-
-            let eleQuestionItems = document.querySelectorAll('.questions-item');
-            eleQuestionItems[index].innerHTML += '<div class="answers-list"></div>';
-            const eleAnswerList = document.querySelectorAll('.answers-list');
-            let listAnswers = '';
-            listAnswers = answers.filter((answer) => answer.questionId == questionId);
-
-            //In ra các tab để click đến từng câu hỏi
-            eleQuestionTabs.innerHTML += `<div class=\"questions-tabs-item\">${index + 1}</div>`;
-
-            //In ra list đáp án theo từng câu hỏi
-            listAnswers.forEach((answer) => {
-                eleAnswerList[index].innerHTML += `<div class=\"questions-answer\"><label class=\"checked-${
-                    index + 1
-                }\"  data-id=\"${answer.id}\"><input type=\"radio\" name=\"quiz-${index + 1}\"> ${
-                    answer.name
-                }</label></div>`;
-            });
-        });
     }
-    // Thêm btn prev next question
-    eleQuestions.innerHTML +=
-        '<div class="group-btn"><div class="btn-prev"><i class="fa-solid fa-angle-left"></i></div><div class="btn-next"><i class="fa-solid fa-angle-right"></i></div></div>';
-
-    let initBtnSubmit = document.createElement('button');
-    initBtnSubmit.classList.add('btn-submit');
-    initBtnSubmit.innerText = 'Nộp bài';
-    eleQuestions.appendChild(initBtnSubmit);
 }
+
+function getAnswersByIdQuestion() {
+    //In ra list câu hỏi
+    storedQuestionIds.forEach((questionId, index) => {
+        const question = questions.find((question) => question.id == questionId);
+        eleListQuestion.innerHTML += `<div class=\"questions-item\"><strong>Câu ${index + 1}: </strong>${
+            question.title
+        }</div>`;
+
+        let eleQuestionItems = document.querySelectorAll('.questions-item');
+        eleQuestionItems[index].innerHTML += '<div class="answers-list"></div>';
+        const eleAnswerList = document.querySelectorAll('.answers-list');
+        let listAnswers = '';
+        listAnswers = answers.filter((answer) => answer.questionId == questionId);
+
+        //In ra các tab để click đến từng câu hỏi
+        eleQuestionTabs.innerHTML += `<div class=\"questions-tabs-item\">${index + 1}</div>`;
+
+        //In ra list đáp án theo từng câu hỏi
+        listAnswers.forEach((answer) => {
+            eleAnswerList[index].innerHTML += `<div class=\"questions-answer\"><label class=\"checked-${
+                index + 1
+            }\" ><input type=\"radio\"  data-id=\"${answer.id}\" name=\"quiz-${index + 1}\"> ${
+                answer.name
+            }</label></div>`;
+        });
+    });
+}
+getAnswersByIdQuestion();
+// Thêm btn prev next question
+eleQuestions.innerHTML +=
+    '<div class="group-btn"><div class="btn-prev"><i class="fa-solid fa-angle-left"></i></div><div class="btn-next"><i class="fa-solid fa-angle-right"></i></div></div>';
+
+let initBtnSubmit = document.createElement('button');
+initBtnSubmit.classList.add('btn-submit');
+initBtnSubmit.innerText = 'Nộp bài';
+eleQuestions.appendChild(initBtnSubmit);
+
 const btnSubmit = document.querySelector('.btn-submit');
 
 const eleQuestionItems = document.querySelectorAll('.questions-item');
@@ -115,81 +117,92 @@ eleTabItems.forEach((tab, index) => {
         setStatusQuestion(1);
     });
 });
-// thêm class checked cho label
-const eleAnswerList = document.querySelectorAll('.answers-list');
-eleAnswerList.forEach((answer, index) => {
-    const tabActive = eleTabItems[index];
-
-    let eleCheckeds = document.querySelectorAll(`.checked-${index + 1}`);
-    eleCheckeds.forEach((item) => {
-        item.addEventListener('click', function () {
-            this.classList.add('checked');
-            tabActive.style = 'color: green; border-color: green;';
+let storedAnswerIds = [];
+function hanleChangeAnswer() {
+    storedAnswerIds = JSON.parse(localStorage.getItem('arrAnswersResult'));
+    let arrAnswersResult = [];
+    storedQuestionIds.forEach((questionId, index) => {
+        const tabActive = eleTabItems[index];
+        let eleCheckeds = document.querySelectorAll(`.checked-${index + 1}`);
+        let answerSubmit = {
+            userId: 1,
+            questionId: questionId,
+            answerId: -1,
+            answerTrueId: -1,
+        };
+        arrAnswersResult.push(answerSubmit);
+        eleCheckeds.forEach((label) => {
+            label.addEventListener('click', function () {
+                const child = this.children[0];
+                tabActive.style = 'color: green; border-color: green;';
+                if (storedAnswerIds == null) {
+                    answerSubmit.answerId = child.dataset.id;
+                    localStorage.setItem('arrAnswersResult', JSON.stringify(arrAnswersResult));
+                    return;
+                }
+                storedAnswerIds[index].answerId = child.dataset.id;
+                localStorage.setItem('arrAnswersResult', JSON.stringify(storedAnswerIds));
+            });
         });
     });
-});
+    setActiveQuestion();
+}
+hanleChangeAnswer();
+
+function setActiveQuestion() {
+    if (storedAnswerIds) {
+        storedAnswerIds.forEach((item, index) => {
+            const tabActive = eleTabItems[index];
+            const eleChecked = document.querySelector(`[data-id="${item.answerId}"]`);
+            if (eleChecked) {
+                eleChecked.checked = true;
+                tabActive.style = 'color: green; border-color: green;';
+            }
+        });
+    }
+}
 
 btnSubmit.addEventListener('click', () => {
     let indexRequired = '';
-    let arrAnswersResult = [];
-    let answerSubmit = {};
-    arrIndex.forEach((questionId, index) => {
-        let answerId = 0;
-        let check = document.querySelector(`.checked-${index + 1}.checked`);
-        if (!check) {
-            indexRequired += index + 1 + ',';
-            return;
-        }
-        let eleCheckeds = document.querySelectorAll(`.checked-${index + 1}.checked`);
-        eleCheckeds.forEach((item) => {
-            if (item) {
-                answerId = item.dataset.id;
+    if (storedAnswerIds) {
+        storedAnswerIds.forEach((item, index) => {
+            if (item.answerId == -1) {
+                indexRequired += `${index + 1 + ','}`;
+                return;
             }
+            let answerTrue = answers.find((answer) => answer.questionId == item.questionId && answer.status == true);
+            item.answerTrueId = answerTrue.id;
+            localStorage.setItem('arrAnswersResult', JSON.stringify(storedAnswerIds));
         });
-
-        let statusAnswer = false;
-        let getStatusAnswersResult = answers.find((answer) => answer.id == answerId);
-        if (getStatusAnswersResult) {
-            statusAnswer = getStatusAnswersResult.status;
-        }
-        let answerTrue = answers.find((answer) => answer.questionId == questionId && answer.status == true);
-        answerSubmit = {
-            userId: 1,
-            questionId: questionId,
-            answerId: answerId,
-            answerTrueId: answerTrue.id,
-        };
-        arrAnswersResult.push(answerSubmit);
-    });
-
-    if (indexRequired.length > 0) {
-        alert(`Bạn còn các câu ${indexRequired.slice(0, -1)} chưa làm`);
-        return;
-    }
-    let point = 0;
-    arrAnswersResult.forEach((item, index) => {
-        if (item.answerId == item.answerTrueId) {
-            point++;
-            let initAleartTrue = document.createElement('div');
-            initAleartTrue.classList.add('alert-true');
-            initAleartTrue.innerText = 'Câu trả lời đúng';
-            eleQuestionItems[index].appendChild(initAleartTrue);
+        if (indexRequired.length > 0) {
+            alert(`Bạn còn các câu ${indexRequired.slice(0, -1)} chưa làm`);
             return;
         }
-        let answerTrue = answers.find((answer) => answer.id == item.answerTrueId);
-        let initAleartFalse = document.createElement('div');
-        initAleartFalse.classList.add('alert-false');
-        initAleartFalse.innerText = `Câu trả lời sai (Đáp án đúng là: ${answerTrue.name})`;
-        eleQuestionItems[index].appendChild(initAleartFalse);
-    });
-    let initAleartPoint = document.createElement('div');
-    initAleartPoint.classList.add('alert-point');
-    initAleartPoint.innerText = `Số câu trả lời đúng của bạn: ${point} / ${totalQuestions}`;
-    eleQuestions.appendChild(initAleartPoint);
-    btnSubmit.style.display = 'none';
+        let point = 0;
+        storedAnswerIds.forEach((item, index) => {
+            if (item.answerId == item.answerTrueId) {
+                point++;
+                let initAleartTrue = document.createElement('div');
+                initAleartTrue.classList.add('alert-true');
+                initAleartTrue.innerText = 'Câu trả lời đúng';
+                eleQuestionItems[index].appendChild(initAleartTrue);
+                return;
+            }
+            let answerTrue = answers.find((answer) => answer.id == item.answerTrueId);
+            let initAleartFalse = document.createElement('div');
+            initAleartFalse.classList.add('alert-false');
+            initAleartFalse.innerText = `Câu trả lời sai (Đáp án đúng là: ${answerTrue.name})`;
+            eleQuestionItems[index].appendChild(initAleartFalse);
+        });
+        let initAleartPoint = document.createElement('div');
+        initAleartPoint.classList.add('alert-point');
+        initAleartPoint.innerText = `Số câu trả lời đúng của bạn: ${point} / ${totalQuestions}`;
+        eleQuestions.appendChild(initAleartPoint);
+        btnSubmit.style.display = 'none';
 
-    const listInput = document.querySelectorAll('input');
-    listInput.forEach((item) => {
-        item.disabled = true;
-    });
+        const listInput = document.querySelectorAll('input');
+        listInput.forEach((item) => {
+            item.disabled = true;
+        });
+    }
 });
