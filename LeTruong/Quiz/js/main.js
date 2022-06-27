@@ -9,20 +9,33 @@ const eleQuestionTabs = document.querySelector('.questions-tabs');
 let totalQuestions = 5;
 let currentIndex = 0;
 let arrIndex = [];
+let storedAnswerIds = [];
 let storedQuestionIds = JSON.parse(localStorage.getItem('arrIndex'));
 // Lấy random ra 5 câu hỏi
 randomQuestionsId(totalQuestions);
 function randomQuestionsId(number) {
-    while (storedQuestionIds.length < number) {
+    if (storedQuestionIds) {
+        while (storedQuestionIds.length < number) {
+            var randomIndex = Math.ceil(Math.random() * questions.length);
+            if (arrIndex.indexOf(randomIndex) === -1) {
+                arrIndex.push(randomIndex);
+                localStorage.setItem('arrIndex', JSON.stringify(arrIndex));
+            }
+        }
+    }
+    while (arrIndex.length < number) {
         var randomIndex = Math.ceil(Math.random() * questions.length);
         if (arrIndex.indexOf(randomIndex) === -1) {
             arrIndex.push(randomIndex);
             localStorage.setItem('arrIndex', JSON.stringify(arrIndex));
         }
     }
+
+    getAnswersByIdQuestion();
 }
 
 function getAnswersByIdQuestion() {
+    storedQuestionIds = JSON.parse(localStorage.getItem('arrIndex'));
     //In ra list câu hỏi
     storedQuestionIds.forEach((questionId, index) => {
         const question = questions.find((question) => question.id == questionId);
@@ -49,7 +62,6 @@ function getAnswersByIdQuestion() {
         });
     });
 }
-getAnswersByIdQuestion();
 // Thêm btn prev next question
 eleQuestions.innerHTML +=
     '<div class="group-btn"><div class="btn-prev"><i class="fa-solid fa-angle-left"></i></div><div class="btn-next"><i class="fa-solid fa-angle-right"></i></div></div>';
@@ -117,7 +129,6 @@ eleTabItems.forEach((tab, index) => {
         setStatusQuestion(1);
     });
 });
-let storedAnswerIds = [];
 function hanleChangeAnswer() {
     storedAnswerIds = JSON.parse(localStorage.getItem('arrAnswersResult'));
     let arrAnswersResult = [];
@@ -163,6 +174,7 @@ function setActiveQuestion() {
 }
 
 btnSubmit.addEventListener('click', () => {
+    storedAnswerIds = JSON.parse(localStorage.getItem('arrAnswersResult'));
     let indexRequired = '';
     if (storedAnswerIds) {
         storedAnswerIds.forEach((item, index) => {
@@ -205,4 +217,5 @@ btnSubmit.addEventListener('click', () => {
             item.disabled = true;
         });
     }
+    alert(`Vui lòng trả lời các câu hỏi !!!`);
 });
