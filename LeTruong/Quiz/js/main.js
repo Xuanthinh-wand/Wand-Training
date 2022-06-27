@@ -2,10 +2,6 @@ import {questions} from './db.js';
 import {answers} from './db.js';
 
 const eleQuestions = document.querySelector('.questions');
-eleQuestions.innerHTML += '<div class="questions-tabs"></div>';
-eleQuestions.innerHTML += '<div class="questions-list"></div>';
-const eleListQuestion = document.querySelector('.questions-list');
-const eleQuestionTabs = document.querySelector('.questions-tabs');
 let totalQuestions = 5;
 let currentIndex = 0;
 let arrIndex = [];
@@ -14,27 +10,42 @@ let storedQuestionIds = JSON.parse(localStorage.getItem('arrIndex'));
 // Lấy random ra 5 câu hỏi
 randomQuestionsId(totalQuestions);
 function randomQuestionsId(number) {
-    if (storedQuestionIds) {
+    storedQuestionIds = JSON.parse(localStorage.getItem('arrIndex'));
+    if (!storedQuestionIds) {
+        getRandomIndex(totalQuestions);
+    } else {
         while (storedQuestionIds.length < number) {
-            var randomIndex = Math.ceil(Math.random() * questions.length);
+            let randomIndex = Math.ceil(Math.random() * questions.length);
             if (arrIndex.indexOf(randomIndex) === -1) {
                 arrIndex.push(randomIndex);
                 localStorage.setItem('arrIndex', JSON.stringify(arrIndex));
             }
         }
     }
+
+    getAnswersByIdQuestion();
+}
+
+function getRandomIndex(number) {
     while (arrIndex.length < number) {
-        var randomIndex = Math.ceil(Math.random() * questions.length);
+        let randomIndex = Math.ceil(Math.random() * questions.length);
         if (arrIndex.indexOf(randomIndex) === -1) {
             arrIndex.push(randomIndex);
             localStorage.setItem('arrIndex', JSON.stringify(arrIndex));
         }
     }
-
-    getAnswersByIdQuestion();
 }
 
 function getAnswersByIdQuestion() {
+    let initTabs = document.createElement('div');
+    initTabs.classList.add('questions-tabs');
+    eleQuestions.appendChild(initTabs);
+
+    let initList = document.createElement('div');
+    initList.classList.add('questions-list');
+    eleQuestions.appendChild(initList);
+    const eleListQuestion = document.querySelector('.questions-list');
+    const eleQuestionTabs = document.querySelector('.questions-tabs');
     storedQuestionIds = JSON.parse(localStorage.getItem('arrIndex'));
     //In ra list câu hỏi
     storedQuestionIds.forEach((questionId, index) => {
@@ -62,6 +73,7 @@ function getAnswersByIdQuestion() {
         });
     });
 }
+
 // Thêm btn prev next question
 eleQuestions.innerHTML +=
     '<div class="group-btn"><div class="btn-prev"><i class="fa-solid fa-angle-left"></i></div><div class="btn-next"><i class="fa-solid fa-angle-right"></i></div></div>';
@@ -70,6 +82,13 @@ let initBtnSubmit = document.createElement('button');
 initBtnSubmit.classList.add('btn-submit');
 initBtnSubmit.innerText = 'Nộp bài';
 eleQuestions.appendChild(initBtnSubmit);
+
+let initBtnReset = document.createElement('button');
+initBtnReset.classList.add('btn-reset');
+initBtnReset.innerText = 'Làm lại';
+eleQuestions.appendChild(initBtnReset);
+const btnReset = document.querySelector('.btn-reset');
+btnReset.style.display = 'none';
 
 const btnSubmit = document.querySelector('.btn-submit');
 
@@ -123,6 +142,7 @@ function hanleChangeQuestion(num) {
 
 eleTabItems.forEach((tab, index) => {
     tab.addEventListener('click', function () {
+        console.log(tab);
         setStatusQuestion(-1);
         currentIndex = index;
         setStatusBtn(currentIndex);
@@ -216,6 +236,27 @@ btnSubmit.addEventListener('click', () => {
         listInput.forEach((item) => {
             item.disabled = true;
         });
+        btnReset.style.display = 'block';
+        return;
     }
     alert(`Vui lòng trả lời các câu hỏi !!!`);
+});
+
+btnReset.addEventListener('click', () => {
+    eleQuestions.innerHTML = '';
+    arrIndex = [];
+    localStorage.removeItem('arrIndex');
+    localStorage.removeItem('arrAnswersResult');
+    randomQuestionsId(totalQuestions);
+    getRandomIndex(totalQuestions);
+
+    eleTabItems.forEach((tab, index) => {
+        tab.addEventListener('click', function () {
+            console.log(tab);
+            setStatusQuestion(-1);
+            currentIndex = index;
+            setStatusBtn(currentIndex);
+            setStatusQuestion(1);
+        });
+    });
 });
