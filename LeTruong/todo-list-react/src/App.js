@@ -40,8 +40,26 @@ class App extends React.Component {
                 task: '',
             }));
             Storage.set(newTodos);
-            console.log(newTodos);
         }
+    };
+
+    handleDelete = (index) => {
+        const todos = this.state.todos;
+        const newTodos = todos.slice(index + 1);
+        this.setState(() => ({
+            todos: newTodos,
+        }));
+        Storage.set(newTodos);
+    };
+
+    handleToggle = (index) => {
+        const todos = this.state.todos;
+        const todo = todos[index];
+        todo.completed = !todo.completed;
+        this.setState(() => ({
+            todos: todos,
+        }));
+        Storage.set(todos);
     };
 
     render() {
@@ -49,8 +67,14 @@ class App extends React.Component {
             <div className='App'>
                 <section className='todoapp'>
                     <Header onSubmit={this.handleSubmit} onChange={this.handleChange} task={this.state.task} />
-                    <TodoList />
-                    <Footer />
+                    <TodoList
+                        handleDelete={this.handleDelete}
+                        handleToggle={this.handleToggle}
+                        todos={this.state.todos}
+                        filters={this.state.filters}
+                        filter={this.state.filter}
+                    />
+                    {this.state.todos.length > 0 && <Footer />}
                 </section>
             </div>
         );
