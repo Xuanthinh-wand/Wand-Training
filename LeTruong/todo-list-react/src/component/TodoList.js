@@ -22,8 +22,7 @@ function TodoList(props) {
                         handleToggleAll={props.handleToggleAll}
                         handleDbClick={props.handleDbClick}
                         handleEditTodo={props.handleEditTodo}
-                        key={index}
-                        index={index}
+                        key={todo.id}
                         todo={todo}
                     />
                 ))}

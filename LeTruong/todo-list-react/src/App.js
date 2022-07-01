@@ -25,12 +25,11 @@ class App extends React.Component {
         this.setState({task: e.target.value});
     };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        if (this.state.task) {
+    handleSubmit = (value) => {
+        if (value) {
             const newTask = {
                 id: this.state.todos.length + 1,
-                task: this.state.task,
+                name: value,
                 completed: false,
             };
             const curentTodos = this.state.todos;
@@ -41,20 +40,22 @@ class App extends React.Component {
             }));
             Storage.set(newTodos);
         }
+        const eleNewTodo = document.querySelector('.new-todo');
+        eleNewTodo.value = '';
     };
 
-    handleDelete = (index) => {
+    handleDelete = (id) => {
         let todos = this.state.todos;
-        todos.splice(index, 1);
+        const newTodos = todos.filter((todo) => todo.id !== id);
         this.setState(() => ({
-            todos: todos,
+            todos: newTodos,
         }));
-        Storage.set(todos);
+        Storage.set(newTodos);
     };
 
-    handleToggle = (index) => {
+    handleToggle = (id) => {
         let todos = this.state.todos;
-        let todo = todos[index];
+        let todo = todos.find((todo) => todo.id === id);
         todo.completed = !todo.completed;
         this.setState(() => ({
             todos: todos,
@@ -90,24 +91,24 @@ class App extends React.Component {
         Storage.set(newTodos);
     };
 
-    handleDbClick = (index) => {
-        const eleCurrent = document.querySelectorAll('.todo-list li')[index];
+    handleDbClick = (id) => {
+        const eleCurrent = document.querySelector('.todo-list [data-id="' + id + '"]');
         eleCurrent.classList.add('editing');
-        const inputEdit = document.querySelectorAll('.todo-list .edit')[index];
+        const inputEdit = document.querySelector('[data-id="' + id + '"] .edit');
         inputEdit.focus();
     };
 
-    handleEditTodo = (index, value) => {
+    handleEditTodo = (id, value) => {
         const todos = this.state.todos;
-        const todo = todos[index];
+        const todo = todos.find((todo) => todo.id === id);
         const eleCurrent = document.querySelector('.todo-list .editing');
-        todo.task = value;
+        todo.name = value;
         if (value) {
             this.setState(() => ({
                 todos: todos,
             }));
         } else {
-            this.handleDelete(index);
+            this.handleDelete(id);
         }
         Storage.set(todos);
         eleCurrent.classList.remove('editing');
@@ -117,7 +118,7 @@ class App extends React.Component {
         return (
             <div className='App'>
                 <section className='todoapp'>
-                    <Header onSubmit={this.handleSubmit} onChange={this.handleChange} task={this.state.task} />
+                    <Header handleAdd={this.handleSubmit} />
                     <TodoList
                         handleDelete={this.handleDelete}
                         handleToggle={this.handleToggle}
