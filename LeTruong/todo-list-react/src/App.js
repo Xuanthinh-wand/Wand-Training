@@ -44,22 +44,73 @@ class App extends React.Component {
     };
 
     handleDelete = (index) => {
+        let todos = this.state.todos;
+        todos.splice(index, 1);
+        this.setState(() => ({
+            todos: todos,
+        }));
+        Storage.set(todos);
+    };
+
+    handleToggle = (index) => {
+        let todos = this.state.todos;
+        let todo = todos[index];
+        todo.completed = !todo.completed;
+        this.setState(() => ({
+            todos: todos,
+        }));
+        Storage.set(todos);
+    };
+
+    handleToggleAll = (status) => {
+        let todos = this.state.todos;
+        todos.forEach((todo) => {
+            todo.completed = status;
+        });
+        this.setState(() => ({
+            todos: todos,
+        }));
+        Storage.set(todos);
+    };
+
+    handleSwitchFilter = (filter) => {
+        this.setState(() => ({
+            filter: filter,
+        }));
+    };
+
+    handleClearCompeleted = () => {
         const todos = this.state.todos;
-        const newTodos = todos.slice(index + 1);
+        const newTodos = todos.filter((todo) => {
+            return todo.completed === false;
+        });
         this.setState(() => ({
             todos: newTodos,
         }));
         Storage.set(newTodos);
     };
 
-    handleToggle = (index) => {
+    handleDbClick = (index) => {
+        const eleCurrent = document.querySelectorAll('.todo-list li')[index];
+        eleCurrent.classList.add('editing');
+        const inputEdit = document.querySelectorAll('.todo-list .edit')[index];
+        inputEdit.focus();
+    };
+
+    handleEditTodo = (index, value) => {
         const todos = this.state.todos;
         const todo = todos[index];
-        todo.completed = !todo.completed;
-        this.setState(() => ({
-            todos: todos,
-        }));
+        const eleCurrent = document.querySelector('.todo-list .editing');
+        todo.task = value;
+        if (value) {
+            this.setState(() => ({
+                todos: todos,
+            }));
+        } else {
+            this.handleDelete(index);
+        }
         Storage.set(todos);
+        eleCurrent.classList.remove('editing');
     };
 
     render() {
@@ -70,11 +121,22 @@ class App extends React.Component {
                     <TodoList
                         handleDelete={this.handleDelete}
                         handleToggle={this.handleToggle}
+                        handleToggleAll={this.handleToggleAll}
+                        handleDbClick={this.handleDbClick}
+                        handleEditTodo={this.handleEditTodo}
                         todos={this.state.todos}
                         filters={this.state.filters}
                         filter={this.state.filter}
                     />
-                    {this.state.todos.length > 0 && <Footer />}
+                    {this.state.todos.length > 0 && (
+                        <Footer
+                            todos={this.state.todos}
+                            handleSwitchFilter={this.handleSwitchFilter}
+                            handleClearCompeleted={this.handleClearCompeleted}
+                            filters={this.state.filters}
+                            filter={this.state.filter}
+                        />
+                    )}
                 </section>
             </div>
         );
