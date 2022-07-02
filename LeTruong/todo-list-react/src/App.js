@@ -115,6 +115,9 @@ class App extends React.Component {
     };
 
     render() {
+        const todos = this.state.todos;
+        const filters = this.state.filters;
+        const filter = this.state.filter;
         return (
             <div className='App'>
                 <section className='todoapp'>
@@ -125,17 +128,16 @@ class App extends React.Component {
                         handleToggleAll={this.handleToggleAll}
                         handleDbClick={this.handleDbClick}
                         handleEditTodo={this.handleEditTodo}
-                        todos={this.state.todos}
-                        filters={this.state.filters}
-                        filter={this.state.filter}
+                        todos={this.state.todos.filter(filters[filter])}
                     />
                     {this.state.todos.length > 0 && (
                         <Footer
-                            todos={this.state.todos}
+                            lengthTodos={todos.filter(filters[filter]).length}
+                            lengthTodoCompleted={todos.filter(filters.completed).length}
                             handleSwitchFilter={this.handleSwitchFilter}
                             handleClearCompeleted={this.handleClearCompeleted}
-                            filters={this.state.filters}
-                            filter={this.state.filter}
+                            filters={filters}
+                            filter={filter}
                         />
                     )}
                 </section>
