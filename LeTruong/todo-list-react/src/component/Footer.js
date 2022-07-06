@@ -12,14 +12,14 @@ function Footer(props) {
                             <a
                                 className={filter === props.filter ? 'selected' : undefined}
                                 onClick={() => props.handleSwitchFilter(filter)}
-                                href='#'>
+                                href={props.filter}>
                                 {filter}
                             </a>
                         </li>
                     );
                 })}
             </ul>
-            {props.lengthTodoCompleted && (
+            {props.lengthTodoCompleted > 0 && (
                 <button className='clear-completed' onClick={props.handleClearCompeleted}>
                     clear completed
                 </button>
