@@ -29,7 +29,13 @@ const rootReducer = (state = initState, action) => {
             const todo = state.find((todo) => todo.id === action.id);
             todo.completed = !todo.completed;
             Storage.set(state);
-            return state;
+            return state.map((todo) =>
+                todo.id === action.id
+                    ? Object.assign({}, todo, {
+                          completed: !todo.completed,
+                      })
+                    : todo,
+            );
 
         case 'DbClickEdit':
             const eleCurrent = document.querySelector('.todo-list [data-id="' + action.id + '"]');
@@ -44,7 +50,7 @@ const rootReducer = (state = initState, action) => {
             const eleEdit = document.querySelector('.todo-list .editing');
             eleEdit.classList.remove('editing');
             Storage.set(state);
-            return state;
+            return state.map((todo) => (todo.id === action.id ? Object.assign({}, todo, {name: action.value}) : todo));
 
         default:
             return state;

@@ -14,7 +14,11 @@ class TodoItem extends React.Component {
         return (
             <li data-id={todo.id}>
                 <div className='view'>
-                    <input className='toggle' type='checkbox' onChange={() => completedTodo(todo.id)}></input>
+                    <input
+                        className='toggle'
+                        type='checkbox'
+                        // checked={todo.completed}
+                        onChange={() => completedTodo(todo.id)}></input>
                     <label onDoubleClick={() => dbClickEdit(todo.id)}>{todo.name}</label>
                     <button className='destroy' onClick={() => deleteTodo(todo.id)}></button>
                 </div>
