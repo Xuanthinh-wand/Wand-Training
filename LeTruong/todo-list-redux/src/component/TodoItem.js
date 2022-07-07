@@ -12,12 +12,12 @@ class TodoItem extends React.Component {
     render() {
         const {todo, completedTodo, deleteTodo, dbClickEdit} = this.props;
         return (
-            <li data-id={todo.id}>
+            <li className={todo.completed ? 'completed' : ''} data-id={todo.id}>
                 <div className='view'>
                     <input
                         className='toggle'
                         type='checkbox'
-                        // checked={todo.completed}
+                        checked={todo.completed}
                         onChange={() => completedTodo(todo.id)}></input>
                     <label onDoubleClick={() => dbClickEdit(todo.id)}>{todo.name}</label>
                     <button className='destroy' onClick={() => deleteTodo(todo.id)}></button>

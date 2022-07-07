@@ -1,13 +1,16 @@
 import Storage from '../until/Storage';
 import {v4 as uuidv4} from 'uuid';
-let initState = Storage.get();
-// todos: Storage.get(),
-// filter: 'all',
-// filters: {
-//     all: () => true,
-//     active: (todo) => !todo.completed,
-//     completed: (todo) => todo.completed,
-// },
+let initState = {
+    todos: Storage.get(),
+    groupFilters: {
+        filter: 'all',
+        filters: {
+            all: () => true,
+            active: (todo) => !todo.completed,
+            completed: (todo) => todo.completed,
+        },
+    },
+};
 
 const rootReducer = (state = initState, action) => {
     switch (action.type) {
@@ -17,25 +20,38 @@ const rootReducer = (state = initState, action) => {
                 name: action.name,
                 completed: false,
             };
-            const newTodos = [...state, newTodo];
+            const newTodos = [...state.todos, newTodo];
             Storage.set(newTodos);
-            return newTodos;
+            return {
+                todos: newTodos,
+                groupFilters: {
+                    filter: state.groupFilters.filter,
+                    filters: state.groupFilters.filters,
+                },
+            };
 
         case 'DeleteTodo':
-            Storage.set(state.filter((todo) => todo.id !== action.id));
-            return state.filter((todo) => todo.id !== action.id);
+            Storage.set(state.todos.filter((todo) => todo.id !== action.id));
+            return {
+                todos: state.todos.filter((todo) => todo.id !== action.id),
+                groupFilters: {
+                    filter: state.groupFilters.filter,
+                    filters: state.groupFilters.filters,
+                },
+            };
 
         case 'CompletedTodo':
-            const todo = state.find((todo) => todo.id === action.id);
-            todo.completed = !todo.completed;
-            Storage.set(state);
-            return state.map((todo) =>
-                todo.id === action.id
-                    ? Object.assign({}, todo, {
-                          completed: !todo.completed,
-                      })
-                    : todo,
-            );
+            const listTodos = state.todos;
+            const todoEditComplete = listTodos.find((todo) => todo.id === action.id);
+            todoEditComplete.completed = !todoEditComplete.completed;
+            Storage.set(listTodos);
+            return {
+                todos: listTodos,
+                groupFilters: {
+                    filter: state.groupFilters.filter,
+                    filters: state.groupFilters.filters,
+                },
+            };
 
         case 'DbClickEdit':
             const eleCurrent = document.querySelector('.todo-list [data-id="' + action.id + '"]');
@@ -45,12 +61,32 @@ const rootReducer = (state = initState, action) => {
             break;
 
         case 'EditTodo':
-            const todoEdit = state.find((todo) => todo.id === action.id);
+            const listTodosEdit = state.todos;
+            const todoEdit = listTodosEdit.find((todo) => todo.id === action.id);
             todoEdit.name = action.value;
             const eleEdit = document.querySelector('.todo-list .editing');
-            eleEdit.classList.remove('editing');
-            Storage.set(state);
-            return state.map((todo) => (todo.id === action.id ? Object.assign({}, todo, {name: action.value}) : todo));
+            if (eleEdit) {
+                eleEdit.classList.remove('editing');
+            }
+            Storage.set(listTodosEdit);
+            return {
+                todos: state.todos.map((todo) =>
+                    todo.id === action.id ? Object.assign({}, todo, {name: action.value}) : todo,
+                ),
+                groupFilters: {
+                    filter: state.groupFilters.filter,
+                    filters: state.groupFilters.filters,
+                },
+            };
+
+        case 'SwitchFilter':
+            return {
+                todos: state.todos,
+                groupFilters: {
+                    filter: action.filter,
+                    filters: state.groupFilters.filters,
+                },
+            };
 
         default:
             return state;

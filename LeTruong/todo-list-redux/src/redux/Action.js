@@ -29,3 +29,10 @@ export const editTodo = (id, value) => {
         value,
     };
 };
+
+export const switchFilter = (filter) => {
+    return {
+        type: 'SwitchFilter',
+        filter,
+    };
+};

@@ -4,6 +4,7 @@ import TodoItem from './TodoItem';
 export default class TodoList extends React.Component {
     render() {
         const {todos, actions} = this.props;
+
         return (
             <div className='main'>
                 <input id='toggle-all' type='checkbox' className='toggle-all' />
