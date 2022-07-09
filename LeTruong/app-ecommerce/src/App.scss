@@ -1,0 +1,112 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    outline: none;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+.btn {
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 8px;
+    border: none;
+    &-add {
+        margin-top: 16px;
+        background-color: blue;
+        color: white;
+    }
+
+    &-edit {
+        background-color: orange;
+        color: white;
+        margin-right: 8px;
+    }
+    &-delete {
+        background-color: red;
+        color: white;
+        margin-right: 8px;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.d-flex {
+    display: flex;
+}
+.flex-center {
+    justify-content: center;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.bg-orange {
+    background-color: orange;
+}
+
+.header {
+    background: orange;
+    padding: 12px 0;
+    .logo {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .menu {
+        display: flex;
+        list-style: none;
+        align-items: center;
+        li {
+            margin: 0 16px;
+            a {
+                text-decoration: none;
+                color: black;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+.model {
+    top: -400px;
+    background: white;
+    width: 600px;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: 24px;
+    box-shadow: 0 0 10px white;
+    opacity: 0;
+    visibility: hidden;
+    transition: top 0.3s linear;
+
+    &.show {
+        top: 100px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        background-color: orange;
+        color: white;
+        font-weight: 700;
+        text-align: center;
+        padding: 8px;
+        margin-bottom: 16px;
+    }
+
+    .group-item {
+        margin-bottom: 16px;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        margin-top: 4px;
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    display: none;
+}
