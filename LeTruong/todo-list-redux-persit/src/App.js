@@ -10,18 +10,22 @@ import * as FilterActions from './actions/filters';
 class App extends React.Component {
     render() {
         const {todoItems, actions, groupFilters, filterActions} = this.props;
-        const filterTodos = (filter) => {
-            if (filter === 'all') {
-                return todoItems.filter(() => true);
-            }
-            if (filter === 'active') {
-                return todoItems.filter((todo) => !todo.completed);
-            }
-            if (filter === 'completed') {
-                return todoItems.filter((todo) => !todo.completed);
-            }
-        };
-        const todosRender = filterTodos(groupFilters.filter);
+        let filter = groupFilters.filter;
+        let todosRender = [];
+        if (filter === 'all') {
+            // eslint-disable-next-line no-const-assign
+            todosRender = todoItems.filter(() => true);
+        }
+        if (filter === 'active') {
+            // eslint-disable-next-line no-const-assign
+            todosRender = todoItems.filter((todo) => !todo.completed);
+        }
+        if (filter === 'completed') {
+            // eslint-disable-next-line no-const-assign
+            todosRender = todoItems.filter((todo) => todo.completed);
+        }
+
+        console.log('🚀 ~ file: App.js ~ line 26 ~ App ~ render ~ todoItems', todoItems);
         return (
             <div className='App'>
                 <section className='todoapp'>
