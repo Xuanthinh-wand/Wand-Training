@@ -5,3 +5,10 @@ export const addUser = (name, password) => {
         password,
     };
 };
+export const loggin = (name, password) => {
+    return {
+        type: 'LOGGIN',
+        name,
+        password,
+    };
+};

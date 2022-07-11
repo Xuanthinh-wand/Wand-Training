@@ -9,6 +9,7 @@ const composedEnhancers = composeWithDevTools();
 const persistConfig = {
     key: 'root',
     storage,
+    blacklist: ['isLoggin'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

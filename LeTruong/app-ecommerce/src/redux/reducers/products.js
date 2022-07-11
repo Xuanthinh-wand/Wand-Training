@@ -1,8 +1,11 @@
 import {v4 as uuidv4} from 'uuid';
-let data = JSON.parse(localStorage.getItem('persist:root')).Products;
-console.log('🚀 ~ file: products.js ~ line 3 ~ data', data);
+let data = JSON.parse(localStorage.getItem('persist:root'));
+let listProduct = [];
+if (data) {
+    listProduct = data.Products;
+}
 let initState = {
-    items: data || [],
+    items: listProduct,
 };
 const Products = (state = initState, action) => {
     switch (action.type) {

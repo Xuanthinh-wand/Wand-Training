@@ -1,7 +1,7 @@
 import './App.scss';
 import React from 'react';
 import Header from './components/client/header';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Navigate} from 'react-router-dom';
 import Home from './pages/client/home';
 import Products from './pages/client/products';
 import ProductAdmin from './pages/admin/productAdmin';
@@ -13,18 +13,19 @@ import Login from './pages/client/login';
 import Register from './pages/client/register';
 class App extends React.Component {
     render() {
-        const {products, actions, userActions} = this.props;
-        console.log('🚀 ~ file: App.js ~ line 17 ~ App ~ render ~ products', products);
+        const {products, actions, userActions, isLoggin} = this.props;
         return (
             <div className='App'>
                 <Header />
                 <main>
                     <Routes>
-                        <Route exact path='/' element={<Home />} />
-                        <Route path='/products' element={<Products products={products} />} />
-                        <Route path='/admin' element={<ProductAdmin products={products} actions={actions} />} />
-                        <Route path='/carts' element={<Home />} />
-                        <Route path='/login' element={<Login />} />
+                        <Route element={!isLoggin ? <Navigate to='/login' replace /> : undefined}>
+                            <Route path='/' element={<Home />} />
+                            <Route path='/products' element={<Products products={products} />} />
+                            <Route path='/admin' element={<ProductAdmin products={products} actions={actions} />} />
+                            <Route path='/carts' element={<Home />} />
+                        </Route>
+                        <Route path='/login' element={<Login isLoggin={isLoggin} handleLogin={userActions.loggin} />} />
                         <Route path='/register' element={<Register addUser={userActions.addUser} />} />
                     </Routes>
                 </main>
@@ -36,6 +37,7 @@ class App extends React.Component {
 function mapStateToProps(state) {
     return {
         products: state.Products.items,
+        isLoggin: state.Users.isLoggin,
     };
 }
 

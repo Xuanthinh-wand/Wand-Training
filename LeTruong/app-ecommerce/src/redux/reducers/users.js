@@ -1,10 +1,13 @@
 import {v4 as uuidv4} from 'uuid';
 let data = JSON.parse(localStorage.getItem('persist:root'));
+let listUser = [];
+if (data) {
+    listUser = data.Users;
+}
 let initState = {
-    // listUser: data.Users,
-    listUser: [],
+    listUser: listUser,
+    isLoggin: false,
 };
-console.log('🚀 ~ file: users.js ~ line 6 ~ initState', initState.listUser);
 
 const Users = (state = initState, action) => {
     switch (action.type) {
@@ -14,8 +17,15 @@ const Users = (state = initState, action) => {
                 name: action.name,
                 password: action.password,
             };
-
-            return [...state.listUser, newUser];
+            return {
+                ...state,
+                listUser: [...state.listUser, newUser],
+            };
+        case 'LOGGIN':
+            const isUser = state.listUser.find(
+                (user) => user.name === action.name && user.password === action.password,
+            );
+            return isUser ? {...state, isLoggin: true} : {...state};
         default:
             return state;
     }
