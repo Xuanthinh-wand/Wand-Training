@@ -1,0 +1,15 @@
+.product {
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 15px -15px;
+    }
+
+    &-item {
+        margin: 0 15px;
+        padding: 8px;
+        width: calc((100% / 4) - 30px);
+        margin-bottom: 16px;
+        box-shadow: 0 0 5px #ccc;
+    }
+}

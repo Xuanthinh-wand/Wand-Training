@@ -11,6 +11,15 @@ export default class Menu extends React.Component {
                 <li>
                     <Link to='/products'>Products</Link>
                 </li>
+                <li>
+                    <Link to='/carts'>Cart(0)</Link>
+                </li>
+                <li>
+                    <Link to='/login'>Đăng nhập</Link>
+                </li>
+                <li>
+                    <Link to='/register'>Đăng ký</Link>
+                </li>
             </ul>
         );
     }

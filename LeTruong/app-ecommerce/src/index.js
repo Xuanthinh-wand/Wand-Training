@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-import configureStore from './store/configureStore';
+import configureStore from './redux/store/configureStore';
 
 let {store, persistor} = configureStore();
 const root = ReactDOM.createRoot(document.getElementById('root'));

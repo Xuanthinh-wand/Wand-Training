@@ -7,8 +7,23 @@ export default class ProductAdmin extends React.Component {
         super(props);
         this.state = {
             type: 'add',
+            id: '',
+            name: '',
+            description: '',
+            price: '',
+            imageUrl: '',
         };
     }
+
+    setStateDefaultValue = () => {
+        this.setState(() => ({
+            id: '',
+            name: '',
+            description: '',
+            price: '',
+            imageUrl: '',
+        }));
+    };
 
     handleShowModel = () => {
         const overlay = document.querySelector('.overlay');
@@ -18,7 +33,24 @@ export default class ProductAdmin extends React.Component {
         overlay.addEventListener('click', () => {
             model.classList.remove('show');
             overlay.style.display = 'none';
+            this.setStateDefaultValue();
         });
+    };
+
+    handleChangeName = (name) => {
+        this.setState(() => ({name}));
+    };
+
+    handleChangeDesc = (description) => {
+        this.setState(() => ({description}));
+    };
+
+    handleChangePrice = (price) => {
+        this.setState(() => ({price}));
+    };
+
+    handleChangeImgUrl = (imageUrl) => {
+        this.setState(() => ({imageUrl}));
     };
 
     handleShowModelAdd = () => {
@@ -26,15 +58,33 @@ export default class ProductAdmin extends React.Component {
         this.handleShowModel();
     };
 
-    handleShowModelEdit = () => {
+    handleShowModelEdit = (id) => {
         this.setState(() => ({type: 'edit'}));
         this.handleShowModel();
+        const product = this.props.products.find((product) => product.id === id);
+        this.setState(() => ({
+            id: product.id,
+            name: product.name,
+            description: product.description,
+            price: product.price,
+            imageUrl: product.imageUrl,
+        }));
+    };
+
+    addProduct = this.props.actions.addProduct;
+    editProduct = this.props.actions.editProduct;
+
+    handleAddProduct = () => {
+        this.addProduct(this.state.name, this.state.description, this.state.price, this.state.imageUrl);
+        this.setStateDefaultValue();
+    };
+    handleEditProduct = () => {
+        this.editProduct(this.state.id, this.state.name, this.state.description, this.state.price, this.state.imageUrl);
+        this.setStateDefaultValue();
     };
 
     render() {
-        const {products, actions} = this.props;
-        console.log('🚀 ~ file: productAdmin.js ~ line 36 ~ ProductAdmin ~ render ~ actions', actions);
-        console.log('🚀 ~ file: productAdmin.js ~ line 37 ~ ProductAdmin ~ render ~ products', products);
+        const {products} = this.props;
         return (
             <section className='admin'>
                 <div className='container'>
@@ -43,28 +93,48 @@ export default class ProductAdmin extends React.Component {
                         Thêm mới sản phẩm +
                     </button>
                     <div className='list-product'>
-                        <table>
-                            <tbody>
-                                <tr className='bg-orange'>
-                                    <th>Id</th>
-                                    <th>Tên sản phẩm</th>
-                                    <th>Mô tả</th>
-                                    <th>Ảnh</th>
-                                    <th></th>
-                                </tr>
-                                {products.map((product) => {
-                                    return (
-                                        <RowProduct
-                                            key={product.id}
-                                            product={product}
-                                            handleShowModelEdit={this.handleShowModelEdit}></RowProduct>
-                                    );
-                                })}
-                            </tbody>
-                        </table>
+                        {products.length > 0 ? (
+                            <table>
+                                <tbody>
+                                    <tr className='bg-orange'>
+                                        <th>Id</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Mô tả</th>
+                                        <th>Giá</th>
+                                        <th>Ảnh</th>
+                                        <th></th>
+                                    </tr>
+                                    {products.map((product, index) => {
+                                        return (
+                                            <RowProduct
+                                                key={product.id}
+                                                product={product}
+                                                stt={index + 1}
+                                                handleShowModelEdit={this.handleShowModelEdit}
+                                                handleDeleteProduct={this.props.actions.deleteProduct}
+                                            />
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        ) : (
+                            <div>Chưa có sản phẩm</div>
+                        )}
                     </div>
                 </div>
-                <Model type={this.state.type} />
+                <Model
+                    type={this.state.type}
+                    stateName={this.state.name}
+                    stateDesc={this.state.description}
+                    statePrice={this.state.price}
+                    stateImageUrl={this.state.imageUrl}
+                    handleAddProduct={this.handleAddProduct}
+                    handleEditProduct={this.handleEditProduct}
+                    handleChangeName={this.handleChangeName}
+                    handleChangeDesc={this.handleChangeDesc}
+                    handleChangePrice={this.handleChangePrice}
+                    handleChangeImgUrl={this.handleChangeImgUrl}
+                />
             </section>
         );
     }
