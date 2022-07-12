@@ -11,6 +11,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Login from './pages/client/login';
 import Register from './pages/client/register';
+import Cart from './pages/client/cart';
 class App extends React.Component {
     render() {
         const {products, actions, userActions, isLoggin} = this.props;
@@ -22,9 +23,9 @@ class App extends React.Component {
                         <Route element={!isLoggin ? <Navigate to='/login' replace /> : undefined}>
                             <Route path='/' element={<Home />} />
                             <Route path='/products' element={<Products products={products} />} />
-                            <Route path='/admin' element={<ProductAdmin products={products} actions={actions} />} />
-                            <Route path='/carts' element={<Home />} />
+                            <Route path='/carts' element={<Cart products={products} />} />
                         </Route>
+                        <Route path='/admin' element={<ProductAdmin products={products} actions={actions} />} />
                         <Route path='/login' element={<Login isLoggin={isLoggin} handleLogin={userActions.loggin} />} />
                         <Route path='/register' element={<Register addUser={userActions.addUser} />} />
                     </Routes>
@@ -36,8 +37,8 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        products: state.Products.items,
-        isLoggin: state.Users.isLoggin,
+        products: state.products.items,
+        isLoggin: state.users.isLoggin,
     };
 }
 

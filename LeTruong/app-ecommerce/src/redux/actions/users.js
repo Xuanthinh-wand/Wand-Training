@@ -12,3 +12,8 @@ export const loggin = (name, password) => {
         password,
     };
 };
+export const loggout = () => {
+    return {
+        type: 'LOGGOUT',
+    };
+};

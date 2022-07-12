@@ -1,5 +1,6 @@
 import React from 'react';
 import './scss/from.scss';
+import {Navigate} from 'react-router-dom';
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -14,6 +15,7 @@ export default class Login extends React.Component {
     changeName = (name) => {
         this.setState(() => ({name}));
     };
+
     changePassword = (password) => {
         this.setState(() => ({password}));
     };
@@ -34,6 +36,9 @@ export default class Login extends React.Component {
         }
     };
     render() {
+        if (this.props.isLoggin) {
+            return <Navigate to='/' replace />;
+        }
         return (
             <div className='form'>
                 <div className='container'>
@@ -49,7 +54,7 @@ export default class Login extends React.Component {
                             <input type='text' onChange={(e) => this.changePassword(e.target.value)} />
                         </div>
                         <button className='btn btn-submit' onClick={this.handSubmit}>
-                            Đăng ký
+                            Đăng nhập
                         </button>
                     </div>
                 </div>

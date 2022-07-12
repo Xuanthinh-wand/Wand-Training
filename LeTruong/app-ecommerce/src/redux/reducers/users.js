@@ -1,12 +1,13 @@
 import {v4 as uuidv4} from 'uuid';
-let data = JSON.parse(localStorage.getItem('persist:root'));
+let data = JSON.parse(localStorage.getItem('persist:users'));
 let listUser = [];
 if (data) {
-    listUser = data.Users;
+    listUser = data.listUser;
 }
 let initState = {
     listUser: listUser,
     isLoggin: false,
+    userLoggin: -1,
 };
 
 const Users = (state = initState, action) => {
@@ -25,7 +26,9 @@ const Users = (state = initState, action) => {
             const isUser = state.listUser.find(
                 (user) => user.name === action.name && user.password === action.password,
             );
-            return isUser ? {...state, isLoggin: true} : {...state};
+            return isUser ? {...state, userLoggin: isUser.id, isLoggin: true} : {...state};
+        case 'LOGGOUT':
+            return {...state, userLoggin: -1, isLoggin: false};
         default:
             return state;
     }
