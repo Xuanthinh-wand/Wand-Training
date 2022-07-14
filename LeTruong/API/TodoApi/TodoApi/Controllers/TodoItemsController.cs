@@ -31,6 +31,17 @@ namespace TodoApi.Controllers
             return await _context.TodoItems.ToListAsync();
         }
 
+        [HttpGet]
+        [Route("completed")]
+        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodosCompleted()
+        {
+            if(_context.TodoItems == null)
+            {
+                return NotFound();
+            }
+            return await (_context.TodoItems.Where(t => t.IsComplete).ToListAsync());
+        }
+
         // GET: api/TodoItems/5
         [HttpGet("{id}")]
         public async Task<ActionResult<TodoItem>> GetTodoItem(long id)

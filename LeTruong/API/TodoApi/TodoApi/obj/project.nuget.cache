@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VVTYova+9QBXsYS2KOkij7T40ENA9ojEXtNfg9mGKEGfIn1VA7fUlAzz/a5ist7HtxF8e7F9gG+JXcWvBaWl/A==",
+  "dgSpecHash": "PR/3T4hQWf+HEgyvn2HJJQVjSNvKfrrDS4tbiUQ+vxchVlggC4tBO488fAH4ZBS5ZEIL+f/Nrwdd2M22akjPew==",
   "success": true,
   "projectFilePath": "C:\\Workspace\\TodoApi\\TodoApi\\TodoApi.csproj",
   "expectedPackageFiles": [
@@ -74,6 +74,8 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\npgsql\\6.0.5\\npgsql.6.0.5.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.5\\npgsql.entityframeworkcore.postgresql.6.0.5.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\nuget.common\\6.2.1\\nuget.common.6.2.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\nuget.configuration\\6.2.1\\nuget.configuration.6.2.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\nuget.dependencyresolver.core\\5.11.0\\nuget.dependencyresolver.core.5.11.0.nupkg.sha512",

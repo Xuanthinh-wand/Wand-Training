@@ -9,7 +9,10 @@ namespace TodoApi.Models
             : base(options)
         {
         }
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.UseSerialColumns();
+        }
         public DbSet<TodoItem> TodoItems { get; set; } = null!;
     }
 }
