@@ -10,6 +10,7 @@ import * as FilterActions from './redux/actions/filters';
 class App extends React.Component {
     render() {
         const {todoItems, actions, groupFilters, filterActions} = this.props;
+        console.log('🚀 ~ file: App.js ~ line 13 ~ App ~ render ~ todoItems', todoItems);
         let filter = groupFilters.filter;
         let todosRender = [];
         if (filter === 'all') {
@@ -24,20 +25,18 @@ class App extends React.Component {
             // eslint-disable-next-line no-const-assign
             todosRender = todoItems.filter((todo) => todo.completed);
         }
-
-        console.log('🚀 ~ file: App.js ~ line 26 ~ App ~ render ~ todoItems', todoItems);
         return (
             <div className='App'>
                 <section className='todoapp'>
                     <Header addTodo={actions.addTodo} />
-                    <TodoList todos={todosRender} actions={actions} />
-                    {todoItems.length > 0 && (
+                    {/* <TodoList todos={todosRender} actions={actions} /> */}
+                    {/* {todoItems.length > 0 && (
                         <Footer
                             todosLength={todosRender.length}
                             groupFilters={groupFilters}
                             switchFilter={filterActions.switchFilter}
                         />
-                    )}
+                    )} */}
                 </section>
             </div>
         );

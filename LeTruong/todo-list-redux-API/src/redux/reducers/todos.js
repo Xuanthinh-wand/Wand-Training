@@ -1,13 +1,28 @@
-import {v4 as uuidv4} from 'uuid';
+function fetchData() {
+    fetch('https://localhost:7297/api/todoitems')
+        .then((res) => res.json())
+        .then(
+            (result) => {
+                console.log('🚀 ~ file: todos.js ~ line 8 ~ data ~ result', result);
+                return result;
+            },
+            (error) => {
+                console.log(error);
+                return [];
+            },
+        );
+}
+let data = fetchData();
+console.log('🚀 ~ file: todos.js ~ line 16 ~ data', data);
+
 let initState = {
-    todoItems: JSON.parse(localStorage.getItem('persist:root')) || [],
+    todoItems: data,
 };
 
 const Todos = (state = initState, action) => {
     switch (action.type) {
         case 'AddTodo':
             const newTodo = {
-                id: uuidv4(),
                 name: action.name,
                 completed: false,
             };
