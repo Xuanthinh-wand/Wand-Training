@@ -12,7 +12,7 @@ function Footer(props) {
                             <a
                                 className={filter === props.filter ? 'selected' : undefined}
                                 onClick={() => props.handleSwitchFilter(filter)}
-                                href={props.filter}>
+                                href={'/#' + props.filter}>
                                 {filter}
                             </a>
                         </li>

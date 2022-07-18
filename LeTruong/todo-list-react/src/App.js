@@ -10,57 +10,93 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos: Storage.get(),
-            task: '',
+            todos: [],
             filter: 'all',
             filters: {
                 all: () => true,
-                active: (todo) => !todo.completed,
-                completed: (todo) => todo.completed,
+                active: (todo) => !todo.isComplete,
+                completed: (todo) => todo.isComplete,
             },
         };
     }
-
-    handleChange = (e) => {
-        this.setState({task: e.target.value});
-    };
+    componentDidMount() {
+        fetch('https://localhost:7297/api/todoitems')
+            .then((res) => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        todos: result,
+                    });
+                },
+                (error) => {
+                    console.log(error);
+                },
+            );
+    }
 
     handleSubmit = (value) => {
         if (value) {
-            const newTask = {
-                id: this.state.todos.length + 1,
-                name: value,
-                completed: false,
-            };
-            const curentTodos = this.state.todos;
-            const newTodos = [...curentTodos, newTask];
-            this.setState(() => ({
-                todos: newTodos,
-                task: '',
-            }));
-            Storage.set(newTodos);
+            fetch('https://localhost:7297/api/todoitems', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    accept: 'application/json',
+                },
+                body: JSON.stringify({
+                    name: value,
+                }),
+            })
+                .then((response) => response.json())
+                .then((response) => {
+                    this.setState(() => ({todos: [...this.state.todos, response]}));
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            const eleNewTodo = document.querySelector('.new-todo');
+            eleNewTodo.value = '';
         }
-        const eleNewTodo = document.querySelector('.new-todo');
-        eleNewTodo.value = '';
     };
 
     handleDelete = (id) => {
-        let todos = this.state.todos;
-        const newTodos = todos.filter((todo) => todo.id !== id);
-        this.setState(() => ({
-            todos: newTodos,
-        }));
-        Storage.set(newTodos);
+        fetch(`https://localhost:7297/api/todoitems/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                accept: 'application/json',
+            },
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                this.setState(() => ({todos: response}));
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     handleToggle = (id) => {
         let todos = this.state.todos;
         let todo = todos.find((todo) => todo.id === id);
-        todo.completed = !todo.completed;
-        this.setState(() => ({
-            todos: todos,
-        }));
-        Storage.set(todos);
+        fetch(`https://localhost:7297/api/todoitems/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+                accept: 'application/json',
+            },
+            body: JSON.stringify({
+                id: id,
+                name: todo.name,
+                isComplete: !todo.isComplete,
+            }),
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                this.setState(() => ({todos: response}));
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     handleToggleAll = (status) => {
@@ -118,6 +154,7 @@ class App extends React.Component {
         const todos = this.state.todos;
         const filters = this.state.filters;
         const filter = this.state.filter;
+
         return (
             <div className='App'>
                 <section className='todoapp'>

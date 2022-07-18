@@ -28,7 +28,7 @@ namespace TodoApi.Controllers
           {
               return NotFound();
           }
-            return await _context.TodoItems.ToListAsync();
+            return await _context.TodoItems.OrderBy(t => t.Id).ToListAsync();
         }
 
         [HttpGet]
@@ -39,7 +39,7 @@ namespace TodoApi.Controllers
             {
                 return NotFound();
             }
-            return await (_context.TodoItems.Where(t => t.IsComplete).ToListAsync());
+            return await (_context.TodoItems.Where(t => t.IsComplete).OrderBy(o => o.Id).ToListAsync());
         }
 
         // GET: api/TodoItems/5
@@ -59,11 +59,11 @@ namespace TodoApi.Controllers
         // PUT: api/TodoItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
+        public async Task<ActionResult<IEnumerable<TodoItem>>> PutTodoItem(long id, TodoItem todoItem)
         {
             if (id != todoItem.Id)
             {
-                return BadRequest();
+                return BadRequest("Error");
             }
 
             _context.Entry(todoItem).State = EntityState.Modified;
@@ -76,15 +76,14 @@ namespace TodoApi.Controllers
             {
                 if (!TodoItemExists(id))
                 {
-                    return NotFound();
+                    return BadRequest();
                 }
                 else
                 {
                     throw;
                 }
             }
-
-            return NoContent();
+            return await _context.TodoItems.OrderBy(t => t.Id).ToListAsync();
         }
 
         // POST: api/TodoItems
@@ -101,7 +100,7 @@ namespace TodoApi.Controllers
 
         // DELETE: api/TodoItems/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodoItem(long id)
+        public async Task<ActionResult<IEnumerable<TodoItem>>> DeleteTodoItem(long id)
         {
             var todoItem = await _context.TodoItems.FindAsync(id);
             if (todoItem == null)
@@ -112,7 +111,7 @@ namespace TodoApi.Controllers
             _context.TodoItems.Remove(todoItem);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return await _context.TodoItems.OrderBy(o => o.Id).ToListAsync();
         }
 
         private bool TodoItemExists(long id)

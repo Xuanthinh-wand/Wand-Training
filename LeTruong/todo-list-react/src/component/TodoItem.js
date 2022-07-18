@@ -5,12 +5,12 @@ function TodoItem(props) {
         }
     }
     return (
-        <li key={props.todo.id} className={props.todo.completed ? 'completed' : ''} data-id={props.todo.id}>
+        <li key={props.todo.id} className={props.todo.isComplete ? 'completed' : undefined} data-id={props.todo.id}>
             <div className='view'>
                 <input
                     className='toggle'
                     onChange={() => props.handleToggle(props.todo.id)}
-                    checked={props.todo.completed ? true : false}
+                    checked={props.todo.isComplete ? true : false}
                     type='checkbox'
                 />
                 <label onDoubleClick={() => props.handleDbClick(props.todo.id)}>{props.todo.name}</label>
