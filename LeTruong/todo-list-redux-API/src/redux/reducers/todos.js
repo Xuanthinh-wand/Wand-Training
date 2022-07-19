@@ -1,46 +1,41 @@
-function fetchData() {
-    fetch('https://localhost:7297/api/todoitems')
-        .then((res) => res.json())
-        .then(
-            (result) => {
-                console.log('🚀 ~ file: todos.js ~ line 8 ~ data ~ result', result);
-                return result;
-            },
-            (error) => {
-                console.log(error);
-                return [];
-            },
-        );
-}
-let data = fetchData();
-console.log('🚀 ~ file: todos.js ~ line 16 ~ data', data);
-
 let initState = {
-    todoItems: data,
+    todoItems: [],
+    loading: false,
 };
 
 const Todos = (state = initState, action) => {
     switch (action.type) {
-        case 'AddTodo':
-            const newTodo = {
-                name: action.name,
-                completed: false,
-            };
-            const newTodos = [...state.todoItems, newTodo];
+        case 'FetchDataRequest':
             return {
-                todoItems: newTodos,
+                ...state,
+                loading: true,
+            };
+        case 'FetchDataSuccess':
+            return {
+                loading: false,
+                todoItems: action.payload,
+            };
+        case 'FetchDataError':
+            return {
+                loading: false,
+                todoItems: [],
+            };
+        case 'AddTodo':
+            return {
+                loading: false,
+                todoItems: [...state.todoItems, action.payload],
             };
 
         case 'DeleteTodo':
             return {
-                todoItems: state.todoItems.filter((todo) => todo.id !== action.id),
+                loading: false,
+                todoItems: action.payload,
             };
 
         case 'CompletedTodo':
             return {
-                todoItems: state.todoItems.map((todo) =>
-                    todo.id === action.id ? Object.assign({}, todo, {completed: !todo.completed}) : todo,
-                ),
+                loading: false,
+                todoItems: action.payload,
             };
 
         case 'DbClickEdit':

@@ -5,6 +5,68 @@ hr {
     border-bottom: 1px dashed #f7f7f7;
 }
 
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.overlay::before {
+    content: '';
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+    opacity: 0.6;
+}
+
+.dashed-loading {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50px;
+}
+
+.dashed-loading:after,
+.dashed-loading:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.dashed-loading:before {
+    z-index: 5;
+    border: 3px dashed greenyellow;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    -webkit-animation: dashed 1s linear infinite;
+    animation: dashed 1s linear infinite;
+}
+
+.dashed-loading:after {
+    z-index: 10;
+    border: 3px solid greenyellow;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    -webkit-animation: dashed 1s ease infinite;
+    animation: dashed 1s ease infinite;
+}
+
+@keyframes dashed {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .learn a {
     font-weight: normal;
     text-decoration: none;
